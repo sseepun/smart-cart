@@ -22,6 +22,11 @@ import { SmartCartAppComponent } from './smart-cart-app/smart-cart-app.component
 import { SmartCartSliderComponent } from './smart-cart-slider/smart-cart-slider.component';
 import { PersonaManaPageComponent } from './persona-mana-page/persona-mana-page.component';
 import { PersonaManeePageComponent } from './persona-manee-page/persona-manee-page.component';
+import { HbmPageComponent } from './hbm-page/hbm-page.component';
+import { ResultPageComponent } from './result-page/result-page.component';
+import { FuturePageComponent } from './future-page/future-page.component';
+import { ReferencePageComponent } from './reference-page/reference-page.component';
+import { ThankPageComponent } from './thank-page/thank-page.component';
 
 
 @NgModule({
@@ -41,7 +46,12 @@ import { PersonaManeePageComponent } from './persona-manee-page/persona-manee-pa
     SmartCartAppComponent,
     SmartCartSliderComponent,
     PersonaManaPageComponent,
-    PersonaManeePageComponent
+    PersonaManeePageComponent,
+    HbmPageComponent,
+    ResultPageComponent,
+    FuturePageComponent,
+    ReferencePageComponent,
+    ThankPageComponent
   ],
   imports: [
     BrowserModule,

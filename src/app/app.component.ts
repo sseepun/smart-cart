@@ -11,9 +11,9 @@ enableProdMode();
 
 export class AppComponent implements OnInit {
 
-  private pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-  private pageDisplay = ['intro','population','statistic','sale','problem','survey', 
-    'solution', 'hbm', 'smart cart', 'mana', 'manee', 'result', 'future', 'references'];
+  private pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+  private pageDisplay = ['intro','population','statistic','sale','problem','survey', 'solution', 
+    'hbm', 'smart cart', 'mana', 'manee', 'result', 'future', 'references', 'thanks'];
   private page = 0;
 
   private host;

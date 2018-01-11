@@ -1,4 +1,4 @@
-<div class="page-selector">
+<div class="page-selector" align="middle">
     <span *ngFor="let p of pageDisplay; let i=index;" (click)="changePage(pageArray[i])"
     [ngClass]="{'active':pageSelectClass(pageArray[i])}">{{p}}</span>
 </div>
@@ -53,6 +53,11 @@
     <app-solution-page></app-solution-page>
 </ng-container>
 
+<!-- Health Belief Model page -->
+<ng-container *ngIf="page==7">
+    <app-hbm-page></app-hbm-page>
+</ng-container>
+
 <!-- Smart Cart page -->
 <ng-container *ngIf="page==8">
     <app-smart-cart-page #smartCartPage></app-smart-cart-page>
@@ -66,4 +71,24 @@
 <!-- Persona Miss Manee page -->
 <ng-container *ngIf="page==10">
     <app-persona-manee-page #personaManee></app-persona-manee-page>
+</ng-container>
+
+<!-- Result page -->
+<ng-container *ngIf="page==11">
+    <app-result-page></app-result-page>
+</ng-container>
+
+<!-- Future page -->
+<ng-container *ngIf="page==12">
+    <app-future-page></app-future-page>
+</ng-container>
+
+<!-- Reference page -->
+<ng-container *ngIf="page==13">
+    <app-reference-page></app-reference-page>
+</ng-container>
+
+<!-- Thank page -->
+<ng-container *ngIf="page==14">
+    <app-thank-page></app-thank-page>
 </ng-container>
