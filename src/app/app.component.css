@@ -1,0 +1,26 @@
+#stage-warning {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    /* border: 1px solid #999999; */
+    border-radius: 5px;
+    /* background: #F39C12; */
+    background: #E74C3C;
+    text-align: start;
+    font-size: 18px;
+    font-weight: 600;
+    /* color: #3a3a3a; */
+    color: white;
+    padding: 20px 30px 13px 30px;
+    min-width: 0;
+    min-height: 0;
+    z-index: 2000;
+    right: 1%;
+    top: 10.5%;
+}
+@media screen and (min-width: 1080px) {
+    #stage-warning {
+        right: 1%;
+        top: 13%;
+    }
+}

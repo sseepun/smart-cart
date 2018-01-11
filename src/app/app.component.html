@@ -1,9 +1,35 @@
-<h1>Our MongoDB is Working!</h1>
+<app-navbar (pageNow)="changePage($event)"></app-navbar>
 
-<ul>
-  <li *ngFor="let user of users">{{ user.name }}</li>
-</ul>
+<div style="margin:20px;"></div>
 
-<p>
-  What's up people
-</p>
+<ng-container *ngIf="page == 'Welcome'">
+    <app-welcome-page></app-welcome-page>
+</ng-container>
+
+<ng-container *ngIf="page == 'Analysis'">
+    <ng-container *ngIf="rainData !== null && isCleanData && fullReport !== null">
+        <app-analysis-page [rainData]="rainData" [fullReport]="fullReport"
+        [selectedSpec]="selectedSpec"></app-analysis-page>
+    </ng-container>
+</ng-container>
+
+<ng-container *ngIf="page == 'About'">
+    <app-about-page></app-about-page>
+</ng-container>
+
+
+<!-- Data loading/cleaning and generating full report -->
+<ng-container *ngIf="rainData===null || !isCleanData || fullReport===null">
+    <div id="stage-warning">
+        <ng-container *ngIf="rainData !== null && !isCleanData">
+            <app-data-cleaning-page [rainData]="rainData"
+            (doneCleaning)="doneCleaningData($event)"></app-data-cleaning-page>
+        </ng-container>
+        <ng-container *ngIf="rainData === null">
+            <app-data-loading-page></app-data-loading-page>
+        </ng-container>
+        <ng-container *ngIf="fullReport === null && isCleanData">
+            <div>Generating full report...</div>
+        </ng-container>
+    </div>
+</ng-container>

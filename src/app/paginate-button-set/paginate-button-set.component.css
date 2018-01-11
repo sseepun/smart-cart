@@ -1,0 +1,45 @@
+.pagination > li > a, .pagination > li > span {
+    background-color: #3c3c3c;
+    color: #96968f;
+    font-size: 18px;
+    padding: 7px 17px 7px 17px;
+    border: 1px solid #F39C12;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pagination > li.side > a {
+    background-color: #2c2c2c; 
+    color: #5a5a5a;
+    border: 1px solid #7c7c79;
+}
+.pagination > li#first > a {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.pagination > li#last > a {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.pagination > li#before-last > a {
+    border-left-color: #F39C12;
+}
+
+
+/* Active */
+.pagination > li:hover > a, .pagination > li:hover > span {
+    color: white;
+}
+.pagination > li.active > a, .pagination > li.active > span {
+    color: white;
+    background-color: rgba(243, 156, 18, 0.6);
+}
+
+
+/* Disabled style */
+.pagination > li.disabled > a, .pagination > li > span,
+.pagination > li.disabled:hover > a, .pagination > li:hover > span {
+    background-color: #242424; 
+    color: #5a5a5a;
+    /* border: 1px solid #96968f; */
+    border: 1px solid #3a3a3a;
+}
