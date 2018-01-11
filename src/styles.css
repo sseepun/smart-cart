@@ -1,141 +1,47 @@
+/* thai */
+@font-face {
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Prompt'), local('Prompt-Regular'), url(assets/fonts/Prompt/VcBIOGXxp08iW8zks9yUFPesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    unicode-range: U+0E01-0E5B, U+200B-200D, U+25CC;
+}
+/* latin-ext */
+@font-face {
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Prompt'), local('Prompt-Regular'), url(assets/fonts/Prompt/O_NrGbgzuFKyAg9JXutx2_esZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Prompt'), local('Prompt-Regular'), url(assets/fonts/Prompt/so624u2w562OaE2DHdX71g.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+  
+  
 /* You can add global styles to this file, and also import other style files */
 body {
-    padding: 100px 50px 20px 50px;
-}
-
-  
-/* Styling navbar */
-.navbar-collapse.in {
-    overflow-y: hidden;
-}
-
-.navbar-nav li:first-child a {
-      border-top: 0px solid #333;
-}
-.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-    background-color: #a966d8;
-}
-.nav a span {
-    color: #4FE8A7;
-}
-.nav .open a span {
-    color: white;
-}
-
-.dropdown-menu li a {
-    color: black;
-}
-.dropdown-menu li a:hover {
-    color: white;
-}
-  
-  
-/* LivIcons */
-div.lievo-svg-wrapper {
-    border: none !important;
-}
-  
-  
-/* Scroll-up-to-top button */
-#to-top {
-      display: block;
-      position: fixed;
-      bottom: 40px;
-      /*left: 10px;*/
-      right: 10px;
-      border-radius: 2px;
-      padding: 0 12px;
-      font-size: 36px;
-      text-align: center;
-      color: #FFFFFF;
-      background-color: #000000;
-      opacity: 0.1;
-      filter: alpha(opacity=10);
-      z-index: 102;
-      text-decoration: none;
-}
-#to-top:hover {
-      color: #ffffff;
-      background-color: #3399FF;
-      text-decoration: none;
-      opacity: 1;
-      filter: alpha(opacity=100);
-}
-  
-  
-/* Separator top */
-.sss-top-sep {
-    padding: 0; margin: 0;
-    margin-top: 35px;
-}
-  .sss-top-sep2 {
-    padding: 0;
-    margin: 70px 0 0 0; }
-    @media (max-width: 1200px) {
-      .sss-top-sep2 {
-        margin-top: 40px; }
-}
-  
-  
-/* Custom login dropdown menu */
-#login-dp {
-    min-width: 320px;
-    padding: 20px 20px 0 20px;
-    margin: 0;
+    /* background: white; */
+    background: #0e0e0e;
     overflow: hidden;
-    background-color: rgba(255,255,255,.9);
-    color: black;
-    font-size: 16px;
-    font-weight: 600;
+    color: #fffff0;
 }
-#login-dp .help-block{
-    margin: 10px 0 16px 0;
-    color: black;
+
+/* Disable double click */
+* {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
-#login-dp .help-block a {
-    font-size: 14px;
-    font-weight: 600;
+
+#dot-overlay-container {
+    background: url('assets/img/icon/dot_overlay.png');
 }
-#login-dp .checkbox-div {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 10px 0 16px 12px;
-}
-#login-dp .checkbox-div label {
-    font-size: 14px;
-    font-weight: 1000;
-}
-#login-dp .bottom {
-    background-color: rgba(255,255,255,.9);
-    border-top: 1px solid #ddd;
-    clear: both;
-    width: 100%;
-    padding: 14px;
-    margin: 0;
-}
-#login-dp .bottom a:hover {
-    color: #a966d8;
-}
-#login-dp .social-btn-div {
-    padding: 0;
-    margin: 12px 0 18px 0;
-    color: white;
-}
-#login-dp .social-btn-div a {
-    width: 45%;
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
-}
-#login-dp .form-group {
-    margin-bottom: 10px;
-}
-#login-dp .form-group a:hover {
-    color: #a966d8;
-}
-#login-dp .form-group button {
-    font-size: 17px;
-    font-weight: 400;
-    padding: 10px;
-}
-  

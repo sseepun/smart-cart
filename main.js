@@ -5,8 +5,9 @@ const path = require('path')
 
 const child_process = require('child_process')
 // const ng = child_process.spawn('ng', ['build']);
-const mongo_server = child_process.spawn('mongod', ['--dbpath=./db', '--port', '19000'])
+// const mongo_server = child_process.spawn('mongod', ['--dbpath=./db', '--port', '19000'])
 const app_apis = child_process.spawn('node', ['server.js'])
+// const ng = child_process.spawn('ng', ['serve']);
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -15,20 +16,25 @@ let win
 function createWindow () {
     // Create the browser window.
     win = new BrowserWindow({
-        width: 1200, 
-        height: 700,
+        useContentSize: true,
+        darkTheme: true,
+        frame: false,
+        fullscreen: true,
         backgroundColor: '#ffffff',
-        icon: path.join(__dirname, 'src/favicon.ico')
+        icon: `file://${__dirname}/dist/assets/img/logo.png`
     })
-    // and load the index.html of the app.
-    // win.loadURL(path.join(__dirname, 'dist/index.html'))
-    setTimeout(function(){ 
-        win.loadURL('http://localhost:2000')
-        win.maximize()
-    }, 100)
+    // icon: path.join(__dirname, 'dist/favicon.ico')
+    
+    // and load the index.html of the app
+    win.loadURL(`file://${__dirname}/dist/index.html`)  
+    win.maximize()  
+    // setTimeout(function() { 
+    //     win.loadURL('http://localhost:2000')
+    //     win.maximize()
+    // }, 100)
 
     // Open the DevTools
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools()
   
     // Emitted when the window is closed.
     win.on('closed', function () {
@@ -48,8 +54,8 @@ app.on('window-all-closed', function () {
     // On OS X it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     // if (process.platform !== 'darwin') {
+        // mongo_server.kill('SIGINT');
         // ng.kill('SIGINT');
-        mongo_server.kill('SIGINT');
         app_apis.kill('SIGINT');
         app.quit();
     // }
