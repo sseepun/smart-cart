@@ -1,0 +1,22 @@
+<div id="pagination" align="center" style="margin:0; padding:0;">
+  <ul class="pagination" style="margin:0; padding:0;">
+    <li id="first" [ngClass]="{'paginate_button':true, 'disabled':previousDisabled(), 'side':true}">
+      <a (click)="firstPage()">&lt;&lt;</a>
+    </li>
+    <li [ngClass]="{'paginate_button':true, 'previous':true, 'disabled':previousDisabled(), 'side':true}">
+      <a (click)="previousPage()">&lt;</a>
+    </li>
+    <ng-container *ngFor="let value of choices; let i = index;">
+      <li *ngIf="showSelectionPage(i)"
+      [ngClass]="{'paginate_button':true, 'active':pageActive(i)}">
+        <a (click)="selectPage(value)">{{choiceDesc[i]}}</a>
+      </li>
+    </ng-container>
+    <li id="before-last" [ngClass]="{'paginate_button':true, 'next':true, 'disabled':nextDisabled(), 'side':true}">
+      <a (click)="nextPage()">&gt;</a>
+    </li>
+    <li id="last" [ngClass]="{'paginate_button':true, 'disabled':nextDisabled(), 'side':true}">
+      <a (click)="lastPage()">&gt;&gt;</a>
+    </li>
+  </ul>
+</div>

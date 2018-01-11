@@ -2,7 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
+
+
 const app = express();
+
 
 // API file for interacting with MongoDB
 const api = require('./server/routes/api');
@@ -10,6 +13,9 @@ const api = require('./server/routes/api');
 // Parsers
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// Source files static
+app.use(express.static(path.join(__dirname, '/source_files')));
 
 // Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -23,7 +29,7 @@ app.get('*', (req, res) => {
 });
 
 //Set Port
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '2000';
 app.set('port', port);
 
 const server = http.createServer(app);

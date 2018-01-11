@@ -1,0 +1,25 @@
+#home-text {
+    margin: 3px 40px 10px 0px;
+    font-size: 32px;
+    font-weight: 900; 
+    color: #F39C12; 
+    /* color: #a966d8; */ 
+}
+
+.navbar-nav li a {
+    color: #858585;
+}
+.navbar-nav li.active a {
+    /* color: #F39C12; */
+    color: white;
+}
+
+.navbar-nav > .active > a:after, 
+.navbar-nav > .active > a:hover:after, 
+.navbar-nav > .active > a:focus:after {
+    background: #F39C12;
+}
+
+.navbar {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

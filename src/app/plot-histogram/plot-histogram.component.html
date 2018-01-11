@@ -1,0 +1,11 @@
+<div id="histogram-space">
+  <div id="histogram-title" align="center">{{title}}</div>
+  <div id="histogram-graph"></div>
+</div>
+
+<div id="histogram-tooltip">
+  <ng-container *ngIf="hoverObj !== null">
+    {{hoverObj.desc}} <br>
+    ปริมาณน้ำฝน {{hoverObj.value}} mm.
+  </ng-container>
+</div>

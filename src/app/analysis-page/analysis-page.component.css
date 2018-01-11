@@ -1,0 +1,35 @@
+#save-div {
+    padding: 0;
+    margin: 0;
+}
+
+#report-area {
+    margin: 0;
+    padding: 20px;
+    background: #262626;
+    border: 1px solid #F39C12;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.div1 {
+    margin: 0;
+    padding: 18px;
+    background: #444;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+span.special {
+    color: #F39C12;
+}
+
+.col-bound {
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    word-wrap: break-word;
+    color: rgb(148, 155, 162);
+    font-size: 18px;
+    line-height: 26px;
+}
+
