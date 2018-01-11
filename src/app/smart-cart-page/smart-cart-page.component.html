@@ -1,0 +1,14 @@
+<div id="smart-cart-page" class="wow fadeInLeft">
+
+  <img id="smart-cart-bg" src="assets/img/bg/vegetable.jpg">
+  <div id="dot-overlay-container"></div>
+
+  <div id="ipad-img-container" align="middle">
+    <img src="assets/img/misc/iphone.png">    
+    <div id="smart-cart-app">
+      <app-smart-cart-app #smartCartApp [appPage]="appPage" 
+      (appPageChange)="appPageChange($event)"></app-smart-cart-app>
+    </div>    
+  </div>
+
+</div>

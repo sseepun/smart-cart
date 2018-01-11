@@ -1,51 +1,53 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-
-// Import the Http Module services
 import { HttpModule } from '@angular/http';
-import { DataService } from './services/data.service';
+
+// Injectable services
 import { WindowRefService } from './services/window-ref.service';
 
 // Import components
-import { NavbarComponent } from './navbar/navbar.component';
-import { AnalysisPageComponent } from './analysis-page/analysis-page.component';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { DataLoadingPageComponent } from './data-loading-page/data-loading-page.component';
-import { DataCleaningPageComponent } from './data-cleaning-page/data-cleaning-page.component';
-import { SelectionDropdownComponent } from './selection-dropdown/selection-dropdown.component';
-import { PlotHistogramComponent } from './plot-histogram/plot-histogram.component';
-import { DonutChartComponent } from './donut-chart/donut-chart.component';
-import { DataTableComponent } from './data-table/data-table.component';
-import { SearchBoxComponent } from './search-box/search-box.component';
-import { PaginateButtonSetComponent } from './paginate-button-set/paginate-button-set.component';
-import { HtmlPdfButtonComponent } from './html-pdf-button/html-pdf-button.component';
-import { AboutPageComponent } from './about-page/about-page.component';
+import { InteractiveGlobeComponent } from './interactive-globe/interactive-globe.component';
+import { IntroductionPageComponent } from './introduction-page/introduction-page.component';
+import { UsaStatisticPageComponent } from './usa-statistic-page/usa-statistic-page.component';
+import { UsaMapComponent } from './usa-map/usa-map.component';
+import { GrocerySalePageComponent } from './grocery-sale-page/grocery-sale-page.component';
+import { BarchartComponent } from './barchart/barchart.component';
+import { ProblemPageComponent } from './problem-page/problem-page.component';
+import { SurveyPageComponent } from './survey-page/survey-page.component';
+import { SolutionPageComponent } from './solution-page/solution-page.component';
+import { UsaMapStaticComponent } from './usa-map-static/usa-map-static.component';
+import { SmartCartPageComponent } from './smart-cart-page/smart-cart-page.component';
+import { SmartCartAppComponent } from './smart-cart-app/smart-cart-app.component';
+import { SmartCartSliderComponent } from './smart-cart-slider/smart-cart-slider.component';
+import { PersonaManaPageComponent } from './persona-mana-page/persona-mana-page.component';
+import { PersonaManeePageComponent } from './persona-manee-page/persona-manee-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    AnalysisPageComponent,
-    WelcomePageComponent,
-    DataLoadingPageComponent,
-    DataCleaningPageComponent,
-    SelectionDropdownComponent,
-    PlotHistogramComponent,
-    DonutChartComponent,
-    DataTableComponent,
-    SearchBoxComponent,
-    PaginateButtonSetComponent,
-    HtmlPdfButtonComponent,
-    AboutPageComponent
+    InteractiveGlobeComponent,
+    IntroductionPageComponent,
+    UsaStatisticPageComponent,
+    UsaMapComponent,
+    GrocerySalePageComponent,
+    BarchartComponent,
+    ProblemPageComponent,
+    SurveyPageComponent,
+    SolutionPageComponent,
+    UsaMapStaticComponent,
+    SmartCartPageComponent,
+    SmartCartAppComponent,
+    SmartCartSliderComponent,
+    PersonaManaPageComponent,
+    PersonaManeePageComponent
   ],
   imports: [
     BrowserModule,
     HttpModule
   ],
   providers: [
-    DataService,
     WindowRefService
   ],
   bootstrap: [AppComponent]

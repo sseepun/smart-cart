@@ -1,0 +1,29 @@
+<div id="smart-cart-page" class="wow fadeInLeft">
+
+  <video id="persona-video" width="110%" height="auto" autoplay loop>
+    <source src="assets/video/persona_footage1.mp4" type="video/mp4">
+  </video>
+  <div id="dot-overlay-container"></div>
+
+  <div id="ipad-img-container" align="middle">
+    <img src="assets/img/misc/iphone.png">    
+    <div id="smart-cart-app">
+      <app-smart-cart-app #smartCartApp [appPage]="appPage" 
+      (appPageChange)="appPageChange($event)"
+      [defaultPrefValues]="[5,5,5,5,8,6.5,10]"
+      [defaultProduct]="'Ball Park Franks'"
+      [defaultCheckout]="'CP Hotdog'"></app-smart-cart-app>
+    </div>    
+  </div>
+
+  <img id="persona-icon" src="assets/img/icon/persona_1.png">
+  <div id="persona-container">
+    <div align="middle">Persona</div>
+    <span>Mr. Mana</span> is a <span class="type1">soccer player</span>. 
+    He has <span class="type2">no time to do grocery shopping</span> since he practice 
+    soccer every day. He needs <span class="type1">more fiber</span>, 
+    <span class="type1">sugar</span>, and <span class="type1">protein</span> 
+    to boost his stamina and muscle.
+  </div>
+
+</div>
