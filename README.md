@@ -1,31 +1,7 @@
-<<<<<<< HEAD
-# MEANproject
+# Smart Cart
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.4.
+This project was done in [Angular CLI](https://github.com/angular/angular-cli) by [Sarun Seepun](https://www.facebook.com/sarun.seepun).
 
-## Development server
+## Purpose
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-=======
-# smart-cart
->>>>>>> 6541318aadcc0c7e8878d1bac69a83600e8fcb84
+For the event Annual ATPAC-MOST-OHEC-IPST in Florida for Thailand 4.0 during 25 to 27 January 2018.
