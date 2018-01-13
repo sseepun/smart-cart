@@ -1,5 +1,37 @@
 <div id="reference-page" class="wow fadeInLeft">
-  <h1>
-    reference-page works!
-  </h1>
+  <div class="headline" align="middle">
+    References
+  </div>
+
+  <div id="exTab1" class="container">	
+    <ul  class="nav nav-pills">
+      <li class="active">
+        <a  href="#1a" data-toggle="tab">Page 1</a>
+      </li>
+      <li><a href="#2a" data-toggle="tab">Page 2</a></li>
+      <li><a href="#3a" data-toggle="tab">Page 3</a></li>
+    </ul>
+
+    <div class="tab-content clearfix">
+      <div class="tab-pane active" id="1a">
+        <div class="row ref-container" *ngFor="let ref of references.slice(0,5); let i = index;">
+          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ref-number" align="middle">[ {{i+1}} ]</div>
+          <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 ref-info" [innerHTML]="ref"></div>
+        </div>
+      </div>
+      <div class="tab-pane" id="2a">
+        <div class="row ref-container" *ngFor="let ref of references.slice(5,10); let i = index;">
+          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ref-number" align="middle">[ {{i+6}} ]</div>
+          <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 ref-info" [innerHTML]="ref"></div>
+        </div>
+      </div>
+      <div class="tab-pane" id="3a">
+        <div class="row ref-container" *ngFor="let ref of references.slice(10,17); let i = index;">
+          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ref-number" align="middle">[ {{i+11}} ]</div>
+          <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 ref-info" [innerHTML]="ref"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

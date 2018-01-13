@@ -12,6 +12,8 @@ export class PersonaManaPageComponent implements OnInit {
   private appPage = 'Welcome';
   // private appPage = 'Summary';
 
+  private init = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -23,7 +25,9 @@ export class PersonaManaPageComponent implements OnInit {
 
   appNextPage() {
     var index = this.appPageArray.indexOf(this.appPage);
-    if (index < this.appPageArray.length-1) {
+    if (!this.init) {
+      this.init = true;
+    } else if (index < this.appPageArray.length-1) {
       this.appPage = this.appPageArray[index+1];
       this.smartCartApp.appNextPage();      
     }

@@ -4,7 +4,7 @@
     right: 0;
     top: 0;
     width: 100%;
-    font-size: 1vw;
+    font-size: 0.9vw;
     z-index: 2000;
     opacity: 0.15;
     cursor: pointer;
@@ -18,12 +18,12 @@
 .page-selector span {
     opacity: 0.25;
     padding-bottom: 4px;
-    padding-left: 1.6vw;
-    padding-right: 1.6vw;
+    padding-left: 1.4vw;
+    padding-right: 1.4vw;
 }
 .page-selector span.active {
     opacity: 1;
-    border-bottom: 6px solid orange;
+    border-bottom: 0.3vw solid orange;
 }
 .page-selector span:hover {
     opacity: 1;
