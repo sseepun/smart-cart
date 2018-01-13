@@ -68,7 +68,7 @@ var AppComponent = (function () {
         this.pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
         this.pageDisplay = ['intro', 'population', 'statistic', 'sale', 'problem', 'survey', 'solution',
             'hbm', 'smart cart', 'mana', 'manee', 'result', 'future', 'references', 'thanks'];
-        this.page = 9;
+        this.page = 0;
         this.stage = 0;
     }
     AppComponent.prototype.ngOnInit = function () {
