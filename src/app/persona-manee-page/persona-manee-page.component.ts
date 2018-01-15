@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-persona-manee-page',
@@ -11,6 +11,8 @@ export class PersonaManeePageComponent implements OnInit {
   private appPageArray = ['Welcome', 'Preference', 'Shopping', 'Suggestion', 'Summary'];
   private appPage = 'Welcome';
   // private appPage = 'Summary';
+  
+  private init = false;
 
   constructor() { }
 
@@ -23,7 +25,9 @@ export class PersonaManeePageComponent implements OnInit {
 
   appNextPage() {
     var index = this.appPageArray.indexOf(this.appPage);
-    if (index < this.appPageArray.length-1) {
+    if (!this.init) {
+      this.init = true;
+    } else if (index < this.appPageArray.length-1) {
       this.appPage = this.appPageArray[index+1];
       this.smartCartApp.appNextPage();      
     }

@@ -5,11 +5,11 @@
 #smart-cart-bg {
     position: absolute;
     left: 0;
-    top: 0;
+    top: -10%;
     width: 100%;
     height: auto;
     z-index: -20;
-    opacity: 0.5;
+    opacity: 0.55;
 }
 
 #dot-overlay-container {
@@ -24,7 +24,7 @@
 #ipad-img-container {
     padding-top: 0.2vw;
     overflow: hidden;
-    padding-left: 15vw; 
+    padding-left: 15vw;
 }
 #ipad-img-container img {
     width: calc(90% + 13vw);
@@ -62,7 +62,7 @@
     color: #0e0e0e;
     font-size: 1.7vw;
     line-height: 2.8vw;
-    opacity: 0.65;
+    opacity: 0.8;
 }
 #persona-container span {
     font-weight: 600;
