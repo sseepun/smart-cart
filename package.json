@@ -27,7 +27,6 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "@types/html2canvas": "0.5.32",
-    "angular-particle": "^1.0.4",
     "body-parser": "^1.18.2",
     "d3": "^4.12.2",
     "electron-packager": "^10.1.1",

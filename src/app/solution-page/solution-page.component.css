@@ -7,3 +7,53 @@
     font-weight: 600;
     pointer-events: none;
 }
+
+.nf-container {
+    position: absolute;
+    background: #0e0e0e;
+    width: 28%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.65s;
+}
+#nutrition-fact1 {
+    left: 6vw;
+    top: 12vw;
+}
+#nutrition-fact2 {
+    left: 8vw;
+    top: 13.5vw;
+}
+#nutrition-fact3 {
+    left: 10vw;
+    top: 15vw;
+}
+#nutrition-fact4 {
+    left: 12vw;
+    top: 16.5vw;
+}
+#nutrition-fact5 {
+    left: 14vw;
+    top: 18vw;
+}
+#nutrition-fact6 {
+    left: 16vw;
+    top: 19.5vw;
+}
+
+.nf-container img {
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.65s;
+}
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: -10;
+}
