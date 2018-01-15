@@ -27,6 +27,7 @@ import { ResultPageComponent } from './result-page/result-page.component';
 import { FuturePageComponent } from './future-page/future-page.component';
 import { ReferencePageComponent } from './reference-page/reference-page.component';
 import { ThankPageComponent } from './thank-page/thank-page.component';
+import { InteractiveGlobeAbsComponent } from './interactive-globe-abs/interactive-globe-abs.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { ThankPageComponent } from './thank-page/thank-page.component';
     ResultPageComponent,
     FuturePageComponent,
     ReferencePageComponent,
-    ThankPageComponent
+    ThankPageComponent,
+    InteractiveGlobeAbsComponent
   ],
   imports: [
     BrowserModule,

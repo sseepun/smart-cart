@@ -6,7 +6,10 @@
 <!-- Intro and population pages -->
 <ng-container *ngIf="page==0 || page==1">
     <app-introduction-page #introPage [page]="page"></app-introduction-page>
-    <app-interactive-globe #globe [globeResources]="resources"></app-interactive-globe>
+    <!-- <app-interactive-globe-abs #globe 
+    [globeResources]="resources"></app-interactive-globe-abs> -->
+    <app-interactive-globe #globe 
+    [globeResources]="resources"></app-interactive-globe>
     <ng-container *ngIf="page==1">
         <div id="info-container1">
             <div class="headline stage-1">

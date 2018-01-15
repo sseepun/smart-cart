@@ -2,23 +2,24 @@ import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
 import * as THREE from 'three';
-declare const require: (moduleId: string) => any;
-const OrbitControls = require('three-orbit-controls')(THREE);
-
-// Import the DataService
-// import { WindowRefService } from '../services/window-ref.service';
 
 
 @Component({
-  selector: 'app-interactive-globe',
-  templateUrl: './interactive-globe.component.html',
-  styleUrls: ['./interactive-globe.component.css']
+  selector: 'app-interactive-globe-abs',
+  templateUrl: './interactive-globe-abs.component.html',
+  styleUrls: ['./interactive-globe-abs.component.css']
 })
-export class InteractiveGlobeComponent implements OnInit {
-  
+export class InteractiveGlobeAbsComponent implements OnInit {
+
   private host;
   private spec: Spec;
   private windowSize; // { w, h }
+  private animRotateTo = {
+    bool: false,
+    counter: 0,
+    newRotate: null,
+    lastRotate: null
+  };
 
   @Input() globeResources;
   private jsonWorld;
@@ -29,17 +30,17 @@ export class InteractiveGlobeComponent implements OnInit {
   private play = true;
   private scene;  
   private camera;
-  private controls;
 
   private particleScene;
   private particleCamera;
-  private particleControls;
+  private particleCenter;
   private particles = [];
 
   private staticScene;
   private staticCamera;
   
   private renderer;
+  private countryTexture;
   private globe;
   private frames = 0;
 
@@ -104,17 +105,6 @@ export class InteractiveGlobeComponent implements OnInit {
     self.renderer.shadowMapEnabled	= true;
     // self.renderer.setClearColor('black', 1);
     self.host.appendChild(self.renderer.domElement);
-
-    // Control
-    self.controls = new OrbitControls(self.camera, self.renderer.domElement);
-    self.controls.enableZoom = false;
-    self.controls.enableKeys = false;
-    self.controls.enablePan = false;
-    self.controls.enableDamping = true;
-    self.controls.dampingFactor = 0.3;
-    self.controls.autoRotate = true;
-    self.controls.autoRotateSpeed = -0.9;
-    self.controls.rotateSpeed = 0.125;
   }
   setupParticleObjects() {
     let self = this;
@@ -133,20 +123,10 @@ export class InteractiveGlobeComponent implements OnInit {
     light2.position.set(200, 200, 100);
     self.particleCamera.add(light2);
     self.particleScene.add(self.particleCamera);
-    
-    // Particle control
-    self.particleControls = new OrbitControls(self.particleCamera, self.renderer.domElement);
-    self.particleControls.enableZoom = false;
-    self.particleControls.enableKeys = false;
-    self.particleControls.enablePan = false;
-    self.particleControls.enableDamping = true;
-    self.particleControls.dampingFactor = 0.3;
-    self.particleControls.autoRotate = true;
-    self.particleControls.autoRotateSpeed = -0.5;
-    self.particleControls.rotateSpeed = 0.125;
-    // self.particleControls.enabled = false;
-    // self.particleControls.rotate = false;
 
+    // Setup particle center
+    self.particleCenter = new THREE.Object3D;
+    self.particleScene.add(self.particleCenter);
 
     var material = new THREE.MeshBasicMaterial({
       color: '#67caed',
@@ -169,7 +149,8 @@ export class InteractiveGlobeComponent implements OnInit {
       mesh.position.z = r * Math.cos(a1*pi);
       mesh.matrixAutoUpdate  = true;
       mesh.updateMatrix();
-      self.particleScene.add(mesh);
+      self.particleCenter.add(mesh);
+      // self.particleScene.add(mesh);
       if (Math.random()>0.2) self.particles.push(mesh);
     }
 
@@ -188,7 +169,8 @@ export class InteractiveGlobeComponent implements OnInit {
       mesh.position.z = rf * Math.cos(a1*pi);
       mesh.matrixAutoUpdate  = false;
       mesh.updateMatrix();
-      self.particleScene.add(mesh);
+      self.particleCenter.add(mesh);
+      // self.particleScene.add(mesh);
     }
   }
   setupStaticObjects() {
@@ -299,10 +281,10 @@ export class InteractiveGlobeComponent implements OnInit {
         });
       }
       
-      var outterGlobe = new THREE.Mesh(mapGlobeGeometry, mapGlobeMaterial);
-      outterGlobe.rotation.y = Math.PI**0.996;
-      outterGlobe.rotation.x = -Math.PI*0.005;
-      self.globe.add(outterGlobe);
+      self.countryTexture = new THREE.Mesh(mapGlobeGeometry, mapGlobeMaterial);
+      self.countryTexture.rotation.y = Math.PI**0.996;
+      self.countryTexture.rotation.x = -Math.PI*0.005;
+      self.globe.add(self.countryTexture);
     });
   }
   setupAtmosphere() {
@@ -321,7 +303,8 @@ export class InteractiveGlobeComponent implements OnInit {
         side: THREE.DoubleSide
       });
       var atmosphere = new THREE.Mesh(atGeometry, atMaterial);
-      self.particleScene.add(atmosphere);
+      // self.particleScene.add(atmosphere);
+      self.particleCenter.add(atmosphere);
 
       // Add glowing effect
       var glowMaterial = new THREE.ShaderMaterial({
@@ -414,8 +397,13 @@ export class InteractiveGlobeComponent implements OnInit {
         self.updateOnResizing();
       }
 
-      self.controls.update();
-      self.particleControls.update();
+      // Rotation update
+      if (!self.animRotateTo.bool) {
+        self.globe.rotation.y += 0.004;
+        self.particleCenter.rotation.y += 0.006;
+      } else {
+        self.animGlobeRotateToUpdate();
+      }
 
       // self.frames += 1;
       // if (self.frames%5 == 0) {
@@ -439,6 +427,31 @@ export class InteractiveGlobeComponent implements OnInit {
       obj.scale.x = k;
       obj.scale.y = k;
       obj.scale.z = k;
+    }
+  }
+  animGlobeRotateToUpdate() {
+    let self = this;
+    var maxSmooth = 60;
+    self.animRotateTo.counter++;
+
+    var xChange = self.animRotateTo.newRotate.x - self.animRotateTo.lastRotate.x,
+        yChange = self.animRotateTo.newRotate.y - self.animRotateTo.lastRotate.y,
+        zChange = self.animRotateTo.newRotate.z - self.animRotateTo.lastRotate.z;
+
+    if (self.animRotateTo.counter <= maxSmooth) {
+      self.globe.rotation.x += xChange/maxSmooth;
+      self.globe.rotation.y += yChange/maxSmooth;
+      self.globe.rotation.z += zChange/maxSmooth;
+      self.particleCenter.rotation.x += xChange/maxSmooth*1.2;
+      self.particleCenter.rotation.y += yChange/maxSmooth*1.2;
+      self.particleCenter.rotation.z += zChange/maxSmooth*1.2;
+    } else if (self.animRotateTo.counter > 1.5*maxSmooth) {
+      self.animRotateTo = {
+        bool: false,
+        counter: 0,
+        newRotate: null,
+        lastRotate: null
+      };
     }
   }
 
@@ -594,6 +607,59 @@ export class InteractiveGlobeComponent implements OnInit {
     return globeDataTexture;
   }
 
+  // Country select rotate to the capital
+  chooseCountry(country) {
+    let self = this;
+    if (country != 'None') {
+      var latlon;
+      if (country == 'Thailand') latlon = [13.75, 100.516667];
+      else if (country == 'United States') latlon = [38.883333, -77];
+      else if (country == 'China') latlon = [39.916666666666664, 116.383333];
+
+      self.updateSelectedCountry(country);
+      self.globeSelectedRotate(latlon);
+    }
+  }
+  updateSelectedCountry(country) {
+    let self = this;
+    self.countryTexture.material = new THREE.MeshPhongMaterial({
+      map: self.selectedCountryTexture(country, 'orange'), 
+      transparent: true,
+      side: THREE.DoubleSide
+    });
+  }
+  globeSelectedRotate(latlon) {
+    let self = this;
+
+    var phi = latlon[0]*Math.PI/180;
+    var theta = latlon[1]*Math.PI/180 + Math.PI*3/2;
+
+    var xF = self.spec.mapR * Math.cos(phi) * Math.sin(theta);
+    var yF = self.spec.mapR * Math.sin(phi);
+    var zF = self.spec.mapR * Math.cos(phi) * Math.cos(theta);
+    var vF = new THREE.Vector3(xF, yF, zF);
+    vF.normalize();
+
+    self.animRotateTo = {
+      bool: true,
+      counter: 0,
+      newRotate: self.centerRotation(vF),
+      lastRotate: self.globe.rotation.clone()
+    };
+  }
+  centerRotation(vector) {
+    let self = this;
+    var z = new THREE.Vector3(0, 0, 1);
+    var q = new THREE.Quaternion();
+    q.setFromUnitVectors(vector, z);
+    
+    var tempObj = new THREE.Object3D();
+    tempObj.copy(self.globe, false);
+    tempObj.setRotationFromQuaternion(q);
+    
+    return tempObj.rotation;
+  }
+
   latLongToVector3(lat, lon, radius) {
     var phi = lat*Math.PI / 180;
     var theta = lon*Math.PI/180 + Math.PI*3/2;
@@ -610,21 +676,22 @@ export class InteractiveGlobeComponent implements OnInit {
     let self = this;
     self.play = false;
 
+    self.animRotateTo = null;
     self.capitalObj = [];
 
     self.scene = null;  
     self.camera = null;
-    self.controls = null;
 
     self.particleScene = null;
     self.particleCamera = null;
-    self.particleControls = null;
+    self.particleCenter = null;
     self.particles = [];
 
     self.staticScene = null;
     self.staticCamera = null;
 
     self.renderer = null;
+    self.countryTexture = null;
     self.globe = null;
     self.frames = 0;
   }
