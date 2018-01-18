@@ -48,6 +48,14 @@
     transition: opacity 0.65s;
 }
 
+#phone-app-img {
+    position: absolute;
+    left: 45%;
+    top: 12vw;
+    width: 54%;
+    pointer-events: none;
+}
+
 #particles-js {
     position: absolute;
     top: 0;

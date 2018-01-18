@@ -1,3 +1,5 @@
+<div id="app-container">
+
 <div class="page-selector" align="middle">
     <span *ngFor="let p of pageDisplay; let i=index;" (click)="changePage(pageArray[i])"
     [ngClass]="{'active':pageSelectClass(pageArray[i])}">{{p}}</span>
@@ -95,3 +97,5 @@
 <ng-container *ngIf="page==14">
     <app-thank-page></app-thank-page>
 </ng-container>
+
+</div>

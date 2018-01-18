@@ -11,6 +11,7 @@ enableProdMode();
 
 export class AppComponent implements OnInit {
 
+  private isFullScreen = false;
   private pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   private pageDisplay = ['intro','population','statistic','sale','problem','survey', 'solution', 
     'hbm', 'smart cart', 'mana', 'manee', 'result', 'future', 'references', 'thanks'];
@@ -72,9 +73,13 @@ export class AppComponent implements OnInit {
     let self = this;
 
     d3.select('body').on('keyup', ()=>{
-      if (d3.event.code=='Space' || d3.event.code=='ArrowRight') self.keyNextStage();
-      else if (d3.event.code=='ArrowLeft') self.keyPreviousStage();
+      if (d3.event.code=='Space' || d3.event.code=='ArrowRight'
+          || d3.event.code=='PageDown') self.keyNextStage();
+      else if (d3.event.code=='ArrowLeft' || d3.event.code=='PageUp') self.keyPreviousStage();
       else if (d3.event.code=='ArrowUp') self.keyInitStage();
+      else if (d3.event.code=='Period') {
+        
+      }
     });
   }
   keyNextStage() {
