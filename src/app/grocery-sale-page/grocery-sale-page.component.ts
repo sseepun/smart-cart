@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-grocery-sale-page',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class GrocerySalePageComponent implements OnInit {
 
   private graphSpec;
+  @ViewChild('barchartBlack') barchartBlack;
 
   constructor() { }
 
@@ -40,6 +41,20 @@ export class GrocerySalePageComponent implements OnInit {
         color: '#0e0e0e'
       }
     };
+  }
+
+  chooseStage(year) {
+    var yearStr = year.toString();
+    if (year < 10) yearStr = '0'+year.toString();
+    
+    if (year < 0) {
+      this.barchartBlack.initStage();
+    } else if (year > 20) {
+      this.barchartBlack.drawlinePath();
+    } else this.barchartBlack.chooseDesc(yearStr);
+  }
+  initStage() {
+    this.barchartBlack.initStage();
   }
 
 }

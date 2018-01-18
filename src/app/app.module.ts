@@ -22,7 +22,7 @@ import { SmartCartAppComponent } from './smart-cart-app/smart-cart-app.component
 import { SmartCartSliderComponent } from './smart-cart-slider/smart-cart-slider.component';
 import { PersonaManaPageComponent } from './persona-mana-page/persona-mana-page.component';
 import { PersonaManeePageComponent } from './persona-manee-page/persona-manee-page.component';
-import { HbmPageComponent } from './hbm-page/hbm-page.component';
+import { MlBdPageComponent } from './ml-bd-page/ml-bd-page.component';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { FuturePageComponent } from './future-page/future-page.component';
 import { ReferencePageComponent } from './reference-page/reference-page.component';
@@ -48,7 +48,7 @@ import { InteractiveGlobeAbsComponent } from './interactive-globe-abs/interactiv
     SmartCartSliderComponent,
     PersonaManaPageComponent,
     PersonaManeePageComponent,
-    HbmPageComponent,
+    MlBdPageComponent,
     ResultPageComponent,
     FuturePageComponent,
     ReferencePageComponent,

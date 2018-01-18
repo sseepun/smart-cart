@@ -399,10 +399,10 @@ export class InteractiveGlobeAbsComponent implements OnInit {
 
       // Rotation update
       if (!self.animRotateTo.bool) {
-        self.globe.rotation.y += 0.004;
-        self.particleCenter.rotation.y += 0.006;
+        self.globe.rotation.y += 0.002;
+        self.particleCenter.rotation.y += 0.003;
       } else {
-        self.animGlobeRotateToUpdate();
+        self.animMoveTo();
       }
 
       // self.frames += 1;
@@ -429,7 +429,7 @@ export class InteractiveGlobeAbsComponent implements OnInit {
       obj.scale.z = k;
     }
   }
-  animGlobeRotateToUpdate() {
+  animMoveTo() {
     let self = this;
     var maxSmooth = 60;
     self.animRotateTo.counter++;
@@ -437,15 +437,23 @@ export class InteractiveGlobeAbsComponent implements OnInit {
     var xChange = self.animRotateTo.newRotate.x - self.animRotateTo.lastRotate.x,
         yChange = self.animRotateTo.newRotate.y - self.animRotateTo.lastRotate.y,
         zChange = self.animRotateTo.newRotate.z - self.animRotateTo.lastRotate.z;
+    // var factor = (self.animRotateTo.counter/maxSmooth)**2;
+    var factor = Math.sin(Math.PI/2*self.animRotateTo.counter/maxSmooth);
 
     if (self.animRotateTo.counter <= maxSmooth) {
-      self.globe.rotation.x += xChange/maxSmooth;
-      self.globe.rotation.y += yChange/maxSmooth;
-      self.globe.rotation.z += zChange/maxSmooth;
-      self.particleCenter.rotation.x += xChange/maxSmooth*1.2;
-      self.particleCenter.rotation.y += yChange/maxSmooth*1.2;
-      self.particleCenter.rotation.z += zChange/maxSmooth*1.2;
-    } else if (self.animRotateTo.counter > 1.5*maxSmooth) {
+      // self.globe.rotation.x += xChange/maxSmooth;
+      // self.globe.rotation.y += yChange/maxSmooth;
+      // self.globe.rotation.z += zChange/maxSmooth;
+      // self.particleCenter.rotation.x += xChange/maxSmooth*1.2;
+      // self.particleCenter.rotation.y += yChange/maxSmooth*1.2;
+      // self.particleCenter.rotation.z += zChange/maxSmooth*1.2;
+      self.globe.rotation.x = self.animRotateTo.lastRotate.x + xChange*factor;
+      self.globe.rotation.y = self.animRotateTo.lastRotate.y + yChange*factor;
+      self.globe.rotation.z = self.animRotateTo.lastRotate.z + zChange*factor;
+      self.particleCenter.rotation.x = self.animRotateTo.lastRotate.x + xChange*1.2*factor;
+      self.particleCenter.rotation.y = self.animRotateTo.lastRotate.y + yChange*1.2*factor;
+      self.particleCenter.rotation.z = self.animRotateTo.lastRotate.z + zChange*1.2*factor;
+    } else if (self.animRotateTo.counter > 1.75*maxSmooth) {
       self.animRotateTo = {
         bool: false,
         counter: 0,
@@ -453,6 +461,34 @@ export class InteractiveGlobeAbsComponent implements OnInit {
         lastRotate: null
       };
     }
+  }
+  beginMoveTo() {
+    let self = this;
+    self.animRotateTo = {
+      bool: true,
+      counter: 0,
+      newRotate: new THREE.Euler(0.75, 3.324, 0, 'XYZ'),
+      lastRotate: self.globe.rotation.clone()
+    };
+  }
+  beginMoveTo2(latlon) {
+    let self = this;
+
+    var phi = latlon[0]*Math.PI/180;
+    var theta = latlon[1]*Math.PI/180 + Math.PI*3/2;
+
+    var xF = self.spec.mapR * Math.cos(phi) * Math.sin(theta);
+    var yF = self.spec.mapR * Math.sin(phi);
+    var zF = self.spec.mapR * Math.cos(phi) * Math.cos(theta);
+    var vF = new THREE.Vector3(xF, yF, zF);
+    vF.normalize();
+
+    self.animRotateTo = {
+      bool: true,
+      counter: 0,
+      newRotate: self.centerRotation(vF),
+      lastRotate: self.globe.rotation.clone()
+    };
   }
 
   updateOnResizing() {
@@ -617,7 +653,7 @@ export class InteractiveGlobeAbsComponent implements OnInit {
       else if (country == 'China') latlon = [39.916666666666664, 116.383333];
 
       self.updateSelectedCountry(country);
-      self.globeSelectedRotate(latlon);
+      self.beginMoveTo2(latlon);
     }
   }
   updateSelectedCountry(country) {
@@ -627,25 +663,6 @@ export class InteractiveGlobeAbsComponent implements OnInit {
       transparent: true,
       side: THREE.DoubleSide
     });
-  }
-  globeSelectedRotate(latlon) {
-    let self = this;
-
-    var phi = latlon[0]*Math.PI/180;
-    var theta = latlon[1]*Math.PI/180 + Math.PI*3/2;
-
-    var xF = self.spec.mapR * Math.cos(phi) * Math.sin(theta);
-    var yF = self.spec.mapR * Math.sin(phi);
-    var zF = self.spec.mapR * Math.cos(phi) * Math.cos(theta);
-    var vF = new THREE.Vector3(xF, yF, zF);
-    vF.normalize();
-
-    self.animRotateTo = {
-      bool: true,
-      counter: 0,
-      newRotate: self.centerRotation(vF),
-      lastRotate: self.globe.rotation.clone()
-    };
   }
   centerRotation(vector) {
     let self = this;

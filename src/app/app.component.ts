@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
   private isFullScreen = false;
   private pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   private pageDisplay = ['intro','population','statistic','sale','problem','survey', 'solution', 
-    'hbm', 'smart cart', 'mana', 'manee', 'result', 'future', 'references', 'thanks'];
-  private page = 6;
+    'bd ml', 'smart cart', 'mana', 'manee', 'result', 'future', 'references', 'thanks'];
+  private page = 0;
 
   private host;
   private stage = 0;
@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   @ViewChild('introPage') introPage; // 0
   @ViewChild('globe') globe; // 1
   @ViewChild('usaStatisticPage') usaStatisticPage; // 2
+  @ViewChild('grocerySale') grocerySale; // 3
   @ViewChild('problemPage') problemPage; // 4
   @ViewChild('surveyPage') surveyPage; // 5
   @ViewChild('smartCartPage') smartCartPage; // 8
@@ -84,44 +85,28 @@ export class AppComponent implements OnInit {
   }
   keyNextStage() {
     let self = this;
+    self.stage += 1;
 
-    if (self.page==1 && self.stage<3) {
-      self.nextStagePage1();
-    } else if (self.page==2 && self.stage<2) {
-      self.stage += 1;
-      self.usaStatisticPage.changeYear(2014+self.stage);
-    } else if (self.page==4 && self.stage<2) {
-      self.stage += 1;
-      self.problemPage.nextStage();
-    } else if (self.page==5 && self.stage<2) {
-      self.stage += 1;
-      self.surveyPage.changeSurveyType(self.stage);
-    } else if (self.page==8 && self.smartCartPage.appPage!='Summary') {
-      self.smartCartPage.appNextPage();
-    } else if (self.page==9 && self.personaMana.appPage!='Summary') {
-      self.personaMana.appNextPage();
-    } else if (self.page==10 && self.personaManee.appPage!='Summary') {
-      self.personaManee.appNextPage();
-    }  else {
-      self.changePage(d3.min([self.page+1, d3.max(self.pageArray)]));
-    }
+    if (self.page==1 && self.stage<4) self.nextStagePage1();
+    else if (self.page==2 && self.stage<3) self.usaStatisticPage.changeYear(2014+self.stage);
+    else if (self.page==3 && self.stage<6) self.grocerySale.chooseStage(self.stage*5 - 4);
+    else if (self.page==4 && self.stage<3) self.problemPage.nextStage();
+    else if (self.page==5 && self.stage<3) self.surveyPage.changeSurveyType(self.stage);
+    else if (self.page==8 && self.smartCartPage.appPage!='Summary') self.smartCartPage.appNextPage();
+    else if (self.page==9 && self.personaMana.appPage!='Summary') self.personaMana.appNextPage();
+    else if (self.page==10 && self.personaManee.appPage!='Summary') self.personaManee.appNextPage();
+    else self.changePage(d3.min([self.page+1, d3.max(self.pageArray)]));
   }
   keyPreviousStage() {
     let self = this;
+    self.stage -= 1;
 
-    if (self.stage>0) {
-      if (self.page==1) {
-        self.previousStagePage1();
-      } else if (self.page==2) {
-        self.stage -= 1;
-        self.usaStatisticPage.changeYear(2014+self.stage);
-      } else if (self.page==4) {
-        self.stage -= 1;
-        self.problemPage.previousStage();
-      } else if (self.page==5) {
-        self.stage -= 1;
-        self.surveyPage.changeSurveyType(self.stage);
-      }
+    if (self.stage>-1 && self.page!=8 && self.page!=9 && self.page!=10) {
+      if (self.page==1) self.previousStagePage1();
+      else if (self.page==2) self.usaStatisticPage.changeYear(2014+self.stage);
+      else if (self.page==3) self.grocerySale.chooseStage(self.stage*5 - 4);
+      else if (self.page==4) self.problemPage.previousStage();
+      else if (self.page==5) self.surveyPage.changeSurveyType(self.stage);
     } else if (self.page==8 && self.smartCartPage.appPage!='Welcome') {
       self.smartCartPage.appPreviousPage();
     } else if (self.page==9 && self.personaMana.appPage!='Welcome') {
@@ -138,6 +123,7 @@ export class AppComponent implements OnInit {
     self.stage = 0;        
     if (self.page==1) self.initStagePage1();
     else if (self.page==2) self.usaStatisticPage.changeYear(2014);
+    else if (self.page==3) self.grocerySale.initStage();
     else if (self.page==4) self.problemPage.initStagePage1();
     else if (self.page==5) self.surveyPage.changeSurveyType(0);
     else if (self.page==8) {
@@ -181,15 +167,16 @@ export class AppComponent implements OnInit {
   nextStagePage1() {
     let self = this;
     if (self.page == 1) {
-      self.stage += 1;
       self.host.selectAll('.stage-'+self.stage).style('opacity', 1);
+      if (self.stage == 3) {
+        self.globe.beginMoveTo();
+      }
     }
   }
   previousStagePage1() {
     let self = this;
     if (self.page == 1) {
-      self.host.selectAll('.stage-'+self.stage).style('opacity', 0);
-      self.stage -= 1;
+      self.host.selectAll('.stage-'+(self.stage+1)).style('opacity', 0);
     }
   }
   initStagePage1() {

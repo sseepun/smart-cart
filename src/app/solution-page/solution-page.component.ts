@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, animate } from '@angular/core';
 import * as d3 from 'd3';
-declare var particlesJS: any;
+// declare var particlesJS: any;
 
 @Component({
   selector: 'app-solution-page',
@@ -10,6 +10,7 @@ declare var particlesJS: any;
 export class SolutionPageComponent implements OnInit {
 
   private host;
+  private counter = 0;
   private nfStage = 0;
 
   constructor(private element: ElementRef) { }
@@ -17,13 +18,14 @@ export class SolutionPageComponent implements OnInit {
   ngOnInit() {
     this.host = d3.select(this.element.nativeElement).select('#solution-page');
     this.nutritionFactAnim();
+    // this.animationProcess();    
     
-    particlesJS.load('particles-js', 'assets/json/particles.json', null);
+    // particlesJS.load('particles-js', 'assets/json/particles.json', null);
   }
 
   nutritionFactAnim() {
     let self = this;
-    var animTime = 650;
+    var animTime = 5;
     self.nfStage += 1;
 
     if (self.nfStage==1) {
@@ -40,6 +42,22 @@ export class SolutionPageComponent implements OnInit {
       self.host.select('#nutrition-fact'+(self.nfStage-1)).select('img').style('opacity', 0.2);
       d3.timeout(()=>{self.nutritionFactAnim()}, animTime);
     }
+  }
+
+  animationProcess() {
+    let self = this;
+    self.counter = (self.counter+1)%8;
+    var prevCounter1 = (self.counter+7)%8,
+        prevCounter2 = (self.counter+6)%8,
+        prevCounter3 = (self.counter+5)%8;
+        // prevCounter4 = (self.counter+4)%8;
+
+    self.host.select('#app-icon'+(self.counter+1)).style('opacity', 1);
+    self.host.select('#app-icon'+(prevCounter1+1)).style('opacity', 1);
+    self.host.select('#app-icon'+(prevCounter2+1)).style('opacity', 1);
+    self.host.select('#app-icon'+(prevCounter3+1)).style('opacity', 0);
+    // self.host.select('#app-icon'+(prevCounter4+1)).style('opacity', 0);
+    d3.timeout(()=>{self.animationProcess()}, 180);
   }
 
 }

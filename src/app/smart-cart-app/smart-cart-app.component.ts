@@ -74,25 +74,25 @@ export class SmartCartAppComponent implements OnInit {
       if (this.appPage=='Welcome') {
         self.host.select('#welcome-line1').style('opacity', 1);
       }
-    }, 1000);
+    }, 800);
     d3.timeout(()=>{
       if (this.appPage=='Welcome') {
         self.host.select('#welcome-line2').style('opacity', 1);
       }
-    }, 1500);
+    }, 1600);
     d3.timeout(()=>{
       if (this.appPage=='Welcome') {
         self.host.select('#welcome-line1').style('opacity', 0);
         self.host.select('#welcome-line2').style('opacity', 0);
         self.host.select('#welcome-logo').style('opacity', 0);
       }
-    }, 3000);
+    }, 2000);
     d3.timeout(()=>{
       if (this.appPage=='Welcome') {
         self.appPage = 'Preference';
         self.appPageChange.emit(self.appPage);
       }
-    }, 5000);
+    }, 3500);
   }
 
   // Preference page

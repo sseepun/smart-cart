@@ -19,6 +19,12 @@ export class InteractiveGlobeComponent implements OnInit {
   private host;
   private spec: Spec;
   private windowSize; // { w, h }
+  private moveTo = {
+    boolean: false,
+    counter: 0,
+    oldPosition: null,
+    newPosition: null
+  };
 
   @Input() globeResources;
   private jsonWorld;
@@ -416,6 +422,7 @@ export class InteractiveGlobeComponent implements OnInit {
 
       self.controls.update();
       self.particleControls.update();
+      if (self.moveTo.boolean) self.animMoveTo();
 
       // self.frames += 1;
       // if (self.frames%5 == 0) {
@@ -440,6 +447,36 @@ export class InteractiveGlobeComponent implements OnInit {
       obj.scale.y = k;
       obj.scale.z = k;
     }
+  }
+  animMoveTo() {
+    let self = this;
+    var maxSmooth = 60;
+    self.moveTo.counter++;
+
+    var xChange = self.moveTo.newPosition.x - self.moveTo.oldPosition.x,
+        yChange = self.moveTo.newPosition.y - self.moveTo.oldPosition.y,
+        zChange = self.moveTo.newPosition.z - self.moveTo.oldPosition.z;
+
+    if (self.moveTo.counter <= maxSmooth) {
+      self.camera.position.x = self.moveTo.oldPosition.x + self.moveTo.counter*xChange/maxSmooth;
+      self.camera.position.y = self.moveTo.oldPosition.y + self.moveTo.counter*yChange/maxSmooth;
+      self.camera.position.z = self.moveTo.oldPosition.z + self.moveTo.counter*zChange/maxSmooth;
+    } else if (self.moveTo.counter > 1.5*maxSmooth) {
+      self.moveTo = {
+        boolean: false,
+        counter: 0,
+        newPosition: null,
+        oldPosition: null
+      };
+    }
+  }
+  beginMoveTo() {
+    this.moveTo = {
+      boolean: true,
+      counter: 0,
+      oldPosition: this.camera.position.clone(),
+      newPosition: new THREE.Vector3(25.768104503751722, 69.71744781713898, -72.74257529224707)
+    };
   }
 
   updateOnResizing() {

@@ -24,6 +24,7 @@ export class BarchartComponent implements OnInit {
   private host;
   private svg;
   private workSpace;
+  private linePath;
   private hoverObj = null;
 
   constructor(private element: ElementRef) { }
@@ -158,6 +159,7 @@ export class BarchartComponent implements OnInit {
       })
       .transition().duration(self.spec.animTime)
         .attr('y', d=>{return -self.spec.scaleH(d.value)-0.02*self.height});
+    self.linePath = self.workSpace.append('path').attr('id', 'line-path');
     ///////////// 
 
     // Y axis
@@ -390,6 +392,78 @@ export class BarchartComponent implements OnInit {
     }
     self.host.select('#barchart-tooltip')
       .style('left', x+'px').style('top', y+'px');
+  }
+
+  // Update by clicker
+  chooseDesc(desc) {
+    let self = this;
+    self.workSpace.selectAll('g.bar').select('rect').transition().duration(self.spec.animTime/3)
+      .attr('opacity', (data,index)=>{
+        if (desc==data.desc) return self.graphSpec.barStyle.opacity;
+        else if (self.graphSpec.hoverStyle.type==2) return self.graphSpec.barStyle.opacity/4;
+        else return self.graphSpec.barStyle.opacity;
+      })
+      .attr('x', (data,index)=>{
+        if (desc==data.desc) return (self.spec.slotW - self.spec.hoverW)/2;
+        else return (self.spec.slotW - self.spec.barW)/2;
+      })
+      .attr('width', (data,index)=>{
+        if (desc==data.desc) return self.spec.hoverW;
+        else return self.spec.barW;
+      })
+      .style('fill', (data,index)=>{
+        if (desc==data.desc) return self.graphSpec.hoverStyle.colorText;
+        else return self.graphSpec.barStyle.colorText;
+      })
+      .attr('y', data=>{return -self.spec.scaleH(data.value)})
+      .attr('height', data=>{return self.spec.scaleH(data.value)});
+    self.linePath.transition().duration(self.spec.animTime/3).attr('opacity', 0);
+  }
+  initStage() {
+    let self = this;
+    self.workSpace.selectAll('g.bar').select('rect').transition().duration(self.spec.animTime/3)
+      .attr('opacity', (data,index)=>{return self.graphSpec.barStyle.opacity})
+      .attr('x', (data,index)=>{return (self.spec.slotW - self.spec.barW)/2})
+      .attr('width', (data,index)=>{return self.spec.barW})
+      .style('fill', (data,index)=>{return self.graphSpec.barStyle.colorText})
+      .attr('y', data=>{return -self.spec.scaleH(data.value)})
+      .attr('height', data=>{return self.spec.scaleH(data.value)});
+    self.linePath.transition().duration(self.spec.animTime/3).attr('opacity', 0);
+  }
+  drawlinePath() {
+    let self = this;
+    self.workSpace.selectAll('g.bar').select('rect').transition().duration(self.spec.animTime/3)
+      .attr('opacity', (data,index)=>{return self.graphSpec.barStyle.opacity})
+      .attr('x', (data,index)=>{return (self.spec.slotW - self.spec.barW)/2})
+      .attr('width', (data,index)=>{return self.spec.barW})
+      .style('fill', (data,index)=>{return self.graphSpec.barStyle.colorText})
+      .attr('y', data=>{return -self.spec.scaleH(data.value)})
+      .attr('height', data=>{return self.spec.scaleH(data.value)});
+
+    var tempData = [self.graphSpec.data[0]];
+    self.graphSpec.data.map(d=>{tempData.push(d)});
+    tempData.push(self.graphSpec.data[self.graphSpec.data.length-1]);
+
+    var line = d3.line()
+      .x((d,i)=>{
+        if (i==0) return 0;
+        else if (i==tempData.length-1) return self.spec.slotW*(i-3/2) + self.spec.barW/2;
+        else return self.spec.slotW*(i - 1/2);
+      })
+      .y(d=>{return self.height - self.spec.scaleH(d.value)})
+      .curve(d3.curveMonotoneX);
+    self.linePath
+      .datum(tempData)
+      .attr('d', line).attr('opacity', 1)
+      .style('fill', 'none').attr('stroke-width', self.height*0.017)
+      // .style('stroke', self.graphSpec.hoverStyle.colorText);
+      .style('stroke', '#00FF00');
+    var totalLength = self.linePath.node().getTotalLength();
+    self.linePath
+      .attr('stroke-dasharray', totalLength + ' ' + totalLength)
+      .attr('stroke-dashoffset', totalLength)
+      .transition().duration(self.spec.animTime*1.5).ease(d3.easeLinear)
+        .attr('stroke-dashoffset', 0);
   }
 
 }

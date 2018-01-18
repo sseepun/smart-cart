@@ -13,32 +13,33 @@
     background: #0e0e0e;
     width: 28%;
     pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.65s;
+    /* opacity: 0;
+    transition: opacity 0.65s; */
+    opacity: 1;
 }
 #nutrition-fact1 {
     left: 6vw;
-    top: 12vw;
+    top: 12.5vw;
 }
 #nutrition-fact2 {
     left: 8vw;
-    top: 13.5vw;
+    top: 14vw;
 }
 #nutrition-fact3 {
     left: 10vw;
-    top: 15vw;
+    top: 15.5vw;
 }
 #nutrition-fact4 {
     left: 12vw;
-    top: 16.5vw;
+    top: 17vw;
 }
 #nutrition-fact5 {
     left: 14vw;
-    top: 18vw;
+    top: 18.5vw;
 }
 #nutrition-fact6 {
     left: 16vw;
-    top: 19.5vw;
+    top: 20vw;
 }
 
 .nf-container img {
@@ -46,14 +47,6 @@
     height: auto;
     opacity: 0;
     transition: opacity 0.65s;
-}
-
-#phone-app-img {
-    position: absolute;
-    left: 45%;
-    top: 12vw;
-    width: 54%;
-    pointer-events: none;
 }
 
 #particles-js {
@@ -64,4 +57,65 @@
     height: 100%;
     opacity: 0.7;
     z-index: -10;
+}
+
+.abs-img {
+    position: absolute;
+    pointer-events: none;
+}
+#phone-app-img {
+    left: 45%;
+    top: 12vw;
+    width: 54%;
+    opacity: 0.9;
+}
+
+#phone-app-img2 {
+    left: 63%;
+    top: 22vw;
+    width: 21%;
+}
+
+.app-sm-icon {
+    width: 5.5%;
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+#app-icon1 {
+    left: 54%;
+    top: 36.5vw;
+}
+#app-icon2 {
+    left: 52%;
+    top: 27.2vw;
+}
+#app-icon3 {
+    left: 55.5%;
+    top: 18.4vw;
+}
+#app-icon4 {
+    left: 64.3%;
+    top: 12vw;
+}
+#app-icon5 {
+    left: 75.5%;
+    top: 12vw;
+}
+#app-icon6 {
+    left: 84.3%;
+    top: 18.4vw;
+}
+#app-icon7 {
+    left: 87.8%;
+    top: 27.2vw;
+}
+#app-icon8 {
+    left: 85.8%;
+    top: 36.5vw;
+}
+
+#star-rating {
+    width: 44%;
+    left: 51%;
+    top: 15vw;
 }
