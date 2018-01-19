@@ -86,13 +86,13 @@ export class SmartCartAppComponent implements OnInit {
         self.host.select('#welcome-line2').style('opacity', 0);
         self.host.select('#welcome-logo').style('opacity', 0);
       }
-    }, 2800);
+    }, 2600);
     d3.timeout(()=>{
       if (this.appPage=='Welcome') {
         self.appPage = 'Preference';
         self.appPageChange.emit(self.appPage);
       }
-    }, 4000);
+    }, 3800);
   }
 
   // Preference page
@@ -804,7 +804,8 @@ export class SmartCartAppComponent implements OnInit {
         self.workSpace.select('g.not-selected-product')
           .select('g#'+self.brandToId(self.checkoutProduct))
           .select('rect.product-border')
-            .style('fill', 'orange');
+            // .style('fill', 'orange');
+            .style('fill', 'steelBlue');
       } else {
         self.appPage = 'Summary';
         self.setupSummaryPage();

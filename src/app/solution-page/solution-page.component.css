@@ -1,61 +1,84 @@
 #solution-page {
-    padding-top: 5vw; 
+    padding-top: 5vw;
 }
 
 .headline {
     font-size: 4vw;
     font-weight: 600;
     pointer-events: none;
+    padding-bottom: 2vw;
+}
+.subinfo {
+    font-size: 3.5vw;
+    pointer-events: none;
+}
+span.special {
+    color: orange;
 }
 
 .nf-container {
     position: absolute;
-    background: #0e0e0e;
-    /* width: 28%; */
+    /* background: #0e0e0e; */
     width: 17.5%;
     height: 26vw;
     pointer-events: none;
+    top: 28vw;
     /* opacity: 0;
     transition: opacity 0.65s; */
-    opacity: 1;
-    top: 23vw;
+}
+.nf-container div {
+    height: 26vw; 
 }
 #nutrition-fact1 {
-    /* left: 6vw;
-    top: 12.5vw; */
     left: 3vw;
 }
 #nutrition-fact2 {
-    /* left: 8vw;
-    top: 14vw; */
     left: 22vw;
 }
 #nutrition-fact3 {
-    /* left: 10vw;
-    top: 15.5vw; */
     left: 41vw;
 }
 #nutrition-fact4 {
-    /* left: 12vw;
-    top: 17vw; */
     left: 60vw;
 }
 #nutrition-fact5 {
-    /* left: 14vw;
-    top: 18.5vw; */
     left: 79vw;
 }
 #nutrition-fact6 {
-    /* left: 16vw;
-    top: 20vw; */
     left: 76vw;
 }
 
-.nf-container img {
+img.nf-tag {
     width: 100%;
     height: 100%;
-    /* opacity: 0;
-    transition: opacity 0.65s; */
+}
+.nf-container div img.product-tag {
+    padding-top: 4vw;
+    width: 90%;
+    height: auto;
+    /* opacity: 0.85; */
+}
+#product4 {
+    padding-top: 5.5vw;
+}
+#product5 {
+    padding-top: 2.6vw;
+}
+
+#product01 {
+    padding-top: 8vw;
+}
+#product02 {
+    padding-top: 8vw;
+}
+#product03 {
+    padding-top: 8vw;
+}
+#product04 {
+    padding-top: 9.5vw;
+}
+#product05 {
+    padding-top: 6.6vw;
 }
 
 #particles-js {
@@ -66,65 +89,6 @@
     height: 100%;
     opacity: 0.7;
     z-index: -10;
-}
-
-.abs-img {
-    position: absolute;
-    pointer-events: none;
-}
-#phone-app-img {
-    left: 45%;
-    top: 12vw;
-    width: 54%;
-    opacity: 0.9;
-}
-
-#phone-app-img2 {
-    left: 63%;
-    top: 22vw;
-    width: 21%;
-}
-
-.app-sm-icon {
-    width: 5.5%;
     opacity: 0;
     transition: opacity 0.6s;
-}
-#app-icon1 {
-    left: 54%;
-    top: 36.5vw;
-}
-#app-icon2 {
-    left: 52%;
-    top: 27.2vw;
-}
-#app-icon3 {
-    left: 55.5%;
-    top: 18.4vw;
-}
-#app-icon4 {
-    left: 64.3%;
-    top: 12vw;
-}
-#app-icon5 {
-    left: 75.5%;
-    top: 12vw;
-}
-#app-icon6 {
-    left: 84.3%;
-    top: 18.4vw;
-}
-#app-icon7 {
-    left: 87.8%;
-    top: 27.2vw;
-}
-#app-icon8 {
-    left: 85.8%;
-    top: 36.5vw;
-}
-
-#star-rating {
-    width: 44%;
-    left: 51%;
-    top: 15vw;
 }

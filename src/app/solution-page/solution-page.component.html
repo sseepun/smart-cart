@@ -2,41 +2,88 @@
 
 <div id="solution-page" class="wow fadeInLeft">
   <div class="headline" align="middle">
-    <span style="color:orange;">Our</span> Solution
+    <div *ngIf="nfStage<4" class="wow fadeInLeft">
+      <span class="special">Suppose you are in a Grocery Store</span>
+    </div>
+    <div *ngIf="nfStage>=4" class="wow fadeInLeft">
+      <span class="special">Our Solution</span>
+    </div>
   </div>
 
-  <div id="nutrition-fact1" class="nf-container">
-    <img src="assets/img/misc/nf1.jpg">
+  <div class="subinfo" align="middle">
+    <div *ngIf="nfStage==1" class="wow fadeInLeft">
+      And you need to buy <span class="special">a hot dog brand</span>
+      <br>which has <span class="special">high protein</span> and 
+      <span class="special">low sodium</span>
+    </div>
+    <div *ngIf="nfStage==2" class="wow fadeInLeft">
+        <span class="special">How long</span> would it take for you to choose
+      <br>the product from <span class="special">these nutrition facts</span>?
+    </div>
+    <div *ngIf="nfStage==3" class="wow fadeInLeft">
+      Forever?
+    </div>
+    <div *ngIf="nfStage>=4" class="wow fadeInLeft">
+      Help you to choose a hot dog brand 
+      <br>which has <span class="special">high protein</span> and 
+      <span class="special">low sodium</span>
+    </div>
   </div>
-  <div id="nutrition-fact2" class="nf-container">
-    <img src="assets/img/misc/nf2.jpg">
-  </div>
-  <div id="nutrition-fact3" class="nf-container">
-    <img src="assets/img/misc/nf3.jpg">    
-  </div>
-  <div id="nutrition-fact4" class="nf-container">
-    <img src="assets/img/misc/nf4.jpg"> 
-  </div>
-  <div id="nutrition-fact5" class="nf-container">
-    <img src="assets/img/misc/nf5.jpg"> 
-  </div>
-  <!-- <div id="nutrition-fact6" class="nf-container">
-    <img src="assets/img/misc/nf6.jpg">    
-  </div> -->
 
-  <!-- Right side animation -->
-  <!-- <img id="phone-app-img" class="abs-img" src="assets/img/misc/phone_app2.png"> -->
-
-  <!-- <img id="phone-app-img2" class="abs-img" src="assets/img/misc/phone_app3.png">
-  <img id="app-icon1" class="abs-img app-sm-icon" src="assets/img/misc/app1.png">
-  <img id="app-icon2" class="abs-img app-sm-icon" src="assets/img/misc/app2.png">
-  <img id="app-icon3" class="abs-img app-sm-icon" src="assets/img/misc/app3.png">
-  <img id="app-icon4" class="abs-img app-sm-icon" src="assets/img/misc/app4.png">
-  <img id="app-icon5" class="abs-img app-sm-icon" src="assets/img/misc/app5.png">
-  <img id="app-icon6" class="abs-img app-sm-icon" src="assets/img/misc/app6.png">
-  <img id="app-icon7" class="abs-img app-sm-icon" src="assets/img/misc/app7.png">
-  <img id="app-icon8" class="abs-img app-sm-icon" src="assets/img/misc/app8.png"> -->
-
-  <!-- <img id="star-rating" class="abs-img" src="assets/img/icon/star_rating.png"> -->
+  <div id="nutrition-fact1" class="nf-container" align="middle">
+    <div *ngIf="nfStage==1" class="wow fadeInLeft">
+      <img class="product-tag" id="product1" src="assets/img/products/beef_hotdog/Applegate Farms.png">
+    </div>
+    <div *ngIf="nfStage==2 || nfStage==3" class="wow fadeInLeft">
+      <img class="nf-tag" src="assets/img/misc/nf1.jpg">
+    </div>
+    <div *ngIf="nfStage>=4" class="wow fadeInLeft">
+      <img class="product-tag" id="product01" src="assets/img/products/beef_hotdog/Applegate Farms.png">
+    </div>
+  </div>
+  <div id="nutrition-fact2" class="nf-container" align="middle">
+    <div *ngIf="nfStage==1" class="wow fadeInLeft">
+      <img class="product-tag" id="product2" src="assets/img/products/beef_hotdog/Ball Park Franks.PNG">
+    </div>
+    <div *ngIf="nfStage==2 || nfStage==3" class="wow fadeInLeft">
+      <img class="nf-tag" src="assets/img/misc/nf2.jpg">
+    </div>
+    <div *ngIf="nfStage>=4" class="wow fadeInLeft">
+      <img class="product-tag" id="product02" src="assets/img/products/beef_hotdog/Ball Park Franks.PNG">
+    </div>
+  </div>
+  <div id="nutrition-fact3" class="nf-container" align="middle">
+    <div *ngIf="nfStage==1" class="wow fadeInLeft">
+      <img class="product-tag" id="product3" src="assets/img/products/beef_hotdog/Hebrew National.PNG">
+    </div>
+    <div *ngIf="nfStage==2 || nfStage==3" class="wow fadeInLeft">
+      <img class="nf-tag" src="assets/img/misc/nf3.jpg">
+    </div>
+    <div *ngIf="nfStage>=4" class="wow fadeInLeft">
+      <img class="product-tag" id="product03" src="assets/img/products/beef_hotdog/Hebrew National.PNG">
+    </div>
+  </div>
+  <div id="nutrition-fact4" class="nf-container" align="middle">
+    <div *ngIf="nfStage==1" class="wow fadeInLeft">
+      <img class="product-tag" id="product4" src="assets/img/products/beef_hotdog/Nathan.PNG">
+    </div>
+    <div *ngIf="nfStage==2 || nfStage==3" class="wow fadeInLeft">
+      <img class="nf-tag" src="assets/img/misc/nf5.jpg">
+    </div>
+    <div *ngIf="nfStage>=4" class="wow fadeInLeft">
+      <img class="product-tag" id="product04" src="assets/img/products/beef_hotdog/Nathan.PNG">
+    </div>
+  </div>
+  <div id="nutrition-fact5" class="nf-container" align="middle">
+    <div *ngIf="nfStage==1" class="wow fadeInLeft">
+      <img class="product-tag" id="product5" src="assets/img/products/beef_hotdog/Tomboy.png">
+    </div>
+    <div *ngIf="nfStage==2 || nfStage==3" class="wow fadeInLeft">
+      <img class="nf-tag" src="assets/img/misc/nf4.jpg">
+    </div>
+    <div *ngIf="nfStage>=4" class="wow fadeInLeft">
+      <img class="product-tag" id="product05" src="assets/img/products/beef_hotdog/Tomboy.png">
+    </div>
+  </div>
 
 </div>

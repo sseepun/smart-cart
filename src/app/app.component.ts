@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   @ViewChild('grocerySale') grocerySale; // 3
   @ViewChild('problemPage') problemPage; // 4
   @ViewChild('surveyPage') surveyPage; // 5
+  @ViewChild('solutionPage') solutionPage; // 6
   @ViewChild('smartCartPage') smartCartPage; // 8
   @ViewChild('personaMana') personaMana; // 9
   @ViewChild('personaManee') personaManee; // 10
@@ -94,6 +95,7 @@ export class AppComponent implements OnInit {
     else if (self.page==3 && self.stage<6) self.grocerySale.chooseStage(self.stage*5 - 4);
     else if (self.page==4 && self.stage<3) self.problemPage.nextStage();
     else if (self.page==5 && self.stage<3) self.surveyPage.changeSurveyType(self.stage);
+    else if (self.page==6 && self.stage<6) self.solutionPage.nextStage();
     else if (self.page==8 && self.smartCartPage.appPage!='Summary') self.smartCartPage.appNextPage();
     else if (self.page==9 && self.personaMana.appPage!='Summary') self.personaMana.appNextPage();
     else if (self.page==10 && self.personaManee.appPage!='Summary') self.personaManee.appNextPage();
@@ -109,6 +111,7 @@ export class AppComponent implements OnInit {
       else if (self.page==3) self.grocerySale.chooseStage(self.stage*5 - 4);
       else if (self.page==4) self.problemPage.previousStage();
       else if (self.page==5) self.surveyPage.changeSurveyType(self.stage);
+      else if (self.page==6) self.solutionPage.previousStage();
     } else if (self.page==8 && self.smartCartPage.appPage!='Welcome') {
       self.smartCartPage.appPreviousPage();
     } else if (self.page==9 && self.personaMana.appPage!='Welcome') {
@@ -128,6 +131,7 @@ export class AppComponent implements OnInit {
     else if (self.page==3) self.grocerySale.initStage();
     else if (self.page==4) self.problemPage.initStagePage1();
     else if (self.page==5) self.surveyPage.changeSurveyType(0);
+    else if (self.page==6) self.solutionPage.initStage();
     else if (self.page==8) {
       if (self.smartCartPage.appPage != 'Welcome') {
         self.smartCartPage.appPage = 'Welcome';
