@@ -55,12 +55,12 @@
 
 <!-- Solution page -->
 <ng-container *ngIf="page==6">
-    <app-solution-page></app-solution-page>
+    <app-solution-page [resources]="resources"></app-solution-page>
 </ng-container>
 
 <!-- Machine learning/Big data page -->
 <ng-container *ngIf="page==7">
-    <app-ml-bd-page></app-ml-bd-page>
+    <app-ml-bd-page [resources]="resources"></app-ml-bd-page>
 </ng-container>
 
 <!-- Smart Cart page -->

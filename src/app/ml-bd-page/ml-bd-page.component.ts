@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 declare var particlesJS: any;
 
 @Component({
@@ -8,10 +8,11 @@ declare var particlesJS: any;
 })
 export class MlBdPageComponent implements OnInit {
 
+  @Input() resources;
   constructor() { }
 
   ngOnInit() {
-    particlesJS.load('particles-js', 'assets/json/particles.json', null);
+    particlesJS.load('particles-js', this.resources.particleFile, null);
   }
 
 }

@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   private pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   private pageDisplay = ['intro','population','statistic','sale','problem','survey', 'solution', 
     'bd ml', 'smart cart', 'mana', 'manee', 'result', 'future', 'references', 'thanks'];
-  private page = 0;
+  private page = 6;
 
   private host;
   private stage = 0;
@@ -53,7 +53,8 @@ export class AppComponent implements OnInit {
         cloud: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/globe/cloud_3.jpg',
         world: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/world.json',
         worldCapitals: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/world-capitals.json',
-        mapUSA: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/usa-map.json'
+        mapUSA: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/usa-map.json',
+        particleFile: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/particles.json'
       };
     } else {
       self.resources = {
@@ -65,7 +66,8 @@ export class AppComponent implements OnInit {
         cloud: 'assets/img/globe/cloud_3.jpg',
         world: 'assets/json/world.json',
         worldCapitals: 'assets/json/world-capitals.json',
-        mapUSA: 'assets/json/usa-map.json'
+        mapUSA: 'assets/json/usa-map.json',
+        particleFile: 'assets/json/particles.json'
       };
     }
   }

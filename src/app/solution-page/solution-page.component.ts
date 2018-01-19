@@ -1,6 +1,7 @@
-import { Component, OnInit, ElementRef, animate } from '@angular/core';
+import { Component, OnInit, ElementRef, animate, Input } from '@angular/core';
 import * as d3 from 'd3';
-// declare var particlesJS: any;
+import { resource } from 'selenium-webdriver/http';
+declare var particlesJS: any;
 
 @Component({
   selector: 'app-solution-page',
@@ -9,6 +10,7 @@ import * as d3 from 'd3';
 })
 export class SolutionPageComponent implements OnInit {
 
+  @Input() resources;
   private host;
   private counter = 0;
   private nfStage = 0;
@@ -17,10 +19,10 @@ export class SolutionPageComponent implements OnInit {
 
   ngOnInit() {
     this.host = d3.select(this.element.nativeElement).select('#solution-page');
-    this.nutritionFactAnim();
+    // this.nutritionFactAnim();
     // this.animationProcess();    
     
-    // particlesJS.load('particles-js', 'assets/json/particles.json', null);
+    particlesJS.load('particles-js', this.resources.particleFile, null);
   }
 
   nutritionFactAnim() {

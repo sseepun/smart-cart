@@ -11,42 +11,51 @@
 .nf-container {
     position: absolute;
     background: #0e0e0e;
-    width: 28%;
+    /* width: 28%; */
+    width: 17.5%;
+    height: 26vw;
     pointer-events: none;
     /* opacity: 0;
     transition: opacity 0.65s; */
     opacity: 1;
+    top: 23vw;
 }
 #nutrition-fact1 {
-    left: 6vw;
-    top: 12.5vw;
+    /* left: 6vw;
+    top: 12.5vw; */
+    left: 3vw;
 }
 #nutrition-fact2 {
-    left: 8vw;
-    top: 14vw;
+    /* left: 8vw;
+    top: 14vw; */
+    left: 22vw;
 }
 #nutrition-fact3 {
-    left: 10vw;
-    top: 15.5vw;
+    /* left: 10vw;
+    top: 15.5vw; */
+    left: 41vw;
 }
 #nutrition-fact4 {
-    left: 12vw;
-    top: 17vw;
+    /* left: 12vw;
+    top: 17vw; */
+    left: 60vw;
 }
 #nutrition-fact5 {
-    left: 14vw;
-    top: 18.5vw;
+    /* left: 14vw;
+    top: 18.5vw; */
+    left: 79vw;
 }
 #nutrition-fact6 {
-    left: 16vw;
-    top: 20vw;
+    /* left: 16vw;
+    top: 20vw; */
+    left: 76vw;
 }
 
 .nf-container img {
     width: 100%;
-    height: auto;
-    opacity: 0;
-    transition: opacity 0.65s;
+    height: 100%;
+    /* opacity: 0;
+    transition: opacity 0.65s; */
 }
 
 #particles-js {
