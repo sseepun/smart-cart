@@ -18,16 +18,15 @@ span.special {
 
 .nf-container {
     position: absolute;
-    /* background: #0e0e0e; */
     width: 17.5%;
-    height: 26vw;
+    height: 28vw;
     pointer-events: none;
-    top: 28vw;
-    /* opacity: 0;
-    transition: opacity 0.65s; */
+    top: 26vw;
+    /* transition: border 0.65s; */
 }
 .nf-container div {
-    height: 26vw; 
+    padding-top: 2vw;
+    height: 28vw; 
 }
 #nutrition-fact1 {
     left: 3vw;
@@ -53,32 +52,40 @@ img.nf-tag {
     height: 100%;
 }
 .nf-container div img.product-tag {
-    padding-top: 4vw;
+    padding-top: 5vw;
     width: 90%;
     height: auto;
     /* opacity: 0.85; */
 }
 #product4 {
-    padding-top: 5.5vw;
+    padding-top: 6.5vw;
 }
 #product5 {
-    padding-top: 2.6vw;
+    padding-top: 3.6vw;
 }
 
 #product01 {
-    padding-top: 8vw;
+    padding-top: 4vw;
 }
 #product02 {
-    padding-top: 8vw;
+    padding-top: 4vw;
 }
 #product03 {
-    padding-top: 8vw;
+    padding-top: 4vw;
 }
 #product04 {
-    padding-top: 9.5vw;
+    padding-top: 5.5vw;
 }
 #product05 {
-    padding-top: 6.6vw;
+    padding-top: 2.6vw;
+}
+
+.star-tag {
+    padding-top: 1vw;
+    width: 90%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 1s;
 }
 
 #particles-js {

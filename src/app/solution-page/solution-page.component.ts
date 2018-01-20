@@ -23,17 +23,34 @@ export class SolutionPageComponent implements OnInit {
 
   nextStage() {
     this.nfStage++;
-    if (this.nfStage==4) this.host.select('#particles-js').style('opacity', 0.8);
-    else this.host.select('#particles-js').style('opacity', 0);
+    if (this.nfStage==4) {
+      this.host.select('#particles-js').style('opacity', 0.8);
+      this.host.selectAll('.star-tag').style('opacity', 0);
+    } else if (this.nfStage==5) {
+      this.host.select('#particles-js').style('opacity', 0);
+      this.host.selectAll('.star-tag').style('opacity', 1);
+    } else {
+      this.host.select('#particles-js').style('opacity', 0);
+      this.host.selectAll('.star-tag').style('opacity', 0);
+    }
   }
   previousStage() {
     this.nfStage--;
-    if (this.nfStage==4) this.host.select('#particles-js').style('opacity', 0.8);
-    else this.host.select('#particles-js').style('opacity', 0);
+    if (this.nfStage==4) {
+      this.host.select('#particles-js').style('opacity', 0.8);
+      this.host.selectAll('.star-tag').style('opacity', 0);
+    } else if (this.nfStage==5) {
+      this.host.select('#particles-js').style('opacity', 0);
+      this.host.selectAll('.star-tag').style('opacity', 1);
+    } else {
+      this.host.select('#particles-js').style('opacity', 0);
+      this.host.selectAll('.star-tag').style('opacity', 0);
+    }
   }
   initStage() {
     this.nfStage = 0;
     this.host.select('#particles-js').style('opacity', 0);
+    this.host.selectAll('.star-tag').style('opacity', 0);
   }
 
 }
