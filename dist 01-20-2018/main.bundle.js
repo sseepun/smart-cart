@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"app-container\">\r\n\r\n<div class=\"page-selector\" align=\"middle\">\r\n    <span *ngFor=\"let p of pageDisplay; let i=index;\" (click)=\"changePage(pageArray[i])\"\r\n    [ngClass]=\"{'active':pageSelectClass(pageArray[i])}\">{{p}}</span>\r\n</div>\r\n\r\n<!-- Intro and population pages -->\r\n<ng-container *ngIf=\"page==0 || page==1\">\r\n    <app-introduction-page #introPage [page]=\"page\"></app-introduction-page>\r\n    <app-interactive-globe-abs #globe \r\n    [globeResources]=\"resources\"></app-interactive-globe-abs>\r\n    <!-- <app-interactive-globe #globe \r\n    [globeResources]=\"resources\"></app-interactive-globe> -->\r\n    <ng-container *ngIf=\"page==1\">\r\n        <div id=\"info-container1\">\r\n            <div class=\"headline stage-1\">\r\n                Expected global sales of \r\n                <br>healthy food products\r\n                <br>in 2017\r\n            </div>\r\n            <div class=\"infoline stage-1\">$1 trillion</div>\r\n        </div>\r\n        <div id=\"info-container2\">\r\n            <div class=\"headline stage-2\" align=\"right\">World population</div>\r\n            <div class=\"infoline stage-2\" align=\"right\">7.6 billion</div>\r\n\r\n            <div class=\"headline stage-3\" align=\"right\" style=\"padding-top:4vw;\">US population</div>\r\n            <div class=\"infoline stage-3\" align=\"right\">324 million</div>\r\n        </div>\r\n        <div class=\"main-statistic-source\">Source: Euromonitor International</div>\r\n    </ng-container>\r\n</ng-container>\r\n\r\n<!-- Statistic page -->\r\n<ng-container *ngIf=\"page==2\">\r\n    <app-usa-statistic-page #usaStatisticPage \r\n    [resources]=\"resources\"></app-usa-statistic-page>\r\n</ng-container>\r\n\r\n<!-- Grocery sale page -->\r\n<ng-container *ngIf=\"page==3\">\r\n    <app-grocery-sale-page #grocerySale></app-grocery-sale-page>\r\n</ng-container>\r\n\r\n<!-- Problem page -->\r\n<ng-container *ngIf=\"page==4\">\r\n    <app-problem-page #problemPage></app-problem-page>\r\n</ng-container>\r\n\r\n<!-- Survey page -->\r\n<ng-container *ngIf=\"page==5\">\r\n    <app-survey-page #surveyPage [resources]=\"resources\"></app-survey-page>\r\n</ng-container>\r\n\r\n<!-- Solution page -->\r\n<ng-container *ngIf=\"page==6\">\r\n    <app-solution-page></app-solution-page>\r\n</ng-container>\r\n\r\n<!-- Machine learning/Big data page -->\r\n<ng-container *ngIf=\"page==7\">\r\n    <app-ml-bd-page></app-ml-bd-page>\r\n</ng-container>\r\n\r\n<!-- Smart Cart page -->\r\n<ng-container *ngIf=\"page==8\">\r\n    <app-smart-cart-page #smartCartPage></app-smart-cart-page>\r\n</ng-container>\r\n\r\n<!-- Persona Mr.Mana page -->\r\n<ng-container *ngIf=\"page==9\">\r\n    <app-persona-mana-page #personaMana></app-persona-mana-page>\r\n</ng-container>\r\n\r\n<!-- Persona Miss Manee page -->\r\n<ng-container *ngIf=\"page==10\">\r\n    <app-persona-manee-page #personaManee></app-persona-manee-page>\r\n</ng-container>\r\n\r\n<!-- Result page -->\r\n<ng-container *ngIf=\"page==11\">\r\n    <app-result-page></app-result-page>\r\n</ng-container>\r\n\r\n<!-- Future page -->\r\n<ng-container *ngIf=\"page==12\">\r\n    <app-future-page></app-future-page>\r\n</ng-container>\r\n\r\n<!-- Reference page -->\r\n<ng-container *ngIf=\"page==13\">\r\n    <app-reference-page></app-reference-page>\r\n</ng-container>\r\n\r\n<!-- Thank page -->\r\n<ng-container *ngIf=\"page==14\">\r\n    <app-thank-page></app-thank-page>\r\n</ng-container>\r\n\r\n</div>"
+module.exports = "<div id=\"app-container\">\r\n\r\n<div class=\"page-selector\" align=\"middle\">\r\n    <span *ngFor=\"let p of pageDisplay; let i=index;\" (click)=\"changePage(pageArray[i])\"\r\n    [ngClass]=\"{'active':pageSelectClass(pageArray[i])}\">{{p}}</span>\r\n</div>\r\n\r\n<!-- Intro and population pages -->\r\n<ng-container *ngIf=\"page==0 || page==1\">\r\n    <app-introduction-page #introPage [page]=\"page\"></app-introduction-page>\r\n    <app-interactive-globe-abs #globe \r\n    [globeResources]=\"resources\"></app-interactive-globe-abs>\r\n    <!-- <app-interactive-globe #globe \r\n    [globeResources]=\"resources\"></app-interactive-globe> -->\r\n    <ng-container *ngIf=\"page==1\">\r\n        <div id=\"info-container1\">\r\n            <div class=\"headline stage-1\">\r\n                Expected global sales of \r\n                <br>healthy food products\r\n                <br>in 2017\r\n            </div>\r\n            <div class=\"infoline stage-1\">$1 trillion</div>\r\n        </div>\r\n        <div id=\"info-container2\">\r\n            <div class=\"headline stage-2\" align=\"right\">World population</div>\r\n            <div class=\"infoline stage-2\" align=\"right\">7.6 billion</div>\r\n\r\n            <div class=\"headline stage-3\" align=\"right\" style=\"padding-top:4vw;\">US population</div>\r\n            <div class=\"infoline stage-3\" align=\"right\">324 million</div>\r\n        </div>\r\n        <div class=\"main-statistic-source\">Source: Euromonitor International</div>\r\n    </ng-container>\r\n</ng-container>\r\n\r\n<!-- Statistic page -->\r\n<ng-container *ngIf=\"page==2\">\r\n    <app-usa-statistic-page #usaStatisticPage \r\n    [resources]=\"resources\"></app-usa-statistic-page>\r\n</ng-container>\r\n\r\n<!-- Grocery sale page -->\r\n<ng-container *ngIf=\"page==3\">\r\n    <app-grocery-sale-page #grocerySale></app-grocery-sale-page>\r\n</ng-container>\r\n\r\n<!-- Problem page -->\r\n<ng-container *ngIf=\"page==4\">\r\n    <app-problem-page #problemPage></app-problem-page>\r\n</ng-container>\r\n\r\n<!-- Survey page -->\r\n<ng-container *ngIf=\"page==5\">\r\n    <app-survey-page #surveyPage [resources]=\"resources\"></app-survey-page>\r\n</ng-container>\r\n\r\n<!-- Solution page -->\r\n<ng-container *ngIf=\"page==6\">\r\n    <app-solution-page #solutionPage [resources]=\"resources\"></app-solution-page>\r\n</ng-container>\r\n\r\n<!-- Machine learning/Big data page -->\r\n<ng-container *ngIf=\"page==7\">\r\n    <app-ml-bd-page [resources]=\"resources\"></app-ml-bd-page>\r\n</ng-container>\r\n\r\n<!-- Smart Cart page -->\r\n<ng-container *ngIf=\"page==8\">\r\n    <app-smart-cart-page #smartCartPage></app-smart-cart-page>\r\n</ng-container>\r\n\r\n<!-- Persona Mr.Mana page -->\r\n<ng-container *ngIf=\"page==9\">\r\n    <app-persona-mana-page #personaMana></app-persona-mana-page>\r\n</ng-container>\r\n\r\n<!-- Persona Miss Manee page -->\r\n<ng-container *ngIf=\"page==10\">\r\n    <app-persona-manee-page #personaManee></app-persona-manee-page>\r\n</ng-container>\r\n\r\n<!-- Result page -->\r\n<ng-container *ngIf=\"page==11\">\r\n    <app-result-page></app-result-page>\r\n</ng-container>\r\n\r\n<!-- Future page -->\r\n<ng-container *ngIf=\"page==12\">\r\n    <app-future-page></app-future-page>\r\n</ng-container>\r\n\r\n<!-- Reference page -->\r\n<ng-container *ngIf=\"page==13\">\r\n    <app-reference-page></app-reference-page>\r\n</ng-container>\r\n\r\n<!-- Thank page -->\r\n<ng-container *ngIf=\"page==14\">\r\n    <app-thank-page></app-thank-page>\r\n</ng-container>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -88,7 +88,8 @@ var AppComponent = (function () {
                 cloud: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/globe/cloud_3.jpg',
                 world: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/world.json',
                 worldCapitals: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/world-capitals.json',
-                mapUSA: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/usa-map.json'
+                mapUSA: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/usa-map.json',
+                particleFile: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/particles.json'
             };
         }
         else {
@@ -101,7 +102,8 @@ var AppComponent = (function () {
                 cloud: 'assets/img/globe/cloud_3.jpg',
                 world: 'assets/json/world.json',
                 worldCapitals: 'assets/json/world-capitals.json',
-                mapUSA: 'assets/json/usa-map.json'
+                mapUSA: 'assets/json/usa-map.json',
+                particleFile: 'assets/json/particles.json'
             };
         }
     };
@@ -132,6 +134,8 @@ var AppComponent = (function () {
             self.problemPage.nextStage();
         else if (self.page == 5 && self.stage < 3)
             self.surveyPage.changeSurveyType(self.stage);
+        else if (self.page == 6 && self.stage < 6)
+            self.solutionPage.nextStage();
         else if (self.page == 8 && self.smartCartPage.appPage != 'Summary')
             self.smartCartPage.appNextPage();
         else if (self.page == 9 && self.personaMana.appPage != 'Summary')
@@ -155,6 +159,8 @@ var AppComponent = (function () {
                 self.problemPage.previousStage();
             else if (self.page == 5)
                 self.surveyPage.changeSurveyType(self.stage);
+            else if (self.page == 6)
+                self.solutionPage.previousStage();
         }
         else if (self.page == 8 && self.smartCartPage.appPage != 'Welcome') {
             self.smartCartPage.appPreviousPage();
@@ -182,6 +188,8 @@ var AppComponent = (function () {
             self.problemPage.initStagePage1();
         else if (self.page == 5)
             self.surveyPage.changeSurveyType(0);
+        else if (self.page == 6)
+            self.solutionPage.initStage();
         else if (self.page == 8) {
             if (self.smartCartPage.appPage != 'Welcome') {
                 self.smartCartPage.appPage = 'Welcome';
@@ -270,6 +278,10 @@ __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('surveyPage'),
     __metadata("design:type", Object)
 ], AppComponent.prototype, "surveyPage", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('solutionPage'),
+    __metadata("design:type", Object)
+], AppComponent.prototype, "solutionPage", void 0);
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('smartCartPage'),
     __metadata("design:type", Object)
@@ -2445,10 +2457,14 @@ var MlBdPageComponent = (function () {
     function MlBdPageComponent() {
     }
     MlBdPageComponent.prototype.ngOnInit = function () {
-        particlesJS.load('particles-js', 'assets/json/particles.json', null);
+        particlesJS.load('particles-js', this.resources.particleFile, null);
     };
     return MlBdPageComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+    __metadata("design:type", Object)
+], MlBdPageComponent.prototype, "resources", void 0);
 MlBdPageComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-ml-bd-page',
@@ -3025,13 +3041,13 @@ var SmartCartAppComponent = (function () {
                 self.host.select('#welcome-line2').style('opacity', 0);
                 self.host.select('#welcome-logo').style('opacity', 0);
             }
-        }, 2000);
+        }, 2600);
         __WEBPACK_IMPORTED_MODULE_1_d3__["o" /* timeout */](function () {
             if (_this.appPage == 'Welcome') {
                 self.appPage = 'Preference';
                 self.appPageChange.emit(self.appPage);
             }
-        }, 3500);
+        }, 3800);
     };
     // Preference page
     SmartCartAppComponent.prototype.changePreference = function (change) {
@@ -3286,8 +3302,9 @@ var SmartCartAppComponent = (function () {
                     nsSpace.selectAll('g').select('rect.product-border')
                         .transition().duration(200)
                         .style('fill', function (data) {
+                        // if (data.brand==d.brand) return 'orange';
                         if (data.brand == d.brand)
-                            return 'orange';
+                            return 'steelBlue';
                         else
                             return '#fffff0';
                     });
@@ -3720,7 +3737,7 @@ var SmartCartAppComponent = (function () {
                 self.workSpace.select('g.not-selected-product')
                     .select('g#' + self.brandToId(self.checkoutProduct))
                     .select('rect.product-border')
-                    .style('fill', 'orange');
+                    .style('fill', 'steelBlue');
             }
             else {
                 self.appPage = 'Summary';
@@ -4084,7 +4101,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#solution-page {\r\n    padding-top: 5vw; \r\n}\r\n\r\n.headline {\r\n    font-size: 4vw;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n}\r\n\r\n.nf-container {\r\n    position: absolute;\r\n    background: #0e0e0e;\r\n    width: 28%;\r\n    pointer-events: none;\r\n    /* opacity: 0;\r\n    transition: opacity 0.65s; */\r\n    opacity: 1;\r\n}\r\n#nutrition-fact1 {\r\n    left: 6vw;\r\n    top: 12.5vw;\r\n}\r\n#nutrition-fact2 {\r\n    left: 8vw;\r\n    top: 14vw;\r\n}\r\n#nutrition-fact3 {\r\n    left: 10vw;\r\n    top: 15.5vw;\r\n}\r\n#nutrition-fact4 {\r\n    left: 12vw;\r\n    top: 17vw;\r\n}\r\n#nutrition-fact5 {\r\n    left: 14vw;\r\n    top: 18.5vw;\r\n}\r\n#nutrition-fact6 {\r\n    left: 16vw;\r\n    top: 20vw;\r\n}\r\n\r\n.nf-container img {\r\n    width: 100%;\r\n    height: auto;\r\n    opacity: 0;\r\n    transition: opacity 0.65s;\r\n}\r\n\r\n#particles-js {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    opacity: 0.7;\r\n    z-index: -10;\r\n}\r\n\r\n.abs-img {\r\n    position: absolute;\r\n    pointer-events: none;\r\n}\r\n#phone-app-img {\r\n    left: 45%;\r\n    top: 12vw;\r\n    width: 54%;\r\n    opacity: 0.9;\r\n}\r\n\r\n#phone-app-img2 {\r\n    left: 63%;\r\n    top: 22vw;\r\n    width: 21%;\r\n}\r\n\r\n.app-sm-icon {\r\n    width: 5.5%;\r\n    opacity: 0;\r\n    transition: opacity 0.6s;\r\n}\r\n#app-icon1 {\r\n    left: 54%;\r\n    top: 36.5vw;\r\n}\r\n#app-icon2 {\r\n    left: 52%;\r\n    top: 27.2vw;\r\n}\r\n#app-icon3 {\r\n    left: 55.5%;\r\n    top: 18.4vw;\r\n}\r\n#app-icon4 {\r\n    left: 64.3%;\r\n    top: 12vw;\r\n}\r\n#app-icon5 {\r\n    left: 75.5%;\r\n    top: 12vw;\r\n}\r\n#app-icon6 {\r\n    left: 84.3%;\r\n    top: 18.4vw;\r\n}\r\n#app-icon7 {\r\n    left: 87.8%;\r\n    top: 27.2vw;\r\n}\r\n#app-icon8 {\r\n    left: 85.8%;\r\n    top: 36.5vw;\r\n}\r\n\r\n#star-rating {\r\n    width: 44%;\r\n    left: 51%;\r\n    top: 15vw;\r\n}", ""]);
+exports.push([module.i, "#solution-page {\r\n    padding-top: 5vw;\r\n}\r\n\r\n.headline {\r\n    font-size: 4vw;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n    padding-bottom: 2vw;\r\n}\r\n.subinfo {\r\n    font-size: 3.5vw;\r\n    pointer-events: none;\r\n}\r\nspan.special {\r\n    color: orange;\r\n}\r\n\r\n.nf-container {\r\n    position: absolute;\r\n    width: 17.5%;\r\n    height: 28vw;\r\n    pointer-events: none;\r\n    top: 26vw;\r\n    /* transition: border 0.65s; */\r\n}\r\n.nf-container div {\r\n    padding-top: 2vw;\r\n    height: 28vw; \r\n}\r\n#nutrition-fact1 {\r\n    left: 3vw;\r\n}\r\n#nutrition-fact2 {\r\n    left: 22vw;\r\n}\r\n#nutrition-fact3 {\r\n    left: 41vw;\r\n}\r\n#nutrition-fact4 {\r\n    left: 60vw;\r\n}\r\n#nutrition-fact5 {\r\n    left: 79vw;\r\n}\r\n#nutrition-fact6 {\r\n    left: 76vw;\r\n}\r\n\r\nimg.nf-tag {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n.nf-container div img.product-tag {\r\n    padding-top: 5vw;\r\n    width: 90%;\r\n    height: auto;\r\n    /* opacity: 0.85; */\r\n}\r\n#product4 {\r\n    padding-top: 6.5vw;\r\n}\r\n#product5 {\r\n    padding-top: 3.6vw;\r\n}\r\n\r\n#product01 {\r\n    padding-top: 4vw;\r\n}\r\n#product02 {\r\n    padding-top: 4vw;\r\n}\r\n#product03 {\r\n    padding-top: 4vw;\r\n}\r\n#product04 {\r\n    padding-top: 5.5vw;\r\n}\r\n#product05 {\r\n    padding-top: 2.6vw;\r\n}\r\n\r\n.star-tag {\r\n    padding-top: 1vw;\r\n    width: 90%;\r\n    height: auto;\r\n    opacity: 0;\r\n    transition: opacity 1s;\r\n}\r\n\r\n#particles-js {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    opacity: 0.7;\r\n    z-index: -10;\r\n    opacity: 0;\r\n    transition: opacity 0.6s;\r\n}\r\n", ""]);
 
 // exports
 
@@ -4097,7 +4114,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/solution-page/solution-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"particles-js\"></div>\r\n\r\n<div id=\"solution-page\" class=\"wow fadeInLeft\">\r\n  <div class=\"headline\" align=\"middle\">\r\n    <span style=\"color:orange;\">Our</span> Solution\r\n  </div>\r\n\r\n  <div id=\"nutrition-fact1\" class=\"nf-container\">\r\n    <img src=\"assets/img/misc/nf1.jpg\">\r\n  </div>\r\n  <div id=\"nutrition-fact2\" class=\"nf-container\">\r\n    <img src=\"assets/img/misc/nf2.jpg\">\r\n  </div>\r\n  <div id=\"nutrition-fact3\" class=\"nf-container\">\r\n    <img src=\"assets/img/misc/nf3.jpg\">    \r\n  </div>\r\n  <div id=\"nutrition-fact4\" class=\"nf-container\">\r\n    <img src=\"assets/img/misc/nf4.jpg\"> \r\n  </div>\r\n  <div id=\"nutrition-fact5\" class=\"nf-container\">\r\n    <img src=\"assets/img/misc/nf5.jpg\"> \r\n  </div>\r\n  <div id=\"nutrition-fact6\" class=\"nf-container\">\r\n    <img src=\"assets/img/misc/nf6.jpg\">    \r\n  </div>\r\n\r\n  <!-- Right side animation -->\r\n  <!-- <img id=\"phone-app-img\" class=\"abs-img\" src=\"assets/img/misc/phone_app2.png\"> -->\r\n\r\n  <!-- <img id=\"phone-app-img2\" class=\"abs-img\" src=\"assets/img/misc/phone_app3.png\">\r\n  <img id=\"app-icon1\" class=\"abs-img app-sm-icon\" src=\"assets/img/misc/app1.png\">\r\n  <img id=\"app-icon2\" class=\"abs-img app-sm-icon\" src=\"assets/img/misc/app2.png\">\r\n  <img id=\"app-icon3\" class=\"abs-img app-sm-icon\" src=\"assets/img/misc/app3.png\">\r\n  <img id=\"app-icon4\" class=\"abs-img app-sm-icon\" src=\"assets/img/misc/app4.png\">\r\n  <img id=\"app-icon5\" class=\"abs-img app-sm-icon\" src=\"assets/img/misc/app5.png\">\r\n  <img id=\"app-icon6\" class=\"abs-img app-sm-icon\" src=\"assets/img/misc/app6.png\">\r\n  <img id=\"app-icon7\" class=\"abs-img app-sm-icon\" src=\"assets/img/misc/app7.png\">\r\n  <img id=\"app-icon8\" class=\"abs-img app-sm-icon\" src=\"assets/img/misc/app8.png\"> -->\r\n\r\n  <img id=\"star-rating\" class=\"abs-img\" src=\"assets/img/icon/star_rating.png\">\r\n\r\n</div>\r\n"
+module.exports = "<div id=\"particles-js\"></div>\r\n\r\n<div id=\"solution-page\" class=\"wow fadeInLeft\">\r\n  <div class=\"headline\" align=\"middle\">\r\n    <div *ngIf=\"nfStage<4\" class=\"wow fadeInLeft\">\r\n      <span class=\"special\">Suppose you are in a Grocery Store</span>\r\n    </div>\r\n    <div *ngIf=\"nfStage>=4\">\r\n      <span class=\"special\">Our Solution</span>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"subinfo\" align=\"middle\">\r\n    <div *ngIf=\"nfStage==1\" class=\"wow fadeInLeft\">\r\n      And you need to buy <span class=\"special\">a hot dog brand</span>\r\n      <br>which has <span class=\"special\">high protein</span> and \r\n      <span class=\"special\">low sodium</span>\r\n    </div>\r\n    <div *ngIf=\"nfStage==2\" class=\"wow fadeInLeft\">\r\n        <span class=\"special\">How long</span> would it take for you to choose\r\n      <br>the product from <span class=\"special\">these nutrition facts</span>?\r\n    </div>\r\n    <div *ngIf=\"nfStage==3\" class=\"wow fadeInLeft\">\r\n      Forever?\r\n    </div>\r\n    <div *ngIf=\"nfStage>=4\" class=\"wow fadeInLeft\">\r\n      Help you to choose a hot dog brand \r\n      <br>which has <span class=\"special\">high protein</span> and \r\n      <span class=\"special\">low sodium</span>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"nutrition-fact1\" class=\"nf-container\" align=\"middle\">\r\n    <div *ngIf=\"nfStage==1\" class=\"wow fadeInLeft\">\r\n      <img class=\"product-tag\" id=\"product1\" src=\"assets/img/products/beef_hotdog/Applegate Farms.png\">\r\n    </div>\r\n    <div *ngIf=\"nfStage==2 || nfStage==3\" class=\"wow fadeInLeft\">\r\n      <img class=\"nf-tag\" src=\"assets/img/misc/nf1.jpg\">\r\n    </div>\r\n    <div *ngIf=\"nfStage>=4\">\r\n      <img class=\"star-tag\" src=\"assets/img/icon/star50.png\">      \r\n      <img class=\"product-tag\" id=\"product01\" src=\"assets/img/products/beef_hotdog/Applegate Farms.png\">\r\n    </div>\r\n  </div>\r\n  <div id=\"nutrition-fact2\" class=\"nf-container\" align=\"middle\">\r\n    <div *ngIf=\"nfStage==1\" class=\"wow fadeInLeft\">\r\n      <img class=\"product-tag\" id=\"product2\" src=\"assets/img/products/beef_hotdog/Ball Park Franks.PNG\">\r\n    </div>\r\n    <div *ngIf=\"nfStage==2 || nfStage==3\" class=\"wow fadeInLeft\">\r\n      <img class=\"nf-tag\" src=\"assets/img/misc/nf2.jpg\">\r\n    </div>\r\n    <div *ngIf=\"nfStage>=4\">\r\n      <img class=\"star-tag\" src=\"assets/img/icon/star10.png\">\r\n      <img class=\"product-tag\" id=\"product02\" src=\"assets/img/products/beef_hotdog/Ball Park Franks.PNG\">\r\n    </div>\r\n  </div>\r\n  <div id=\"nutrition-fact3\" class=\"nf-container\" align=\"middle\">\r\n    <div *ngIf=\"nfStage==1\" class=\"wow fadeInLeft\">\r\n      <img class=\"product-tag\" id=\"product3\" src=\"assets/img/products/beef_hotdog/Hebrew National.PNG\">\r\n    </div>\r\n    <div *ngIf=\"nfStage==2 || nfStage==3\" class=\"wow fadeInLeft\">\r\n      <img class=\"nf-tag\" src=\"assets/img/misc/nf3.jpg\">\r\n    </div>\r\n    <div *ngIf=\"nfStage>=4\">\r\n      <img class=\"star-tag\" src=\"assets/img/icon/star25.png\">\r\n      <img class=\"product-tag\" id=\"product03\" src=\"assets/img/products/beef_hotdog/Hebrew National.PNG\">\r\n    </div>\r\n  </div>\r\n  <div id=\"nutrition-fact4\" class=\"nf-container\" align=\"middle\">\r\n    <div *ngIf=\"nfStage==1\" class=\"wow fadeInLeft\">\r\n      <img class=\"product-tag\" id=\"product4\" src=\"assets/img/products/beef_hotdog/Nathan.PNG\">\r\n    </div>\r\n    <div *ngIf=\"nfStage==2 || nfStage==3\" class=\"wow fadeInLeft\">\r\n      <img class=\"nf-tag\" src=\"assets/img/misc/nf5.jpg\">\r\n    </div>\r\n    <div *ngIf=\"nfStage>=4\">\r\n      <img class=\"star-tag\" src=\"assets/img/icon/star30.png\">\r\n      <img class=\"product-tag\" id=\"product04\" src=\"assets/img/products/beef_hotdog/Nathan.PNG\">\r\n    </div>\r\n  </div>\r\n  <div id=\"nutrition-fact5\" class=\"nf-container\" align=\"middle\">\r\n    <div *ngIf=\"nfStage==1\" class=\"wow fadeInLeft\">\r\n      <img class=\"product-tag\" id=\"product5\" src=\"assets/img/products/beef_hotdog/Tomboy.png\">\r\n    </div>\r\n    <div *ngIf=\"nfStage==2 || nfStage==3\" class=\"wow fadeInLeft\">\r\n      <img class=\"nf-tag\" src=\"assets/img/misc/nf4.jpg\">\r\n    </div>\r\n    <div *ngIf=\"nfStage>=4\">\r\n      <img class=\"star-tag\" src=\"assets/img/icon/star15.png\">\r\n      <img class=\"product-tag\" id=\"product05\" src=\"assets/img/products/beef_hotdog/Tomboy.png\">\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4119,54 +4136,56 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-// declare var particlesJS: any;
 var SolutionPageComponent = (function () {
     function SolutionPageComponent(element) {
         this.element = element;
-        this.counter = 0;
         this.nfStage = 0;
     }
     SolutionPageComponent.prototype.ngOnInit = function () {
-        this.host = __WEBPACK_IMPORTED_MODULE_1_d3__["n" /* select */](this.element.nativeElement).select('#solution-page');
-        this.nutritionFactAnim();
-        // this.animationProcess();    
-        // particlesJS.load('particles-js', 'assets/json/particles.json', null);
+        this.host = __WEBPACK_IMPORTED_MODULE_1_d3__["n" /* select */](this.element.nativeElement);
+        particlesJS.load('particles-js', this.resources.particleFile, null);
     };
-    SolutionPageComponent.prototype.nutritionFactAnim = function () {
-        var self = this;
-        var animTime = 5;
-        self.nfStage += 1;
-        if (self.nfStage == 1) {
-            self.host.select('#nutrition-fact' + self.nfStage).select('img').style('opacity', 1);
-            self.host.select('#nutrition-fact' + self.nfStage).style('opacity', 1);
-            __WEBPACK_IMPORTED_MODULE_1_d3__["o" /* timeout */](function () { self.nutritionFactAnim(); }, animTime);
+    SolutionPageComponent.prototype.nextStage = function () {
+        this.nfStage++;
+        if (this.nfStage == 4) {
+            this.host.select('#particles-js').style('opacity', 0.8);
+            this.host.selectAll('.star-tag').style('opacity', 0);
         }
-        else if (self.nfStage == 6) {
-            self.host.select('#nutrition-fact' + self.nfStage).select('img').style('opacity', 1);
-            self.host.select('#nutrition-fact' + self.nfStage).style('opacity', 1);
-            self.host.select('#nutrition-fact' + (self.nfStage - 1)).select('img').style('opacity', 0.2);
+        else if (this.nfStage == 5) {
+            this.host.select('#particles-js').style('opacity', 0);
+            this.host.selectAll('.star-tag').style('opacity', 1);
         }
-        else if (self.nfStage < 6) {
-            self.host.select('#nutrition-fact' + self.nfStage).select('img').style('opacity', 1);
-            self.host.select('#nutrition-fact' + self.nfStage).style('opacity', 1);
-            self.host.select('#nutrition-fact' + (self.nfStage - 1)).select('img').style('opacity', 0.2);
-            __WEBPACK_IMPORTED_MODULE_1_d3__["o" /* timeout */](function () { self.nutritionFactAnim(); }, animTime);
+        else {
+            this.host.select('#particles-js').style('opacity', 0);
+            this.host.selectAll('.star-tag').style('opacity', 0);
         }
     };
-    SolutionPageComponent.prototype.animationProcess = function () {
-        var self = this;
-        self.counter = (self.counter + 1) % 8;
-        var prevCounter1 = (self.counter + 7) % 8, prevCounter2 = (self.counter + 6) % 8, prevCounter3 = (self.counter + 5) % 8;
-        // prevCounter4 = (self.counter+4)%8;
-        self.host.select('#app-icon' + (self.counter + 1)).style('opacity', 1);
-        self.host.select('#app-icon' + (prevCounter1 + 1)).style('opacity', 1);
-        self.host.select('#app-icon' + (prevCounter2 + 1)).style('opacity', 1);
-        self.host.select('#app-icon' + (prevCounter3 + 1)).style('opacity', 0);
-        // self.host.select('#app-icon'+(prevCounter4+1)).style('opacity', 0);
-        __WEBPACK_IMPORTED_MODULE_1_d3__["o" /* timeout */](function () { self.animationProcess(); }, 180);
+    SolutionPageComponent.prototype.previousStage = function () {
+        this.nfStage--;
+        if (this.nfStage == 4) {
+            this.host.select('#particles-js').style('opacity', 0.8);
+            this.host.selectAll('.star-tag').style('opacity', 0);
+        }
+        else if (this.nfStage == 5) {
+            this.host.select('#particles-js').style('opacity', 0);
+            this.host.selectAll('.star-tag').style('opacity', 1);
+        }
+        else {
+            this.host.select('#particles-js').style('opacity', 0);
+            this.host.selectAll('.star-tag').style('opacity', 0);
+        }
+    };
+    SolutionPageComponent.prototype.initStage = function () {
+        this.nfStage = 0;
+        this.host.select('#particles-js').style('opacity', 0);
+        this.host.selectAll('.star-tag').style('opacity', 0);
     };
     return SolutionPageComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+    __metadata("design:type", Object)
+], SolutionPageComponent.prototype, "resources", void 0);
 SolutionPageComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-solution-page',
