@@ -74,7 +74,7 @@ export class UsaMapStaticComponent implements OnInit {
           .style('fill', '#1b1b1b');
       self.workSpace
         .attr('transform', 'scale(0.95, 0.7)translate('+(0.06*self.width)+',0)')
-        .attr('opacity', 0.7);
+        .attr('opacity', 0.9);
     });
   }
 

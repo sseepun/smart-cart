@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   private isFullScreen = false;
   private pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   private pageDisplay = ['intro','population','statistic','sale','problem','survey', 'solution', 
-    'bd ml', 'smart cart', 'mana', 'manee', 'result', 'future', 'references', 'thanks'];
+    'bd ml', 'smart cart', 'mana', 'manee', 'result', 'future', 'thanks', 'references'];
   private page = 0;
 
   private host;
@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
   @ViewChild('smartCartPage') smartCartPage; // 8
   @ViewChild('personaMana') personaMana; // 9
   @ViewChild('personaManee') personaManee; // 10
+  @ViewChild('thanks') thanks; // 13
 
   // Resource path cross origin problems
   private resources;
@@ -99,6 +100,7 @@ export class AppComponent implements OnInit {
     else if (self.page==8 && self.smartCartPage.appPage!='Summary') self.smartCartPage.appNextPage();
     else if (self.page==9 && self.personaMana.appPage!='Summary') self.personaMana.appNextPage();
     else if (self.page==10 && self.personaManee.appPage!='Summary') self.personaManee.appNextPage();
+    else if (self.page==13 && self.stage<3) self.thanks.nextStage();
     else self.changePage(d3.min([self.page+1, d3.max(self.pageArray)]));
   }
   keyPreviousStage() {
@@ -112,6 +114,7 @@ export class AppComponent implements OnInit {
       else if (self.page==4) self.problemPage.previousStage();
       else if (self.page==5) self.surveyPage.changeSurveyType(self.stage);
       else if (self.page==6) self.solutionPage.previousStage();
+      else if (self.page==13) self.thanks.previousStage();
     } else if (self.page==8 && self.smartCartPage.appPage!='Welcome') {
       self.smartCartPage.appPreviousPage();
     } else if (self.page==9 && self.personaMana.appPage!='Welcome') {
@@ -148,6 +151,7 @@ export class AppComponent implements OnInit {
         self.personaManee.appReset();
       }
     }
+    else if (self.page==13) self.thanks.initStage();
   }
 
   changePage(page) {
