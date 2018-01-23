@@ -7,7 +7,7 @@
 .headline {
     font-size: 4vw;
     font-weight: 600;
-    color: orange;
+    color: steelBlue;
     pointer-events: none;
 }
 
@@ -29,7 +29,7 @@
 #problem-div .problem-info {
     font-size: 4vw;
     font-weight: 600;
-    color: orange;
+    color: steelBlue;
     opacity: 0;
     transition: opacity 1.5s;
 }

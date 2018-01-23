@@ -21,7 +21,7 @@
     padding-right: 3vw;
 }
 .nav.nav-pills li.active a {
-    background: rgb(255, 166, 0);
+    background: rgba(70, 131, 180, 0.75);
     font-weight: 600;
 }
 

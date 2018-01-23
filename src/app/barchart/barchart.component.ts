@@ -457,7 +457,8 @@ export class BarchartComponent implements OnInit {
       .attr('d', line).attr('opacity', 1)
       .style('fill', 'none').attr('stroke-width', self.height*0.017)
       // .style('stroke', self.graphSpec.hoverStyle.colorText);
-      .style('stroke', '#00FF00');
+      // .style('stroke', '#00FF00');
+      .style('stroke', 'orange');
     var totalLength = self.linePath.node().getTotalLength();
     self.linePath
       .attr('stroke-dasharray', totalLength + ' ' + totalLength)

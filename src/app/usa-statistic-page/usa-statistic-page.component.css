@@ -11,7 +11,7 @@
     cursor: pointer;
 }
 .year-selector span.active {
-    color: orange;
+    color: steelBlue;
 }
 
 #map-container {
@@ -34,7 +34,7 @@
 #statistic-div .statistic-info {
     font-size: 4vw;
     font-weight: 600;
-    color: orange;
+    color: steelBlue;
 }
 
 .statistic-note {

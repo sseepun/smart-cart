@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { resource } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-future-page',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FuturePageComponent implements OnInit {
 
+  @Input() resources;
   constructor() { }
 
   ngOnInit() {

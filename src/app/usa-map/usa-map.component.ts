@@ -31,9 +31,9 @@ export class UsaMapComponent implements OnInit {
 
     self.setupVariables();
     self.initMapUSA();
-    for (var i=0; i<25; i++) {
-      self.animation();
-    }
+    // for (var i=0; i<25; i++) {
+    //   self.animation();
+    // }
   }
 
   setupVariables() {

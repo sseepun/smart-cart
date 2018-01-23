@@ -156,7 +156,7 @@ export class SmartCartAppComponent implements OnInit {
             productSpace.selectAll('g').select('rect.product-border')
               .transition().duration(200)
                 .style('fill', data=>{
-                  if (data.brand==d.brand) return 'orange';
+                  if (data.brand==d.brand) return 'steelBlue';
                   else return '#fffff0';
                 });
             self.nutrSpace.transition().duration(200).attr('opacity', 1);
@@ -361,7 +361,7 @@ export class SmartCartAppComponent implements OnInit {
             nsSpace.selectAll('g').select('rect.product-border')
               .transition().duration(200)
                 .style('fill', data=>{
-                  // if (data.brand==d.brand) return 'orange';
+                  // if (data.brand==d.brand) return 'steelBlue';
                   if (data.brand==d.brand) return 'steelBlue';
                   else return '#fffff0';
                 });
@@ -732,7 +732,7 @@ export class SmartCartAppComponent implements OnInit {
       while (pos < downLength) {
         var color = '#0e0e0e', weight = 'normal';
         if (self.preferences[self.preferenceArray.indexOf(nutrDown[pos])].value<3) {
-          color = 'steelBlue'; weight = 'bold';
+          color = 'orange'; weight = 'bold';
         }
 
         sumSpace.append('text')
@@ -792,7 +792,7 @@ export class SmartCartAppComponent implements OnInit {
             .style('fill', d=>{
               self.nutrSpace.transition().duration(200).attr('opacity', 1);
               self.makeNutritionFact();
-              return 'orange';
+              return 'steelBlue';
             });
       } else {
         self.appPage = 'Suggestion';
@@ -804,7 +804,7 @@ export class SmartCartAppComponent implements OnInit {
         self.workSpace.select('g.not-selected-product')
           .select('g#'+self.brandToId(self.checkoutProduct))
           .select('rect.product-border')
-            // .style('fill', 'orange');
+            // .style('fill', 'steelBlue');
             .style('fill', 'steelBlue');
       } else {
         self.appPage = 'Summary';

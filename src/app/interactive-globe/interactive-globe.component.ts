@@ -643,7 +643,7 @@ export class InteractiveGlobeComponent implements OnInit {
   }
 
   // Destroy
-  destroy() {
+  ngOnDestroy() {
     let self = this;
     self.play = false;
 

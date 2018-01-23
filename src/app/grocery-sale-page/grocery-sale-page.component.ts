@@ -23,7 +23,7 @@ export class GrocerySalePageComponent implements OnInit {
             {desc:'10', value:498.0}, {desc:'11', value:523.4}, {desc:'12', value:539.2}, {desc:'13', value:549.1}, {desc:'14', value:573.8},
             {desc:'15', value:587.9}, {desc:'16', value:600.3}],
       barStyle: {
-        color: null, opacity: 0.7, width: 0.7, colorText: 'orange'
+        color: null, opacity: 0.7, width: 0.7, colorText: 'steelBlue'
       },
       hoverStyle: {
         color: null, type: 2, width: 0.8, colorText: '#428bca'

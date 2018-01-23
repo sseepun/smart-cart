@@ -10,14 +10,14 @@
     cursor: pointer;
 }
 .survey-selector span.active {
-    color: orange;
+    color: steelBlue;
     font-weight: 600;
 }
 
 .headline {
     font-size: 4vw;
     font-weight: 600;
-    /* color: orange; */
+    /* color: steelBlue; */
     pointer-events: none;
 }
 
@@ -41,7 +41,7 @@
 #survey-info-div .survey-info {
     font-size: 4vw;
     font-weight: 600;
-    color: orange;
+    color: steelBlue;
 }
 
 .statistic-source {

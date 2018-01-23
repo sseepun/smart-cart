@@ -72,7 +72,7 @@ export class SurveyPageComponent implements OnInit {
     var rectPercent = self.workSpace.append('rect').attr('id', 'percentage')
       .attr('y', self.spec.height)
       .attr('width', self.spec.width).attr('height', 0)
-      .style('fill', 'orange');
+      .style('fill', 'steelBlue');
     d3.timeout(()=>{
       self.scaleReady = true;
       rectPercent.transition().duration(self.spec.animTime)

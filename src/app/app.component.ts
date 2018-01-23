@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   private pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   private pageDisplay = ['intro','population','statistic','sale','problem','survey', 'solution', 
     'bd ml', 'smart cart', 'mana', 'manee', 'result', 'future', 'thanks', 'references'];
-  private page = 0;
+  private page = 12;
 
   private host;
   private stage = 0;
@@ -56,7 +56,10 @@ export class AppComponent implements OnInit {
         world: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/world.json',
         worldCapitals: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/world-capitals.json',
         mapUSA: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/usa-map.json',
-        particleFile: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/particles.json'
+        particleFile: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/json/particles.json',
+        bg2: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/globe/bg2.jpg',
+        texture2: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/globe/earth_texture_8.jpg',
+        halo2: 'https://raw.githubusercontent.com/sseepun/FloridaTalk/master/globe/earth_halo.png'
       };
     } else {
       self.resources = {
@@ -69,7 +72,10 @@ export class AppComponent implements OnInit {
         world: 'assets/json/world.json',
         worldCapitals: 'assets/json/world-capitals.json',
         mapUSA: 'assets/json/usa-map.json',
-        particleFile: 'assets/json/particles.json'
+        particleFile: 'assets/json/particles.json',
+        bg2: 'assets/img/globe/bg2.jpg',
+        texture2: 'assets/img/globe/earth_texture_8.jpg',
+        halo2: 'assets/img/globe/earth_halo.png'
       };
     }
   }
@@ -162,8 +168,6 @@ export class AppComponent implements OnInit {
       self.introPage.page = page;
       self.introPage.pageChange();
     }
-    // Interactive globe page
-    if (self.page<2 && page>1) self.globe.destroy();
 
     self.page = page;
     self.stage = 0;

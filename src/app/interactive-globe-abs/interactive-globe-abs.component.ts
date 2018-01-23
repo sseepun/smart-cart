@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
 import * as THREE from 'three';
+// declare var THREE: any;
 
 
 @Component({
@@ -117,10 +118,10 @@ export class InteractiveGlobeAbsComponent implements OnInit {
     self.particleCamera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
     self.updateParticleCameraPosition();
     var light1 = new THREE.HemisphereLight('#ffffff', '#666666', 0.5);
-    light1.position.set(40, 40, 100);
+    light1.position.set(40, 40, 1000);
     self.particleCamera.add(light1);
     var light2 = new THREE.DirectionalLight('#fffff0', 1);
-    light2.position.set(200, 200, 100);
+    light2.position.set(200, 200, 1000);
     self.particleCamera.add(light2);
     self.particleScene.add(self.particleCamera);
 
@@ -189,6 +190,11 @@ export class InteractiveGlobeAbsComponent implements OnInit {
      
       self.staticScene = new THREE.Scene();
       self.staticCamera = new THREE.Camera();
+      // self.staticCamera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
+      // var light = new THREE.DirectionalLight('#ffffff', 0.5);
+      // light.position.set(0, 0, 900);
+      // self.staticCamera.add(light);
+
       self.staticScene.add(self.staticCamera);
       self.staticScene.add(bgMesh);
     });
@@ -201,13 +207,12 @@ export class InteractiveGlobeAbsComponent implements OnInit {
       self.spec.r, self.spec.segments, self.spec.segments
     );
     var globeMaterial = new THREE.MeshPhongMaterial({
-
+      shininess: 8,
+      side: THREE.DoubleSide,
+      opacity: 1,
+      transparent: true
     });
-    globeMaterial.shininess = 8;
     // globeMaterial.side = THREE.FrontSide;
-    globeMaterial.side = THREE.DoubleSide;
-    globeMaterial.opacity = 1;
-    globeMaterial.transparent = true;
 
     // Instantiate a loader for adding material detail
     var loader = new THREE.TextureLoader();
@@ -271,13 +276,15 @@ export class InteractiveGlobeAbsComponent implements OnInit {
         mapGlobeMaterial = new THREE.MeshPhongMaterial({
           map: self.allCountriesMap(), 
           transparent: true,
-          side: THREE.DoubleSide
+          side: THREE.DoubleSide,
+          opacity: 0.85
         });
       } else {
         mapGlobeMaterial = new THREE.MeshPhongMaterial({
-          map: self.selectedCountryTexture(country, 'orange'), 
+          map: self.selectedCountryTexture(country, 'steelBlue'), 
           transparent: true,
-          side: THREE.DoubleSide
+          side: THREE.DoubleSide,
+          opacity: 0.85
         });
       }
       
@@ -304,15 +311,15 @@ export class InteractiveGlobeAbsComponent implements OnInit {
       });
       var atmosphere = new THREE.Mesh(atGeometry, atMaterial);
       // self.particleScene.add(atmosphere);
-      self.particleCenter.add(atmosphere);
+      // self.particleCenter.add(atmosphere);
 
       // Add glowing effect
       var glowMaterial = new THREE.ShaderMaterial({
         uniforms: { 
             'c': { type: 'f', value: 0.45 },
-            'p': { type: 'f', value: 5 },
+            'p': { type: 'f', value: 4 },
             glowColor: { type: 'c', value: new THREE.Color(0x38a4e2) },
-            viewVector: { type: "v3", value: self.camera.position }
+            viewVector: { type: 'v3', value: self.camera.position }
           },
           vertexShader: `uniform vec3 viewVector;
           uniform float c;
@@ -598,9 +605,9 @@ export class InteractiveGlobeAbsComponent implements OnInit {
         .projection(self.spec.mapProjection)
         .context(contextTemp);
   
-    contextTemp.strokeStyle = 'none';
-    contextTemp.lineWidth = 0.25;
-    contextTemp.fillStyle = color || 'orange';
+    contextTemp.strokeStyle = 'steelBlue';
+    contextTemp.lineWidth = 1;
+    contextTemp.fillStyle = color || 'steelBlue';
   
     contextTemp.beginPath();
     path(countryPath);
@@ -659,7 +666,7 @@ export class InteractiveGlobeAbsComponent implements OnInit {
   updateSelectedCountry(country) {
     let self = this;
     self.countryTexture.material = new THREE.MeshPhongMaterial({
-      map: self.selectedCountryTexture(country, 'orange'), 
+      map: self.selectedCountryTexture(country, 'steelBlue'), 
       transparent: true,
       side: THREE.DoubleSide
     });
@@ -689,7 +696,7 @@ export class InteractiveGlobeAbsComponent implements OnInit {
   }
 
   // Destroy
-  destroy() {
+  ngOnDestroy() {
     let self = this;
     self.play = false;
 
