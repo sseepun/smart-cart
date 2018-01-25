@@ -80,12 +80,12 @@
 
 <!-- Result page -->
 <ng-container *ngIf="page==11">
-    <app-result-page></app-result-page>
+    <app-result-page #resultPage></app-result-page>
 </ng-container>
 
 <!-- Future page -->
 <ng-container *ngIf="page==12">
-    <app-future-page [resources]="resources"></app-future-page>
+    <app-future-page #futurePage [resources]="resources"></app-future-page>
 </ng-container>
 
 <!-- Thank page -->

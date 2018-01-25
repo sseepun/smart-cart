@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"app-container\">\r\n\r\n<div class=\"page-selector\" align=\"middle\">\r\n    <span *ngFor=\"let p of pageDisplay; let i=index;\" (click)=\"changePage(pageArray[i])\"\r\n    [ngClass]=\"{'active':pageSelectClass(pageArray[i])}\">{{p}}</span>\r\n</div>\r\n\r\n<!-- Intro and population pages -->\r\n<ng-container *ngIf=\"page==0 || page==1\">\r\n    <app-introduction-page #introPage [page]=\"page\"></app-introduction-page>\r\n    <app-interactive-globe-abs #globe \r\n    [globeResources]=\"resources\"></app-interactive-globe-abs>\r\n    <!-- <app-interactive-globe #globe \r\n    [globeResources]=\"resources\"></app-interactive-globe> -->\r\n    <ng-container *ngIf=\"page==1\">\r\n        <div id=\"info-container1\">\r\n            <div class=\"headline stage-1\">\r\n                Expected global sales of \r\n                <br>healthy food products\r\n                <br>in 2017\r\n            </div>\r\n            <div class=\"infoline stage-1\">$1 trillion</div>\r\n        </div>\r\n        <div id=\"info-container2\">\r\n            <div class=\"headline stage-2\" align=\"right\">World population</div>\r\n            <div class=\"infoline stage-2\" align=\"right\">7.6 billion</div>\r\n\r\n            <div class=\"headline stage-3\" align=\"right\" style=\"padding-top:4vw;\">US population</div>\r\n            <div class=\"infoline stage-3\" align=\"right\">324 million</div>\r\n        </div>\r\n        <div class=\"main-statistic-source\">Source: Euromonitor International</div>\r\n    </ng-container>\r\n</ng-container>\r\n\r\n<!-- Statistic page -->\r\n<ng-container *ngIf=\"page==2\">\r\n    <app-usa-statistic-page #usaStatisticPage \r\n    [resources]=\"resources\"></app-usa-statistic-page>\r\n</ng-container>\r\n\r\n<!-- Grocery sale page -->\r\n<ng-container *ngIf=\"page==3\">\r\n    <app-grocery-sale-page #grocerySale></app-grocery-sale-page>\r\n</ng-container>\r\n\r\n<!-- Problem page -->\r\n<ng-container *ngIf=\"page==4\">\r\n    <app-problem-page #problemPage></app-problem-page>\r\n</ng-container>\r\n\r\n<!-- Survey page -->\r\n<ng-container *ngIf=\"page==5\">\r\n    <app-survey-page #surveyPage [resources]=\"resources\"></app-survey-page>\r\n</ng-container>\r\n\r\n<!-- Solution page -->\r\n<ng-container *ngIf=\"page==6\">\r\n    <app-solution-page #solutionPage [resources]=\"resources\"></app-solution-page>\r\n</ng-container>\r\n\r\n<!-- Machine learning/Big data page -->\r\n<ng-container *ngIf=\"page==7\">\r\n    <app-ml-bd-page [resources]=\"resources\"></app-ml-bd-page>\r\n</ng-container>\r\n\r\n<!-- Smart Cart page -->\r\n<ng-container *ngIf=\"page==8\">\r\n    <app-smart-cart-page #smartCartPage></app-smart-cart-page>\r\n</ng-container>\r\n\r\n<!-- Persona Mr.Mana page -->\r\n<ng-container *ngIf=\"page==9\">\r\n    <app-persona-mana-page #personaMana></app-persona-mana-page>\r\n</ng-container>\r\n\r\n<!-- Persona Miss Manee page -->\r\n<ng-container *ngIf=\"page==10\">\r\n    <app-persona-manee-page #personaManee></app-persona-manee-page>\r\n</ng-container>\r\n\r\n<!-- Result page -->\r\n<ng-container *ngIf=\"page==11\">\r\n    <app-result-page></app-result-page>\r\n</ng-container>\r\n\r\n<!-- Future page -->\r\n<ng-container *ngIf=\"page==12\">\r\n    <app-future-page [resources]=\"resources\"></app-future-page>\r\n</ng-container>\r\n\r\n<!-- Thank page -->\r\n<ng-container *ngIf=\"page==13\">\r\n    <app-thank-page #thanks></app-thank-page>\r\n</ng-container>\r\n\r\n<!-- Reference page -->\r\n<ng-container *ngIf=\"page==14\">\r\n    <app-reference-page></app-reference-page>\r\n</ng-container>\r\n\r\n</div>"
+module.exports = "<div id=\"app-container\">\r\n\r\n<div class=\"page-selector\" align=\"middle\">\r\n    <span *ngFor=\"let p of pageDisplay; let i=index;\" (click)=\"changePage(pageArray[i])\"\r\n    [ngClass]=\"{'active':pageSelectClass(pageArray[i])}\">{{p}}</span>\r\n</div>\r\n\r\n<!-- Intro and population pages -->\r\n<ng-container *ngIf=\"page==0 || page==1\">\r\n    <app-introduction-page #introPage [page]=\"page\"></app-introduction-page>\r\n    <app-interactive-globe-abs #globe \r\n    [globeResources]=\"resources\"></app-interactive-globe-abs>\r\n    <!-- <app-interactive-globe #globe \r\n    [globeResources]=\"resources\"></app-interactive-globe> -->\r\n    <ng-container *ngIf=\"page==1\">\r\n        <div id=\"info-container1\">\r\n            <div class=\"headline stage-1\">\r\n                Expected global sales of \r\n                <br>healthy food products\r\n                <br>in 2017\r\n            </div>\r\n            <div class=\"infoline stage-1\">$1 trillion</div>\r\n        </div>\r\n        <div id=\"info-container2\">\r\n            <div class=\"headline stage-2\" align=\"right\">World population</div>\r\n            <div class=\"infoline stage-2\" align=\"right\">7.6 billion</div>\r\n\r\n            <div class=\"headline stage-3\" align=\"right\" style=\"padding-top:4vw;\">US population</div>\r\n            <div class=\"infoline stage-3\" align=\"right\">324 million</div>\r\n        </div>\r\n        <div class=\"main-statistic-source\">Source: Euromonitor International</div>\r\n    </ng-container>\r\n</ng-container>\r\n\r\n<!-- Statistic page -->\r\n<ng-container *ngIf=\"page==2\">\r\n    <app-usa-statistic-page #usaStatisticPage \r\n    [resources]=\"resources\"></app-usa-statistic-page>\r\n</ng-container>\r\n\r\n<!-- Grocery sale page -->\r\n<ng-container *ngIf=\"page==3\">\r\n    <app-grocery-sale-page #grocerySale></app-grocery-sale-page>\r\n</ng-container>\r\n\r\n<!-- Problem page -->\r\n<ng-container *ngIf=\"page==4\">\r\n    <app-problem-page #problemPage></app-problem-page>\r\n</ng-container>\r\n\r\n<!-- Survey page -->\r\n<ng-container *ngIf=\"page==5\">\r\n    <app-survey-page #surveyPage [resources]=\"resources\"></app-survey-page>\r\n</ng-container>\r\n\r\n<!-- Solution page -->\r\n<ng-container *ngIf=\"page==6\">\r\n    <app-solution-page #solutionPage [resources]=\"resources\"></app-solution-page>\r\n</ng-container>\r\n\r\n<!-- Machine learning/Big data page -->\r\n<ng-container *ngIf=\"page==7\">\r\n    <app-ml-bd-page [resources]=\"resources\"></app-ml-bd-page>\r\n</ng-container>\r\n\r\n<!-- Smart Cart page -->\r\n<ng-container *ngIf=\"page==8\">\r\n    <app-smart-cart-page #smartCartPage></app-smart-cart-page>\r\n</ng-container>\r\n\r\n<!-- Persona Mr.Mana page -->\r\n<ng-container *ngIf=\"page==9\">\r\n    <app-persona-mana-page #personaMana></app-persona-mana-page>\r\n</ng-container>\r\n\r\n<!-- Persona Miss Manee page -->\r\n<ng-container *ngIf=\"page==10\">\r\n    <app-persona-manee-page #personaManee></app-persona-manee-page>\r\n</ng-container>\r\n\r\n<!-- Result page -->\r\n<ng-container *ngIf=\"page==11\">\r\n    <app-result-page #resultPage></app-result-page>\r\n</ng-container>\r\n\r\n<!-- Future page -->\r\n<ng-container *ngIf=\"page==12\">\r\n    <app-future-page #futurePage [resources]=\"resources\"></app-future-page>\r\n</ng-container>\r\n\r\n<!-- Thank page -->\r\n<ng-container *ngIf=\"page==13\">\r\n    <app-thank-page #thanks></app-thank-page>\r\n</ng-container>\r\n\r\n<!-- Reference page -->\r\n<ng-container *ngIf=\"page==14\">\r\n    <app-reference-page></app-reference-page>\r\n</ng-container>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -69,7 +69,7 @@ var AppComponent = (function () {
         this.pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
         this.pageDisplay = ['intro', 'population', 'statistic', 'sale', 'problem', 'survey', 'solution',
             'bd ml', 'smart cart', 'mana', 'manee', 'result', 'future', 'thanks', 'references'];
-        this.page = 11;
+        this.page = 0;
         this.stage = 0;
     }
     AppComponent.prototype.ngOnInit = function () {
@@ -148,6 +148,10 @@ var AppComponent = (function () {
             self.personaMana.appNextPage();
         else if (self.page == 10 && self.personaManee.appPage != 'Summary')
             self.personaManee.appNextPage();
+        else if (self.page == 11 && self.stage < 6)
+            self.resultPage.nextStage();
+        else if (self.page == 12 && self.stage < 4)
+            self.futurePage.nextStage();
         else if (self.page == 13 && self.stage < 4)
             self.thanks.nextStage();
         else
@@ -169,6 +173,10 @@ var AppComponent = (function () {
                 self.surveyPage.changeSurveyType(self.stage);
             else if (self.page == 6)
                 self.solutionPage.previousStage();
+            else if (self.page == 11)
+                self.resultPage.previousStage();
+            else if (self.page == 12)
+                self.futurePage.previousStage();
             else if (self.page == 13)
                 self.thanks.previousStage();
         }
@@ -218,6 +226,10 @@ var AppComponent = (function () {
                 self.personaManee.appReset();
             }
         }
+        else if (self.page == 11)
+            self.resultPage.initStage();
+        else if (self.page == 12)
+            self.futurePage.initStage();
         else if (self.page == 13)
             self.thanks.initStage();
     };
@@ -303,6 +315,14 @@ __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('personaManee'),
     __metadata("design:type", Object)
 ], AppComponent.prototype, "personaManee", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('resultPage'),
+    __metadata("design:type", Object)
+], AppComponent.prototype, "resultPage", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('futurePage'),
+    __metadata("design:type", Object)
+], AppComponent.prototype, "futurePage", void 0);
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('thanks'),
     __metadata("design:type", Object)
@@ -1023,7 +1043,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#future-page {\r\n    padding-top: 5vw;\r\n}\r\n\r\n.headline {\r\n    font-size: 4vw;\r\n    background: -webkit-linear-gradient(white, steelblue);\r\n    /* background: -webkit-linear-gradient(#d3e1ed, #0169be); */\r\n    -webkit-background-clip: text;\r\n    -webkit-text-fill-color: transparent;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n}\r\n\r\n#interactive-globe-half {\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: -20;\r\n}", ""]);
+exports.push([module.i, "#future-page {\r\n    padding-top: 5vw;\r\n}\r\n\r\n.headline {\r\n    font-size: 4vw;\r\n    background: -webkit-linear-gradient(white, steelblue);\r\n    /* background: -webkit-linear-gradient(#d3e1ed, #0169be); */\r\n    -webkit-background-clip: text;\r\n    -webkit-text-fill-color: transparent;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n    margin-bottom: 4vw;\r\n}\r\n\r\n#interactive-globe-half {\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: -20;\r\n}\r\n\r\n.direction-text {\r\n    /* background: -webkit-linear-gradient(white, rgb(135, 180, 218));\r\n    -webkit-background-clip: text;\r\n    -webkit-text-fill-color: transparent; */\r\n    font-size: 3.4vw;\r\n    font-weight: 400;\r\n    margin-bottom: 2.8vw;\r\n    opacity: 0;\r\n    transition: opacity 0.8s;\r\n}", ""]);
 
 // exports
 
@@ -1036,7 +1056,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/future-page/future-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"future-page\" class=\"wow fadeInLeft\">\r\n  <div class=\"headline\" align=\"middle\">\r\n    Future Direction\r\n  </div>\r\n\r\n  <div id=\"interactive-globe-half\" *ngIf=\"resources !== undefined\">\r\n    <app-interactive-globe-half [globeResources]=\"resources\"></app-interactive-globe-half>\r\n  </div>\r\n\r\n</div>\r\n"
+module.exports = "<div id=\"future-page\" class=\"wow fadeInLeft\">\r\n  <div class=\"headline\" align=\"middle\">\r\n    Future Direction\r\n  </div>\r\n\r\n  <div id=\"interactive-globe-half\" *ngIf=\"resources !== undefined\">\r\n    <app-interactive-globe-half [globeResources]=\"resources\"></app-interactive-globe-half>\r\n  </div>\r\n\r\n  <div class=\"direction-text\" id=\"stage1\" align=\"middle\">\r\n    Work with Nutritionists\r\n  </div>\r\n  <div class=\"direction-text\" id=\"stage2\" align=\"middle\">\r\n    Prototype in Shopping Cart\r\n  </div>\r\n  <div class=\"direction-text\" id=\"stage3\" align=\"middle\">\r\n    Improve ML Algorithm\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1046,6 +1066,7 @@ module.exports = "<div id=\"future-page\" class=\"wow fadeInLeft\">\r\n  <div cl
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FuturePageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_d3__ = __webpack_require__("../../../../d3/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1056,10 +1077,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var FuturePageComponent = (function () {
-    function FuturePageComponent() {
+    function FuturePageComponent(element) {
+        this.element = element;
+        this.stage = 0;
     }
     FuturePageComponent.prototype.ngOnInit = function () {
+        this.host = __WEBPACK_IMPORTED_MODULE_1_d3__["n" /* select */](this.element.nativeElement);
+    };
+    FuturePageComponent.prototype.nextStage = function () {
+        var self = this;
+        self.stage++;
+        var current = self.host.select('#stage' + self.stage);
+        if (!current.empty())
+            current.style('opacity', 1);
+    };
+    FuturePageComponent.prototype.previousStage = function () {
+        var self = this;
+        self.stage--;
+        var current = self.host.select('#stage' + (self.stage + 1));
+        if (!current.empty())
+            current.style('opacity', 0);
+    };
+    FuturePageComponent.prototype.initStage = function () {
+        var self = this;
+        self.stage = 0;
+        self.host.select('#stage1').style('opacity', 0);
+        self.host.select('#stage2').style('opacity', 0);
+        self.host.select('#stage3').style('opacity', 0);
     };
     return FuturePageComponent;
 }());
@@ -1073,9 +1119,10 @@ FuturePageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/future-page/future-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/future-page/future-page.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */]) === "function" && _a || Object])
 ], FuturePageComponent);
 
+var _a;
 //# sourceMappingURL=future-page.component.js.map
 
 /***/ }),
@@ -2719,7 +2766,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/introduction-page/introduction-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"introduction-page\">\n  <div id=\"slide-info\">\n    <div id=\"slide-title\">\n      Personalized Assistant for Health-Conscious Grocery Shoppers\n    </div>\n    <div id=\"slide-author\" align=\"right\">\n      By <span style=\"color:steelBlue; font-weight:600;\">Sarun Seepun</span>\n      <br><span class=\"less-imp\">Applied Mathematics / Machine Learning</span>\n      <br><span class=\"less-imp\">At Claremont Graduate University</span>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div id=\"introduction-page\">\n  <div id=\"slide-info\">\n    <div id=\"slide-title\">\n      Personalized Assistant for Health-Conscious Grocery Shoppers\n    </div>\n    <div id=\"slide-author\" align=\"right\">\n      By <span style=\"color:steelBlue; font-weight:600;\">Sarun Seepun</span> et al.\n      <br><span class=\"less-imp\">Applied Mathematics / Machine Learning</span>\n      <br><span class=\"less-imp\">At Claremont Graduate University</span>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2895,10 +2942,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var PercentBarchartComponent = (function () {
     function PercentBarchartComponent(element) {
         this.element = element;
         this.counter = 0;
+        this.stage = 0;
+        this.isDone = false;
+        this.isDoneOutput = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.outWidth = 1000;
         this.outHeight = 60;
         this.marginPercent = 0;
@@ -2929,11 +2980,12 @@ var PercentBarchartComponent = (function () {
             culmulSum.push(dataSum);
             dataSum += d.value;
         });
-        var scaleX = __WEBPACK_IMPORTED_MODULE_1_d3__["m" /* scaleLinear */]().range([0, self.width]).domain([0, dataSum]), barH = self.height;
+        var scaleX = __WEBPACK_IMPORTED_MODULE_1_d3__["m" /* scaleLinear */]().range([0, self.width]).domain([0, dataSum]);
         self.spec = {
             animTime: 500,
             scaleX: scaleX,
-            barH: barH,
+            barH: self.height * 0.6,
+            fullH: self.height,
             sum: dataSum,
             culmulSum: culmulSum
         };
@@ -2960,16 +3012,17 @@ var PercentBarchartComponent = (function () {
             return 'translate(' + xPos + ',0)';
         });
         bars.append('rect')
+            .attr('y', (self.spec.fullH - self.spec.barH) / 2)
             .attr('width', 0).attr('height', self.spec.barH)
             .style('fill', function (d) { return d.color; });
         bars.append('text').attr('class', 'label')
             .attr('text-anchor', 'middle')
-            .attr('y', self.spec.barH * 0.75)
+            .attr('y', self.spec.fullH * 0.65)
             .attr('x', function (d) { return self.spec.scaleX(d.value) / 2; })
-            .style('font-size', 0.6 * self.height).style('fill', '#fffff0')
+            .style('font-size', 0.8 * self.spec.barH).style('fill', '#fffff0')
             .attr('opacity', 0).attr('pointer-events', 'none')
             .text(function (d) { return Math.round(d.value / self.spec.sum * 100) + '%'; });
-        __WEBPACK_IMPORTED_MODULE_1_d3__["o" /* timeout */](function () { self.initAnimate(); }, 1000);
+        __WEBPACK_IMPORTED_MODULE_1_d3__["o" /* timeout */](function () { self.initAnimate(); }, 800);
     };
     PercentBarchartComponent.prototype.initAnimate = function () {
         var self = this;
@@ -2988,6 +3041,61 @@ var PercentBarchartComponent = (function () {
                 __WEBPACK_IMPORTED_MODULE_1_d3__["o" /* timeout */](function () { self.initAnimate(); }, self.spec.animTime * 1.3);
             }
         }
+        else {
+            self.isDone = true;
+            self.isDoneOutput.emit(true);
+        }
+    };
+    PercentBarchartComponent.prototype.nextStage = function () {
+        if (this.isDone) {
+            this.stage = __WEBPACK_IMPORTED_MODULE_1_d3__["k" /* min */]([this.graphSpec.data.length + 1, this.stage + 1]);
+            this.applyStageChange();
+        }
+    };
+    PercentBarchartComponent.prototype.previousStahe = function () {
+        if (this.isDone) {
+            this.stage = __WEBPACK_IMPORTED_MODULE_1_d3__["j" /* max */]([0, this.stage - 1]);
+            this.applyStageChange();
+        }
+    };
+    PercentBarchartComponent.prototype.initStage = function () {
+        if (this.isDone) {
+            this.stage = 0;
+            this.applyStageChange();
+        }
+    };
+    PercentBarchartComponent.prototype.applyStageChange = function () {
+        var self = this;
+        var bar = self.workSpace.selectAll('g.bar');
+        if (self.stage == 0 || self.stage == this.graphSpec.data.length + 1) {
+            bar.select('rect').transition().duration(self.spec.animTime / 2)
+                .attr('y', (self.spec.fullH - self.spec.barH) / 2)
+                .attr('height', self.spec.barH);
+            bar.transition().duration(self.spec.animTime / 2)
+                .attr('opacity', 1);
+        }
+        else {
+            bar.select('rect').transition().duration(self.spec.animTime / 2)
+                .attr('y', function (d, i) {
+                if (i == self.stage - 1)
+                    return 0;
+                else
+                    return (self.spec.fullH - self.spec.barH) / 2;
+            })
+                .attr('height', function (d, i) {
+                if (i == self.stage - 1)
+                    return self.spec.fullH;
+                else
+                    return self.spec.barH;
+            });
+            bar.transition().duration(self.spec.animTime / 2)
+                .attr('opacity', function (d, i) {
+                if (i == self.stage - 1)
+                    return 1;
+                else
+                    return 0.3;
+            });
+        }
     };
     return PercentBarchartComponent;
 }());
@@ -2995,6 +3103,10 @@ __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
     __metadata("design:type", Object)
 ], PercentBarchartComponent.prototype, "graphSpec", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Output */])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]) === "function" && _a || Object)
+], PercentBarchartComponent.prototype, "isDoneOutput", void 0);
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
     __metadata("design:type", Object)
@@ -3013,10 +3125,10 @@ PercentBarchartComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/percent-barchart/percent-barchart.component.html"),
         styles: [__webpack_require__("../../../../../src/app/percent-barchart/percent-barchart.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */]) === "function" && _b || Object])
 ], PercentBarchartComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=percent-barchart.component.js.map
 
 /***/ }),
@@ -3382,7 +3494,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#result-page {\r\n    padding-top: 5vw;\r\n}\r\n\r\n.headline {\r\n    font-size: 4vw;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n    background: -webkit-linear-gradient(#d3e1ed, #0169be);\r\n    -webkit-background-clip: text;\r\n    -webkit-text-fill-color: transparent;\r\n}\r\n\r\n.pb-container {\r\n    padding: 0 4vw 0 4vw;\r\n}\r\n\r\n.product {\r\n    padding: 0 0 2vw 0;\r\n    width: auto;\r\n    height: 20vw;\r\n}\r\n/* #preview1 {\r\n    width: 40%;\r\n}\r\n#preview2 {\r\n    width: 40%;\r\n}\r\n#preview3 {\r\n    width: 30%;\r\n}\r\n#preview4 {\r\n    width: 25%;\r\n} */\r\n", ""]);
+exports.push([module.i, "#result-page {\r\n    padding-top: 5vw;\r\n}\r\n\r\n.headline {\r\n    font-size: 4vw;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n    /* background: -webkit-linear-gradient(#d3e1ed, #0169be);\r\n    -webkit-background-clip: text;\r\n    -webkit-text-fill-color: transparent; */\r\n    color: #fffff0;\r\n    padding-bottom: 3.5vw;\r\n}\r\n\r\n.pb-container {\r\n    padding: 0 7vw 0 4vw;\r\n}\r\n.pb-slot {\r\n    /* padding-top: 1vw; */\r\n}\r\n\r\n.product {\r\n    padding: 0 0 2vw 0;\r\n    width: 60%;\r\n    height: auto;\r\n}\r\n#preview1 {\r\n    width: 36%;\r\n}\r\n#preview2 {\r\n    width: 34.5%;\r\n}\r\n#preview3 {\r\n    width: 32%;\r\n}\r\n#preview4 {\r\n    width: 22%;\r\n}\r\n#preview5 {\r\n    width: 55%;\r\n}\r\n#preview6 {\r\n    width: 55%;\r\n}\r\n", ""]);
 
 // exports
 
@@ -3395,7 +3507,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/result-page/result-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"result-page\" class=\"wow fadeInLeft\">\r\n  <div class=\"headline\" align=\"middle\">\r\n    Result\r\n  </div>\r\n\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview1\" src=\"assets/img/products/preview/hotdog.PNG\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10\">\r\n      <app-percent-barchart [graphSpec]=\"graphHotDog\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview2\" src=\"assets/img/products/preview/bread.png\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10\">\r\n      <app-percent-barchart [graphSpec]=\"graphBread\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview3\" src=\"assets/img/products/preview/choc_ice_cream.png\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10\">\r\n      <app-percent-barchart [graphSpec]=\"graphChocIceCream\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview4\" src=\"assets/img/products/preview/orange_juice.png\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10\">\r\n      <app-percent-barchart [graphSpec]=\"graphOrangeJuice\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview5\" src=\"assets/img/products/preview/vegetables.png\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10\">\r\n      <app-percent-barchart [graphSpec]=\"graphVeggies\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview6\" src=\"assets/img/products/preview/fruits.png\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10\">\r\n      <app-percent-barchart [graphSpec]=\"graphFruits\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n"
+module.exports = "<div id=\"result-page\" class=\"wow fadeInLeft\">\r\n  <div class=\"headline\" align=\"middle\" [ngStyle]=\"{'color':titleColor()}\">\r\n    {{title}}\r\n  </div>\r\n\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview1\" src=\"assets/img/products/preview/hotdog.PNG\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot\">\r\n      <app-percent-barchart #bar1 [graphSpec]=\"graphHotDog\"\r\n      (isDoneOutput)=\"processIsDone($event)\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview2\" src=\"assets/img/products/preview/bread.png\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot\">\r\n      <app-percent-barchart #bar2 [graphSpec]=\"graphBread\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview3\" src=\"assets/img/products/preview/choc_ice_cream.png\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot\">\r\n      <app-percent-barchart #bar3 [graphSpec]=\"graphChocIceCream\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview4\" src=\"assets/img/products/preview/orange_juice.png\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot\">\r\n      <app-percent-barchart #bar4 [graphSpec]=\"graphOrangeJuice\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview5\" src=\"assets/img/products/preview/vegetables.png\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot\">\r\n      <app-percent-barchart #bar5 [graphSpec]=\"graphVeggies\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n  <div class=\"row pb-container\">\r\n    <div class=\"col-xs-2 col-sm-2 col-md-2 col-lg-2\" align=\"center\">\r\n      <img class=\"product\" id=\"preview6\" src=\"assets/img/products/preview/fruits.png\">\r\n    </div>\r\n    <div class=\"col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot\">\r\n      <app-percent-barchart #bar6 [graphSpec]=\"graphFruits\"></app-percent-barchart>      \r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -3417,6 +3529,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ResultPageComponent = (function () {
     function ResultPageComponent() {
+        this.stage = 0;
+        this.title = 'Result';
+        this.isDone = false;
     }
     ResultPageComponent.prototype.ngOnInit = function () {
         this.setupGraphSpec();
@@ -3489,8 +3604,95 @@ var ResultPageComponent = (function () {
             }
         };
     };
+    ResultPageComponent.prototype.processIsDone = function (e) {
+        this.isDone = e;
+    };
+    ResultPageComponent.prototype.nextStage = function () {
+        if (this.isDone) {
+            this.bar1.nextStage();
+            this.bar2.nextStage();
+            this.bar3.nextStage();
+            this.bar4.nextStage();
+            this.bar5.nextStage();
+            this.bar6.nextStage();
+            this.stage = Math.min(5, this.stage + 1);
+            this.updateTitle();
+        }
+    };
+    ResultPageComponent.prototype.previousStage = function () {
+        if (this.isDone) {
+            this.bar1.previousStahe();
+            this.bar2.previousStahe();
+            this.bar3.previousStahe();
+            this.bar4.previousStahe();
+            this.bar5.previousStahe();
+            this.bar6.previousStahe();
+            this.stage = Math.max(0, this.stage - 1);
+            this.updateTitle();
+        }
+    };
+    ResultPageComponent.prototype.initStage = function () {
+        if (this.isDone) {
+            this.bar1.initStage();
+            this.bar2.initStage();
+            this.bar3.initStage();
+            this.bar4.initStage();
+            this.bar5.initStage();
+            this.bar6.initStage();
+            this.stage = 0;
+            this.updateTitle();
+        }
+    };
+    ResultPageComponent.prototype.updateTitle = function () {
+        if (this.stage == 0 || this.stage == 5)
+            this.title = 'Result';
+        else if (this.stage == 1)
+            this.title = 'Already Pick 5-Star';
+        else if (this.stage == 2)
+            this.title = "Won't Change";
+        else if (this.stage == 3)
+            this.title = 'Non 5-Star Alternative';
+        else if (this.stage == 4)
+            this.title = 'Change to 5-Star';
+    };
+    ResultPageComponent.prototype.titleColor = function () {
+        if (this.stage == 0 || this.stage == 5)
+            return '#fffff0';
+        else if (this.stage == 1)
+            return '#71a9db';
+        else if (this.stage == 2)
+            return '#f58a4c';
+        else if (this.stage == 3)
+            return '#adadad';
+        else if (this.stage == 4)
+            return '#ffc52d';
+    };
     return ResultPageComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('bar1'),
+    __metadata("design:type", Object)
+], ResultPageComponent.prototype, "bar1", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('bar2'),
+    __metadata("design:type", Object)
+], ResultPageComponent.prototype, "bar2", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('bar3'),
+    __metadata("design:type", Object)
+], ResultPageComponent.prototype, "bar3", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('bar4'),
+    __metadata("design:type", Object)
+], ResultPageComponent.prototype, "bar4", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('bar5'),
+    __metadata("design:type", Object)
+], ResultPageComponent.prototype, "bar5", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewChild */])('bar6'),
+    __metadata("design:type", Object)
+], ResultPageComponent.prototype, "bar6", void 0);
 ResultPageComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-result-page',
@@ -4793,7 +4995,7 @@ var SolutionPageComponent = (function () {
     SolutionPageComponent.prototype.nextStage = function () {
         this.nfStage++;
         if (this.nfStage == 4) {
-            this.host.select('#particles-js').style('opacity', 0.8);
+            this.host.select('#particles-js').style('opacity', 0.4);
             this.host.selectAll('.star-tag').style('opacity', 0);
         }
         else if (this.nfStage == 5) {
@@ -4808,7 +5010,7 @@ var SolutionPageComponent = (function () {
     SolutionPageComponent.prototype.previousStage = function () {
         this.nfStage--;
         if (this.nfStage == 4) {
-            this.host.select('#particles-js').style('opacity', 0.8);
+            this.host.select('#particles-js').style('opacity', 0.4);
             this.host.selectAll('.star-tag').style('opacity', 0);
         }
         else if (this.nfStage == 5) {
@@ -5013,7 +5215,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#thank-page {\r\n    padding-top: 5vw;\r\n    z-index: 100;\r\n}\r\n\r\n.headline {\r\n    font-size: 4vw;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n    transition: opacity 1s;\r\n}\r\n\r\n#link-info {\r\n    font-size: 4.6vw;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n    padding-top: 18vw;     \r\n    transition: opacity 1s;\r\n}\r\n\r\n#thanks {\r\n    font-size: 14vw;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n    position: absolute;\r\n    width: 100%;\r\n    top: calc(50% - 9vw);\r\n    opacity: 0;\r\n    background: #ffffff0c;\r\n    transition: opacity 1s;\r\n}\r\n\r\n#company-video {\r\n    position: absolute;\r\n    display: inline;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: -10;\r\n    opacity: 1;\r\n}\r\n\r\nspan.special {\r\n    background: -webkit-linear-gradient(#d3e1ed, #0169be);\r\n    -webkit-background-clip: text;\r\n    -webkit-text-fill-color: transparent;\r\n}", ""]);
+exports.push([module.i, "#thank-page {\r\n    padding-top: 5vw;\r\n    z-index: 100;\r\n}\r\n\r\n.headline {\r\n    font-size: 4vw;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n    transition: opacity 1s;\r\n}\r\n\r\n#link-info {\r\n    font-size: 4.6vw;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n    padding-top: 12vw;\r\n    line-height: 8vw;     \r\n    transition: opacity 1s;\r\n}\r\nspan.small {\r\n    font-size: 4vw;\r\n}\r\n\r\n#thanks {\r\n    font-size: 14vw;\r\n    font-weight: 600;\r\n    pointer-events: none;\r\n    position: absolute;\r\n    width: 100%;\r\n    top: calc(50% - 9vw);\r\n    opacity: 0;\r\n    background: #ffffff0c;\r\n    transition: opacity 1s;\r\n}\r\n\r\n#company-video {\r\n    position: absolute;\r\n    display: inline;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: -10;\r\n    opacity: 1;\r\n}\r\n\r\nspan.special {\r\n    background: -webkit-linear-gradient(#d3e1ed, #0169be);\r\n    -webkit-background-clip: text;\r\n    -webkit-text-fill-color: transparent;\r\n}", ""]);
 
 // exports
 
@@ -5026,7 +5228,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/thank-page/thank-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"thank-page\" class=\"wow fadeInLeft\">\r\n  <div class=\"headline\" align=\"middle\">\r\n    For More Information\r\n  </div>\r\n\r\n  <div id=\"link-info\" align=\"middle\">\r\n    www.<span class=\"special\">thebigdatasolution.com</span>/smartcart\r\n  </div>\r\n\r\n  <div id=\"thanks\" align=\"middle\">\r\n    THANK <span class=\"special\">YOU</span>\r\n  <div>\r\n\r\n</div>\r\n"
+module.exports = "<div id=\"thank-page\" class=\"wow fadeInLeft\">\r\n  <div class=\"headline\" align=\"middle\">\r\n    For More Information\r\n  </div>\r\n\r\n  <div id=\"link-info\" align=\"middle\">\r\n    www.<span class=\"special\">thebigdatasolution.com</span>/smartcart\r\n    <br><span class=\"small\">Or</span>\r\n    <br><span class=\"special\">SpringerLink</span> Publication\r\n  </div>\r\n\r\n  <div id=\"thanks\" align=\"middle\">\r\n    THANK <span class=\"special\">YOU</span>\r\n  <div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 

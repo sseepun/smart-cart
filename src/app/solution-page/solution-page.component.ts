@@ -24,7 +24,7 @@ export class SolutionPageComponent implements OnInit {
   nextStage() {
     this.nfStage++;
     if (this.nfStage==4) {
-      this.host.select('#particles-js').style('opacity', 0.8);
+      this.host.select('#particles-js').style('opacity', 0.4);
       this.host.selectAll('.star-tag').style('opacity', 0);
     } else if (this.nfStage==5) {
       this.host.select('#particles-js').style('opacity', 0);
@@ -37,7 +37,7 @@ export class SolutionPageComponent implements OnInit {
   previousStage() {
     this.nfStage--;
     if (this.nfStage==4) {
-      this.host.select('#particles-js').style('opacity', 0.8);
+      this.host.select('#particles-js').style('opacity', 0.4);
       this.host.selectAll('.star-tag').style('opacity', 0);
     } else if (this.nfStage==5) {
       this.host.select('#particles-js').style('opacity', 0);

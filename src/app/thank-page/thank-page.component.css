@@ -14,8 +14,12 @@
     font-size: 4.6vw;
     font-weight: 600;
     pointer-events: none;
-    padding-top: 18vw;     
+    padding-top: 12vw;
+    line-height: 8vw;     
     transition: opacity 1s;
+}
+span.small {
+    font-size: 4vw;
 }
 
 #thanks {

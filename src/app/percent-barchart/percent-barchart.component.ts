@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { EventEmitter, Output } from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -11,6 +12,9 @@ export class PercentBarchartComponent implements OnInit {
   @Input() graphSpec: GraphSpec;
   private spec: Spec; // Internal variables
   private counter = 0;
+  private stage = 0;
+  private isDone = false;
+  @Output() isDoneOutput: EventEmitter<any> = new EventEmitter();
 
   @Input() outWidth = 1000;
   @Input() outHeight = 60;
@@ -57,13 +61,13 @@ export class PercentBarchartComponent implements OnInit {
       culmulSum.push(dataSum);
       dataSum += d.value
     });
-    var scaleX = d3.scaleLinear().range([0, self.width]).domain([0, dataSum]),
-        barH = self.height;
+    var scaleX = d3.scaleLinear().range([0, self.width]).domain([0, dataSum]);
     
     self.spec = {
       animTime: 500,
       scaleX: scaleX,
-      barH: barH,
+      barH: self.height*0.6,
+      fullH: self.height,
       sum: dataSum,
       culmulSum: culmulSum
     };
@@ -92,17 +96,18 @@ export class PercentBarchartComponent implements OnInit {
         return 'translate('+xPos+',0)';
       });
     bars.append('rect')
+      .attr('y', (self.spec.fullH-self.spec.barH)/2)
       .attr('width', 0).attr('height', self.spec.barH)
       .style('fill', d=>{return d.color});
     bars.append('text').attr('class', 'label')
       .attr('text-anchor', 'middle')
-      .attr('y', self.spec.barH*0.75)
+      .attr('y', self.spec.fullH*0.65)
       .attr('x', d=>{return self.spec.scaleX(d.value)/2})
-      .style('font-size', 0.6*self.height).style('fill', '#fffff0')
+      .style('font-size', 0.8*self.spec.barH).style('fill', '#fffff0')
       .attr('opacity', 0).attr('pointer-events', 'none')
       .text(d=>{return Math.round(d.value/self.spec.sum*100)+'%'});
     
-    d3.timeout(()=>{self.initAnimate()}, 1000)
+    d3.timeout(()=>{self.initAnimate()}, 800)
   }
   initAnimate() {
     let self = this;
@@ -120,6 +125,54 @@ export class PercentBarchartComponent implements OnInit {
         self.counter++;
         d3.timeout(()=>{self.initAnimate()}, self.spec.animTime*1.3);
       }
+    } else {
+      self.isDone = true;
+      self.isDoneOutput.emit(true);
+    }
+  }
+
+  nextStage() {
+    if (this.isDone) {
+      this.stage = d3.min([this.graphSpec.data.length+1, this.stage+1]);
+      this.applyStageChange(); 
+    }
+  }
+  previousStahe() {
+    if (this.isDone) {
+      this.stage = d3.max([0, this.stage-1]);
+      this.applyStageChange();
+    }
+  }
+  initStage() {
+    if (this.isDone) {
+      this.stage = 0;
+      this.applyStageChange();
+    }
+  }
+  applyStageChange() {
+    let self = this;
+    var bar = self.workSpace.selectAll('g.bar');
+    if (self.stage==0 || self.stage==this.graphSpec.data.length+1) {
+      bar.select('rect').transition().duration(self.spec.animTime/2)
+        .attr('y', (self.spec.fullH-self.spec.barH)/2)
+        .attr('height', self.spec.barH);
+      bar.transition().duration(self.spec.animTime/2)
+        .attr('opacity', 1);
+    } else {
+      bar.select('rect').transition().duration(self.spec.animTime/2)
+        .attr('y', (d,i)=>{
+          if (i==self.stage-1) return 0;
+          else return (self.spec.fullH-self.spec.barH)/2;
+        })
+        .attr('height', (d,i)=>{
+          if (i==self.stage-1) return self.spec.fullH;
+          else return self.spec.barH;
+        });
+      bar.transition().duration(self.spec.animTime/2)
+        .attr('opacity', (d,i)=>{
+          if (i==self.stage-1) return 1;
+          else return 0.3;
+        });
     }
   }
 
@@ -134,6 +187,7 @@ interface Spec {
   animTime,
   scaleX,
   barH,
+  fullH,
   sum,
   culmulSum
 }

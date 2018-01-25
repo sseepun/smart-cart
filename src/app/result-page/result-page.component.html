@@ -1,54 +1,55 @@
 <div id="result-page" class="wow fadeInLeft">
-  <div class="headline" align="middle">
-    Result
+  <div class="headline" align="middle" [ngStyle]="{'color':titleColor()}">
+    {{title}}
   </div>
 
   <div class="row pb-container">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" align="center">
       <img class="product" id="preview1" src="assets/img/products/preview/hotdog.PNG">
     </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-      <app-percent-barchart [graphSpec]="graphHotDog"></app-percent-barchart>      
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot">
+      <app-percent-barchart #bar1 [graphSpec]="graphHotDog"
+      (isDoneOutput)="processIsDone($event)"></app-percent-barchart>      
     </div>
   </div>
   <div class="row pb-container">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" align="center">
       <img class="product" id="preview2" src="assets/img/products/preview/bread.png">
     </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-      <app-percent-barchart [graphSpec]="graphBread"></app-percent-barchart>      
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot">
+      <app-percent-barchart #bar2 [graphSpec]="graphBread"></app-percent-barchart>      
     </div>
   </div>
   <div class="row pb-container">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" align="center">
       <img class="product" id="preview3" src="assets/img/products/preview/choc_ice_cream.png">
     </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-      <app-percent-barchart [graphSpec]="graphChocIceCream"></app-percent-barchart>      
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot">
+      <app-percent-barchart #bar3 [graphSpec]="graphChocIceCream"></app-percent-barchart>      
     </div>
   </div>
   <div class="row pb-container">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" align="center">
       <img class="product" id="preview4" src="assets/img/products/preview/orange_juice.png">
     </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-      <app-percent-barchart [graphSpec]="graphOrangeJuice"></app-percent-barchart>      
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot">
+      <app-percent-barchart #bar4 [graphSpec]="graphOrangeJuice"></app-percent-barchart>      
     </div>
   </div>
   <div class="row pb-container">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" align="center">
       <img class="product" id="preview5" src="assets/img/products/preview/vegetables.png">
     </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-      <app-percent-barchart [graphSpec]="graphVeggies"></app-percent-barchart>      
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot">
+      <app-percent-barchart #bar5 [graphSpec]="graphVeggies"></app-percent-barchart>      
     </div>
   </div>
   <div class="row pb-container">
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" align="center">
       <img class="product" id="preview6" src="assets/img/products/preview/fruits.png">
     </div>
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-      <app-percent-barchart [graphSpec]="graphFruits"></app-percent-barchart>      
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 pb-slot">
+      <app-percent-barchart #bar6 [graphSpec]="graphFruits"></app-percent-barchart>      
     </div>
   </div>
 
