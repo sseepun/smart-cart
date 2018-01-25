@@ -30,6 +30,7 @@ import { ThankPageComponent } from './thank-page/thank-page.component';
 import { InteractiveGlobeAbsComponent } from './interactive-globe-abs/interactive-globe-abs.component';
 import { InteractiveGlobeHalfComponent } from './interactive-globe-half/interactive-globe-half.component';
 import { PercentBarchartComponent } from './percent-barchart/percent-barchart.component';
+import { ScatterBgComponent } from './scatter-bg/scatter-bg.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { PercentBarchartComponent } from './percent-barchart/percent-barchart.co
     ThankPageComponent,
     InteractiveGlobeAbsComponent,
     InteractiveGlobeHalfComponent,
-    PercentBarchartComponent
+    PercentBarchartComponent,
+    ScatterBgComponent
   ],
   imports: [
     BrowserModule,

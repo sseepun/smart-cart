@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-declare var particlesJS: any;
+// declare var particlesJS: any;
 
 @Component({
   selector: 'app-ml-bd-page',
@@ -12,7 +12,7 @@ export class MlBdPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    particlesJS.load('particles-js', this.resources.particleFile, null);
+    // particlesJS.load('particles-js', this.resources.particleFile, null);
   }
 
 }
