@@ -1,0 +1,43 @@
+<div id="survey-page" class="wow fadeInLeft">
+
+    <div id="usa-map-container">
+      <app-usa-map-static [resources]="resources"></app-usa-map-static>
+    </div>
+
+    <div class="headline" align="middle">
+      Health-Conscious Consumers
+    </div>
+
+    <div id="survey-selector-container" class="row">
+      <div class="col-xs-4 col-sm-4 colr-md-4 col-lg-4 survey-selector" align="middle"
+      (click)="changeSurveyType(0)">
+        <span [ngClass]="{'active':spanActive(0)}">Too many</span>
+      </div>
+      <div class="col-xs-4 col-sm-4 colr-md-4 col-lg-4 survey-selector" align="middle"
+      (click)="changeSurveyType(1)">
+        <span [ngClass]="{'active':spanActive(1)}">Overwhelmed</span>
+      </div>
+      <div class="col-xs-4 col-sm-4 colr-md-4 col-lg-4 survey-selector" align="middle"
+      (click)="changeSurveyType(2)">
+        <span [ngClass]="{'active':spanActive(2)}">Willing to pay</span>
+      </div>
+    </div>
+
+    <div id="survey-scale"></div>
+
+    <div id="survey-info-div">
+      <div class="survey-header" align="right">
+        Survey participants
+      </div>
+      <div class="survey-info" align="right">{{surveyInfo.from}}</div>
+  
+      <br><br>
+      <div class="survey-header" align="right">Criteria percent</div>
+      <div class="survey-info" align="right">{{surveyInfo.percent}} %</div>
+    </div>
+  
+    <div class="statistic-source">
+      Source: {{surveyInfo.source}}
+    </div>
+
+</div>

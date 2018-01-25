@@ -1,0 +1,25 @@
+#ml-bd-page {
+    padding-top: 5vw;
+}
+
+.headline {
+    font-size: 4vw;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+span.special {
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.65;
+    z-index: -10;
+}
