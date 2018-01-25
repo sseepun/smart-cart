@@ -25,7 +25,7 @@ export class ProblemPageComponent implements OnInit {
     self.stage += 1;
 
     self.host.selectAll('.stage-'+self.stage).style('opacity', 1);
-    self.host.select('img.stage').style('opacity', 0.25);
+    self.host.select('img.stage').style('opacity', 1);
   }
   previousStage() {
     let self = this;

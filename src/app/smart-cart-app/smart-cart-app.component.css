@@ -57,14 +57,15 @@
     border: 0.2vw solid #0e0e0e;
     padding: 1.5vw 1vw 1.5vw 1vw;
     height: 38.5vw;
-    font-size: 2vw;
+    font-size: 3.5vw;
+    line-height: 4.5vw;
     color: #0e0e0e;
     background: #fffff0dc;
 }
 #pref-icon {
     font-size: 18vw;
     color: orange;
-    padding: 0.3vw 0 1.5vw 0;
+    padding: 1.5vw 0 2vw 0;
     -webkit-text-stroke: 0.5vw #0e0e0e;
 }
 

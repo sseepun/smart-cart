@@ -4,6 +4,10 @@
 
 .headline {
     font-size: 4vw;
+    background: -webkit-linear-gradient(white, steelblue);
+    /* background: -webkit-linear-gradient(#d3e1ed, #0169be); */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: 600;
     pointer-events: none;
 }

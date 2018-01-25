@@ -29,7 +29,7 @@ export class GrocerySalePageComponent implements OnInit {
         color: null, type: 2, width: 0.8, colorText: '#428bca'
       },
       title: {
-        label: 'Supermarket and other grocery store sales in the United States from 1992 to 2016 <br>(in billion U.S. dollars)', color: null, colorText: '#fffff0'
+        label: 'Grocery store sales in the United States from 1992 to 2016 <br>(in billion U.S. dollars)', color: null, colorText: '#fffff0'
       },
       xAxis: {
         label: '', color: null, colorText: '#fffff0', axisColor: '#b6b6b2'

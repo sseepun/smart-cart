@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   private pageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   private pageDisplay = ['intro','population','statistic','sale','problem','survey', 'solution', 
     'bd ml', 'smart cart', 'mana', 'manee', 'result', 'future', 'thanks', 'references'];
-  private page = 12;
+  private page = 11;
 
   private host;
   private stage = 0;
@@ -106,7 +106,7 @@ export class AppComponent implements OnInit {
     else if (self.page==8 && self.smartCartPage.appPage!='Summary') self.smartCartPage.appNextPage();
     else if (self.page==9 && self.personaMana.appPage!='Summary') self.personaMana.appNextPage();
     else if (self.page==10 && self.personaManee.appPage!='Summary') self.personaManee.appNextPage();
-    else if (self.page==13 && self.stage<3) self.thanks.nextStage();
+    else if (self.page==13 && self.stage<4) self.thanks.nextStage();
     else self.changePage(d3.min([self.page+1, d3.max(self.pageArray)]));
   }
   keyPreviousStage() {

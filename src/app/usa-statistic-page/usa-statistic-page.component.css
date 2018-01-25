@@ -11,7 +11,9 @@
     cursor: pointer;
 }
 .year-selector span.active {
-    color: steelBlue;
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #map-container {
@@ -34,7 +36,9 @@
 #statistic-div .statistic-info {
     font-size: 4vw;
     font-weight: 600;
-    color: steelBlue;
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .statistic-note {

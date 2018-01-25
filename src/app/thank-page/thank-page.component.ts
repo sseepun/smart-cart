@@ -32,7 +32,16 @@ export class ThankPageComponent implements OnInit {
           .attr('top', '0').attr('left', '0')
           .style('z-index', '-10');
     } else if (self.stage==2) {
-      self.host.select('video').remove();
+      self.host.select('video#company-video').remove();
+      self.host.insert('video', ':first-child').attr('id', 'company-video-short')
+        .attr('width', '100%').attr('height', 'auto').attr('autoplay', true)
+        .append('source').attr('type', 'video/mp4')
+          .attr('src', 'assets/video/thebigdatasolution.com - short.mp4')
+          .style('position', 'absolute')
+          .attr('top', '0').attr('left', '0')
+          .style('z-index', '-10');
+    } else if (self.stage==3) {
+      self.host.select('video#company-video-short').remove();
       self.host.select('#thanks').style('opacity', 1);
     }
   }
@@ -45,7 +54,7 @@ export class ThankPageComponent implements OnInit {
       self.host.select('.headline').style('opacity', 1);
       self.host.select('#link-info').style('opacity', 1);
     } else if (self.stage==1) {
-      self.host.select('#thanks').style('opacity', 0);
+      self.host.select('video#company-video-short').remove();
       self.host.insert('video', ':first-child').attr('id', 'company-video')
         .attr('width', '100%').attr('height', 'auto').attr('autoplay', true)
         .append('source').attr('type', 'video/mp4')
@@ -53,11 +62,20 @@ export class ThankPageComponent implements OnInit {
           .style('position', 'absolute')
           .attr('top', '0').attr('left', '0')
           .style('z-index', '-10');
+    } else if (self.stage==2) {
+      self.host.select('#thanks').style('opacity', 0);
+      self.host.insert('video', ':first-child').attr('id', 'company-video-short')
+        .attr('width', '100%').attr('height', 'auto').attr('autoplay', true)
+        .append('source').attr('type', 'video/mp4')
+          .attr('src', 'assets/video/thebigdatasolution.com - short.mp4')
+          .style('position', 'absolute')
+          .attr('top', '0').attr('left', '0')
+          .style('z-index', '-10');
     }
   }
   initStage() {
     let self = this;
-    if (self.stage==1) self.host.select('video').remove();
+    if (self.stage==1 || self.stage==2) self.host.select('video').remove();
     self.host.select('#thanks').style('opacity', 0);
     self.host.select('.headline').style('opacity', 1);
     self.host.select('#link-info').style('opacity', 1);

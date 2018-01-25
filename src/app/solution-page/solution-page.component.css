@@ -13,7 +13,9 @@
     pointer-events: none;
 }
 span.special {
-    color: steelBlue;
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .nf-container {
@@ -21,11 +23,11 @@ span.special {
     width: 17.5%;
     height: 28vw;
     pointer-events: none;
-    top: 26vw;
+    top: 22.5vw;
     /* transition: border 0.65s; */
 }
 .nf-container div {
-    padding-top: 2vw;
+    padding-top: 4vw;
     height: 28vw; 
 }
 #nutrition-fact1 {
@@ -49,7 +51,8 @@ span.special {
 
 img.nf-tag {
     width: 100%;
-    height: 100%;
+    height: 110%;
+    margin-top: -2.5vw;
 }
 .nf-container div img.product-tag {
     padding-top: 5vw;

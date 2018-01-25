@@ -86,13 +86,13 @@ export class SmartCartAppComponent implements OnInit {
         self.host.select('#welcome-line2').style('opacity', 0);
         self.host.select('#welcome-logo').style('opacity', 0);
       }
-    }, 2600);
+    }, 2400);
     d3.timeout(()=>{
       if (this.appPage=='Welcome') {
         self.appPage = 'Preference';
         self.appPageChange.emit(self.appPage);
       }
-    }, 3800);
+    }, 3500);
   }
 
   // Preference page
@@ -122,14 +122,18 @@ export class SmartCartAppComponent implements OnInit {
         .attr('font-family', 'Prompt').style('fill', '#0e0e0e');
       
       self.workSpace.append('text')
-        .attr('text-anchor', 'middle').attr('font-size', 26)
-        .attr('x', width/2).attr('y', 26)
-        .html('Shop in this virtual shopping cart by picking a product. We will '+
-          '<tspan style="fill:orange; font-weight:bold;">assist you</tspan>')
-      self.workSpace.append('text')
-        .attr('text-anchor', 'middle').attr('font-size', 26)
-        .attr('x', width/2).attr('y', 58)
-        .html('to get the best out of your shopping.');
+        .attr('text-anchor', 'middle').attr('font-size', 54)
+        .attr('x', width/2).attr('y', 52)
+        .html('Start your shopping');
+      // self.workSpace.append('text')
+      //   .attr('text-anchor', 'middle').attr('font-size', 26)
+      //   .attr('x', width/2).attr('y', 26)
+      //   .html('Shop in this virtual shopping cart by picking a product. We will '+
+      //     '<tspan style="fill:orange; font-weight:bold;">assist you</tspan>')
+      // self.workSpace.append('text')
+      //   .attr('text-anchor', 'middle').attr('font-size', 26)
+      //   .attr('x', width/2).attr('y', 58)
+      //   .html('to get the best out of your shopping.');
 
       // Adding products for shopping
       var productSpace = self.workSpace.append('g').attr('id', 'product-space')
@@ -299,9 +303,13 @@ export class SmartCartAppComponent implements OnInit {
         .style('fill', '#fffff0').attr('opacity', 0.8)
         .style('stroke', '#0e0e0e').attr('stroke-width', 4)
         .attr('width', selectedW).attr('height', selectedH);
+      // selectSpace.append('image')
+      //   .attr('x', 0.15*selectedW).attr('y', 0.26*selectedH)
+      //   .attr('width', 0.7*selectedW).attr('height', 0.7*selectedH*22/30)
+      //   .attr('href', 'assets/img/products/beef_hotdog/'+self.selectedProduct+'.jpg');
       selectSpace.append('image')
-        .attr('x', 0.15*selectedW).attr('y', 0.26*selectedH)
-        .attr('width', 0.7*selectedW).attr('height', 0.7*selectedH*22/30)
+        .attr('x', 0.025*selectedW).attr('y', 0.12*selectedH)
+        .attr('width', 0.95*selectedW).attr('height', 0.95*selectedH*22/30)
         .attr('href', 'assets/img/products/beef_hotdog/'+self.selectedProduct+'.jpg');
       selectSpace.append('image')
         .attr('x', 0.1*selectedW).attr('y', 0.82*selectedH)
@@ -315,23 +323,29 @@ export class SmartCartAppComponent implements OnInit {
         .attr('x', 0.5*selectedW).attr('y', 0.80*selectedH)
         .attr('font-size', 24).attr('font-weight', 'bold')
         .text(self.selectedProduct);
+
       selectSpace.append('text')
-        .style('fill', 'orange').attr('font-weight', 'bold')
-        .attr('x', 0.5*selectedW).attr('y', 0.085*selectedH)
-        .attr('font-size', 20).attr('text-anchor', 'middle')
-        .text('This is your product choice,');
-      selectSpace.append('text')
-        .attr('x', 0.5*selectedW).attr('y', 0.145*selectedH)
-        .attr('font-size', 20).attr('text-anchor', 'middle')
-        .text('but please consider our');
-      selectSpace.append('text')
-        .attr('x', 0.5*selectedW).attr('y', 0.205*selectedH)
-        .attr('font-size', 20).attr('text-anchor', 'middle')
-        .text('suggestion on the side');
-      selectSpace.append('text')
-        .attr('x', 0.5*selectedW).attr('y', 0.265*selectedH)
-        .attr('font-size', 20).attr('text-anchor', 'middle')
-        .text('before you check out!');
+        .attr('font-weight', 'bold')
+        .attr('x', 0.5*selectedW).attr('y', 0.14*selectedH)
+        .attr('font-size', 28).attr('text-anchor', 'middle')
+        .text('This is your choice');
+      // selectSpace.append('text')
+      //   .style('fill', 'orange').attr('font-weight', 'bold')
+      //   .attr('x', 0.5*selectedW).attr('y', 0.085*selectedH)
+      //   .attr('font-size', 20).attr('text-anchor', 'middle')
+      //   .text('This is your product choice,');
+      // selectSpace.append('text')
+      //   .attr('x', 0.5*selectedW).attr('y', 0.145*selectedH)
+      //   .attr('font-size', 20).attr('text-anchor', 'middle')
+      //   .text('but please consider our');
+      // selectSpace.append('text')
+      //   .attr('x', 0.5*selectedW).attr('y', 0.205*selectedH)
+      //   .attr('font-size', 20).attr('text-anchor', 'middle')
+      //   .text('suggestion on the side');
+      // selectSpace.append('text')
+      //   .attr('x', 0.5*selectedW).attr('y', 0.265*selectedH)
+      //   .attr('font-size', 20).attr('text-anchor', 'middle')
+      //   .text('before you check out!');
 
       // Other products
       var nsW = (width-selectedW-4)/3, nsH = (0.85*height-2)/2;
@@ -518,44 +532,59 @@ export class SmartCartAppComponent implements OnInit {
         .attr('href', 'assets/img/products/beef_hotdog/'+self.checkoutProduct+'.jpg');
       self.workSpace.append('text')
         .attr('text-anchor', 'middle').attr('font-weight', 'bold')
-        .attr('font-size', 42).style('fill', 'orange')
+        .attr('font-size', 42).style('fill', '#0169be')
         .attr('x', 0.26*width).attr('y', 0.94*height)
         .html('Thank You!');
 
       var y0 = 0.68*height, yyPad1 = 0.07*height, ts1 = 26;
       if (self.selectedProduct==self.checkoutProduct && oldStar>=4.75) {
+        // self.workSpace.append('text')
+        //   .attr('text-anchor', 'middle')
+        //   .attr('font-size', ts1)
+        //   .attr('x', 0.26*width).attr('y', y0)
+        //   .html('Your choice is already the best one');
+        // self.workSpace.append('text')
+        //   .attr('text-anchor', 'middle')
+        //   .attr('font-size', ts1)
+        //   .attr('x', 0.26*width).attr('y', y0+yyPad1)
+        //     .html('for your personal need!');
         self.workSpace.append('text')
-          .attr('text-anchor', 'middle')
-          .attr('font-size', ts1)
-          .attr('x', 0.26*width).attr('y', y0)
-          .html('Your choice is already the best one');
-        self.workSpace.append('text')
-          .attr('text-anchor', 'middle')
-          .attr('font-size', ts1)
-          .attr('x', 0.26*width).attr('y', y0+yyPad1)
-            .html('for your personal need!');
+          .attr('text-anchor', 'middle').attr('font-weight', 'bold')
+          .attr('font-size', 34)
+          .attr('x', 0.26*width).attr('y', 0.74*height)
+          .html('Already picked the best!');
       } else if (oldStar < newStar) {
+        // self.workSpace.append('text')
+        //   .attr('text-anchor', 'middle')
+        //   .attr('font-size', ts1)
+        //   .attr('x', 0.26*width).attr('y', y0)
+        //   .html('You improve your choice for your');
+        // self.workSpace.append('text')
+        //   .attr('text-anchor', 'middle')
+        //   .attr('font-size', ts1)
+        //   .attr('x', 0.26*width).attr('y', y0+yyPad1)
+        //   .html('personal need with Smart Cart!');
         self.workSpace.append('text')
-          .attr('text-anchor', 'middle')
-          .attr('font-size', ts1)
-          .attr('x', 0.26*width).attr('y', y0)
-          .html('You improve your choice for your');
-        self.workSpace.append('text')
-          .attr('text-anchor', 'middle')
-          .attr('font-size', ts1)
-          .attr('x', 0.26*width).attr('y', y0+yyPad1)
-          .html('personal need with Smart Cart!');
+          .attr('text-anchor', 'middle').attr('font-weight', 'bold')
+          .attr('font-size', 34)
+          .attr('x', 0.26*width).attr('y', 0.74*height)
+          .html('Your choice is improved!');
       } else {
+        // self.workSpace.append('text')
+        //   .attr('text-anchor', 'middle')
+        //   .attr('font-size', ts1)
+        //   .attr('x', 0.26*width).attr('y', y0)
+        //   .html('You can still improve the shopping');
+        // self.workSpace.append('text')
+        //   .attr('text-anchor', 'middle')
+        //   .attr('font-size', ts1)
+        //   .attr('x', 0.26*width).attr('y', y0+yyPad1)
+        //   .html('choice for your personal needs');
         self.workSpace.append('text')
-          .attr('text-anchor', 'middle')
-          .attr('font-size', ts1)
-          .attr('x', 0.26*width).attr('y', y0)
-          .html('You can still improve the shopping');
-        self.workSpace.append('text')
-          .attr('text-anchor', 'middle')
-          .attr('font-size', ts1)
-          .attr('x', 0.26*width).attr('y', y0+yyPad1)
-          .html('choice for your personal needs');
+          .attr('text-anchor', 'middle').attr('font-weight', 'bold')
+          .attr('font-size', 34)
+          .attr('x', 0.26*width).attr('y', 0.74*height)
+          .html('Can still be improved!');
       }
       self.workSpace.insert('rect', ':first-child')
         .attr('x', 2).attr('y', 0.58*height)
@@ -585,14 +614,19 @@ export class SmartCartAppComponent implements OnInit {
       .attr('x', 0.5*ssW).attr('y', 0.10*ssH)
       .text('Shopping Summary');
     sumSpace.append('text')
-      .attr('font-size', 20)
-      .attr('x', pad1).attr('y', 0.20*ssH)
-      .html('Base on your shopping choice, for every');
-    sumSpace.append('text')
-      .attr('font-size', 20)
-      .attr('x', pad1).attr('y', 0.27*ssH)
-      .html('<tspan font-weight="bold" style="fill:orange;">100g</tspan>'
-        +' of products you consume, you can...');
+      .attr('font-size', 28).attr('text-anchor', 'middle')
+      .attr('x', ssW/2).attr('y', 0.23*ssH)
+      .html('For every <tspan font-weight="bold" style="fill:#0169be;">100g</tspan>'
+        +' you consume');
+    // sumSpace.append('text')
+    //   .attr('font-size', 20)
+    //   .attr('x', pad1).attr('y', 0.20*ssH)
+    //   .html('Base on your shopping choice, for every');
+    // sumSpace.append('text')
+    //   .attr('font-size', 20)
+    //   .attr('x', pad1).attr('y', 0.27*ssH)
+    //   .html('<tspan font-weight="bold" style="fill:#0169be;">100g</tspan>'
+    //     +' of products you consume, you can...');
     sumSpace.append('line')
       .attr('stroke-width', 8)
       .attr('x1', pad1).attr('x2', ssW-pad1)
@@ -645,7 +679,7 @@ export class SmartCartAppComponent implements OnInit {
       while (pos < upLength) {
         var color = '#0e0e0e', weight = 'normal';
         if (self.preferences[self.preferenceArray.indexOf(nutrUp[pos].desc)].value>6) {
-          color = 'orange'; weight = 'bold';
+          color = '#0169be'; weight = 'bold';
         }
 
         sumSpace.append('text')
@@ -666,7 +700,7 @@ export class SmartCartAppComponent implements OnInit {
       while (pos-upLength < downLength) {
         var color = '#0e0e0e', weight = 'normal';
         if (self.preferences[self.preferenceArray.indexOf(nutrDown[pos-upLength].desc)].value<3) {
-          color = 'orange'; weight = 'bold';
+          color = '#0169be'; weight = 'bold';
         }
 
         sumSpace.append('text')
@@ -699,7 +733,7 @@ export class SmartCartAppComponent implements OnInit {
       while (pos < upLength) {
         var color = '#0e0e0e', weight = 'normal';
         if (self.preferences[self.preferenceArray.indexOf(nutrUp[pos].desc)].value>6) {
-          color = 'orange'; weight = 'bold';
+          color = '#0169be'; weight = 'bold';
         }
 
         sumSpace.append('text')
@@ -732,7 +766,7 @@ export class SmartCartAppComponent implements OnInit {
       while (pos < downLength) {
         var color = '#0e0e0e', weight = 'normal';
         if (self.preferences[self.preferenceArray.indexOf(nutrDown[pos])].value<3) {
-          color = 'orange'; weight = 'bold';
+          color = '#0169be'; weight = 'bold';
         }
 
         sumSpace.append('text')

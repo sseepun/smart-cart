@@ -38,3 +38,9 @@
     z-index: -10;
     opacity: 1;
 }
+
+span.special {
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

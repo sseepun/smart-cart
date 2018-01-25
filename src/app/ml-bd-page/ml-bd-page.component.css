@@ -8,6 +8,12 @@
     pointer-events: none;
 }
 
+span.special {
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 #particles-js {
     position: absolute;
     top: 0;

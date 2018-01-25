@@ -24,7 +24,6 @@
 }
 .page-selector span.active {
     opacity: 1;
-    /* border-bottom: 0.3vw solid orange; */
     border-bottom: 0.3vw solid steelblue;
 }
 .page-selector span:hover {
@@ -52,9 +51,10 @@
     transition: opacity 1s;
 }
 .infoline {
-    /* color: orange; */
-    color: steelBlue;
     font-size: 3.5vw;
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: 600;
     opacity: 0;
     transition: opacity 1s;

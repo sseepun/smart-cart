@@ -14,7 +14,7 @@ export class BarchartComponent implements OnInit {
   @Input() trademarkColor;
 
   @Input() outWidth = 1000;
-  @Input() outHeight = 430;
+  @Input() outHeight = 420;
   @Input() showH = 460;
   @Input() marginPercent = {left:0.1, right:0.01, top:0.08, bottom:0.1};
   private margin;
@@ -61,8 +61,8 @@ export class BarchartComponent implements OnInit {
     // Setup internal spec
     var labeLength = d3.max(self.graphSpec.data, d=>{return d.desc.toString().length});
     var valueArray = self.graphSpec.data.map(d=>{return d.value}),
-        min = d3.min([0, d3.min(valueArray)]),
-        max = d3.max([0, d3.max(valueArray)]) * 1.15,
+        min = d3.min([220, d3.min(valueArray)]),
+        max = d3.max([0, d3.max(valueArray)]) * 1,
         scaleH = d3.scaleLinear().range([0, self.height]).domain([min, max]),
         scaleY = d3.scaleLinear().range([self.height, 0]).domain([min, max]);
     var slotW = self.width/self.graphSpec.data.length,
@@ -397,7 +397,8 @@ export class BarchartComponent implements OnInit {
   // Update by clicker
   chooseDesc(desc) {
     let self = this;
-    self.workSpace.selectAll('g.bar').select('rect').transition().duration(self.spec.animTime/3)
+    var bars = self.workSpace.selectAll('g.bar');
+    bars.select('rect').transition().duration(self.spec.animTime/3)
       .attr('opacity', (data,index)=>{
         if (desc==data.desc) return self.graphSpec.barStyle.opacity;
         else if (self.graphSpec.hoverStyle.type==2) return self.graphSpec.barStyle.opacity/4;
@@ -417,28 +418,61 @@ export class BarchartComponent implements OnInit {
       })
       .attr('y', data=>{return -self.spec.scaleH(data.value)})
       .attr('height', data=>{return self.spec.scaleH(data.value)});
+    bars.select('text#value').transition().duration(self.spec.animTime/3)
+      .style('fill', d=>{
+        if (desc==d.desc) return '#d62d20';
+        else return '#fffff0';
+      })
+      .attr('font-weight', d=>{
+        if (desc==d.desc) return 'bold';
+        else return 'normal';
+      })
+      .attr('font-size', d=>{
+        if (desc==d.desc) return 32;
+        else return 28;
+      })
+      .attr('opacity', (data,index)=>{
+        if ((index+1)%5==0) {
+          if (desc==data.desc) return 1;
+          else return 0.2;
+        } else return 0;
+      });
     self.linePath.transition().duration(self.spec.animTime/3).attr('opacity', 0);
   }
   initStage() {
     let self = this;
-    self.workSpace.selectAll('g.bar').select('rect').transition().duration(self.spec.animTime/3)
+    var bars = self.workSpace.selectAll('g.bar');
+    bars.select('rect').transition().duration(self.spec.animTime/3)
       .attr('opacity', (data,index)=>{return self.graphSpec.barStyle.opacity})
       .attr('x', (data,index)=>{return (self.spec.slotW - self.spec.barW)/2})
       .attr('width', (data,index)=>{return self.spec.barW})
       .style('fill', (data,index)=>{return self.graphSpec.barStyle.colorText})
       .attr('y', data=>{return -self.spec.scaleH(data.value)})
       .attr('height', data=>{return self.spec.scaleH(data.value)});
+    bars.select('text#value').transition().duration(self.spec.animTime/3)
+      .style('fill', '#fffff0').attr('font-weight', 'normal')
+      .attr('font-size', 28).attr('opacity', (d,i)=>{
+        if ((i+1)%5==0) return 1;
+        else return 0;
+      });
     self.linePath.transition().duration(self.spec.animTime/3).attr('opacity', 0);
   }
   drawlinePath() {
     let self = this;
-    self.workSpace.selectAll('g.bar').select('rect').transition().duration(self.spec.animTime/3)
+    var bars = self.workSpace.selectAll('g.bar');
+    bars.select('rect').transition().duration(self.spec.animTime/3)
       .attr('opacity', (data,index)=>{return self.graphSpec.barStyle.opacity})
       .attr('x', (data,index)=>{return (self.spec.slotW - self.spec.barW)/2})
       .attr('width', (data,index)=>{return self.spec.barW})
       .style('fill', (data,index)=>{return self.graphSpec.barStyle.colorText})
       .attr('y', data=>{return -self.spec.scaleH(data.value)})
       .attr('height', data=>{return self.spec.scaleH(data.value)});
+    bars.select('text#value').transition().duration(self.spec.animTime/3)
+      .style('fill', '#fffff0').attr('font-weight', 'normal')
+      .attr('font-size', 28).attr('opacity', (d,i)=>{
+        if ((i+1)%5==0) return 1;
+        else return 0;
+      });
 
     var tempData = [self.graphSpec.data[0]];
     self.graphSpec.data.map(d=>{tempData.push(d)});
