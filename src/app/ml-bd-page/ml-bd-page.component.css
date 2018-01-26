@@ -9,6 +9,7 @@
 }
 
 span.special {
+    font-weight: 600;
     background: -webkit-linear-gradient(#d3e1ed, #0169be);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -32,4 +33,9 @@ span.special {
     height: 100%;
     opacity: 0.8;
     z-index: -10;
+}
+
+#keynote {
+    padding-top: 15.5vw;
+    font-size: 4.2vw;
 }

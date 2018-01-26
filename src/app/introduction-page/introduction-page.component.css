@@ -34,3 +34,24 @@ span.less-imp {
     font-size: 1.3vw;
     color: #8f8f8f;
 }
+
+#purpose {
+    position: absolute;
+    left: 2vw;
+    top: 5vw;
+    font-size: 2vw;
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+span.special {
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+#ipst-logo {
+    width: 9vw;
+    height: auto;
+    padding-bottom: 1.4vw;
+}

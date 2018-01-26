@@ -277,11 +277,11 @@ export class InteractiveGlobeAbsComponent implements OnInit {
           map: self.allCountriesMap(), 
           transparent: true,
           side: THREE.DoubleSide,
-          opacity: 0.85
+          opacity: 1
         });
       } else {
         mapGlobeMaterial = new THREE.MeshPhongMaterial({
-          map: self.selectedCountryTexture(country, 'steelBlue'), 
+          map: self.selectedCountryTexture(country, '#d62d20'), 
           transparent: true,
           side: THREE.DoubleSide,
           opacity: 0.85
@@ -406,8 +406,9 @@ export class InteractiveGlobeAbsComponent implements OnInit {
 
       // Rotation update
       if (!self.animRotateTo.bool) {
-        self.globe.rotation.y += 0.002;
-        self.particleCenter.rotation.y += 0.003;
+        var twoPI = 2*Math.PI;
+        self.globe.rotation.y = (self.globe.rotation.y+0.002)%twoPI;
+        self.particleCenter.rotation.y = (self.particleCenter.rotation.y+0.003)%twoPI;
       } else {
         self.animMoveTo();
       }
@@ -605,9 +606,9 @@ export class InteractiveGlobeAbsComponent implements OnInit {
         .projection(self.spec.mapProjection)
         .context(contextTemp);
   
-    contextTemp.strokeStyle = 'steelBlue';
+    contextTemp.strokeStyle = '#d62d20';
     contextTemp.lineWidth = 1;
-    contextTemp.fillStyle = color || 'steelBlue';
+    contextTemp.fillStyle = color || '#d62d20';
   
     contextTemp.beginPath();
     path(countryPath);
@@ -632,7 +633,7 @@ export class InteractiveGlobeAbsComponent implements OnInit {
         .projection(self.spec.mapProjection)
         .context(contextTemp);
   
-    contextTemp.strokeStyle = 'steelBlue';
+    contextTemp.strokeStyle = '#d62d20';
     contextTemp.lineWidth = 1;
     contextTemp.fillStyle = 'rgba(0, 0, 200, 0)';
   
@@ -666,7 +667,7 @@ export class InteractiveGlobeAbsComponent implements OnInit {
   updateSelectedCountry(country) {
     let self = this;
     self.countryTexture.material = new THREE.MeshPhongMaterial({
-      map: self.selectedCountryTexture(country, 'steelBlue'), 
+      map: self.selectedCountryTexture(country, '#d62d20'), 
       transparent: true,
       side: THREE.DoubleSide
     });
