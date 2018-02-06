@@ -115,7 +115,12 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.keyChangePage = function () {
         var self = this;
-        __WEBPACK_IMPORTED_MODULE_1_d3__["n" /* select */]('body').on('keyup', function () {
+        __WEBPACK_IMPORTED_MODULE_1_d3__["n" /* select */]('body')
+            .on('touchstart', function () {
+            __WEBPACK_IMPORTED_MODULE_1_d3__["e" /* event */].preventDefault();
+            self.keyNextStage();
+        })
+            .on('keyup', function () {
             if (__WEBPACK_IMPORTED_MODULE_1_d3__["e" /* event */].code == 'Space' || __WEBPACK_IMPORTED_MODULE_1_d3__["e" /* event */].code == 'ArrowRight'
                 || __WEBPACK_IMPORTED_MODULE_1_d3__["e" /* event */].code == 'PageDown')
                 self.keyNextStage();

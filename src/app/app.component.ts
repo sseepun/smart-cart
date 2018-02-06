@@ -85,15 +85,20 @@ export class AppComponent implements OnInit {
   keyChangePage() {
     let self = this;
 
-    d3.select('body').on('keyup', ()=>{
-      if (d3.event.code=='Space' || d3.event.code=='ArrowRight'
-          || d3.event.code=='PageDown') self.keyNextStage();
-      else if (d3.event.code=='ArrowLeft' || d3.event.code=='PageUp') self.keyPreviousStage();
-      else if (d3.event.code=='ArrowUp') self.keyInitStage();
-      else if (d3.event.code=='Period') {
-        
-      }
-    });
+    d3.select('body')
+      .on('touchstart', ()=>{
+        d3.event.preventDefault();
+        self.keyNextStage();
+      })
+      .on('keyup', ()=>{
+        if (d3.event.code=='Space' || d3.event.code=='ArrowRight'
+            || d3.event.code=='PageDown') self.keyNextStage();
+        else if (d3.event.code=='ArrowLeft' || d3.event.code=='PageUp') self.keyPreviousStage();
+        else if (d3.event.code=='ArrowUp') self.keyInitStage();
+        else if (d3.event.code=='Period') {
+          
+        }
+      });
   }
   keyNextStage() {
     let self = this;
