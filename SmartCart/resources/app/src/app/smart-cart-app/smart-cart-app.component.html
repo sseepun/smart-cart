@@ -1,0 +1,100 @@
+<div id="smart-cart-app">
+
+  <!-- Welcome page -->
+  <ng-container *ngIf="appPage == 'Welcome'">
+    <i id="welcome-logo" class="fa fa-shopping-cart"></i>
+    <div id="welcome-line1">
+      Smart C<i id="welcome-logo-temp" class="fa fa-shopping-cart"></i>rt
+    </div>
+    <div id="welcome-line2">
+      Personalize Assistant for Grocery Shoppers
+    </div>
+  </ng-container>
+
+  <!-- Preference page -->
+  <ng-container *ngIf="appPage == 'Preference'">
+    <img class="app-bg1" src="assets/img/bg/mix_products.jpg">
+
+    <div id="preference-page" class="row wow fadeInLeft">
+      <div id="pref-left-side" class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+        Set your preferences
+        <br>
+        <i id="pref-icon" class="fa fa-shopping-cart"></i>
+        <br>
+        <a class="btn btn-info" (click)="confirmPreferences()">Confirm setting</a>
+      </div>
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+        <ng-container *ngFor="let pref of preferenceArray; let i = index;">
+          <div class="row pref-row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pref-label"
+            align="right">
+              {{pref}}
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <app-smart-cart-slider #prefSlider [preference]="pref"
+              [selectedValue]="preferences[i].value"
+              (output)="changePreference($event)"></app-smart-cart-slider>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Shopping page -->
+  <ng-container *ngIf="appPage == 'Shopping'">
+    <img class="app-bg1" src="assets/img/bg/mix_products.jpg">
+
+    <div id="shopping-page" class="row wow fadeInLeft">
+      <svg></svg>
+      <br>
+      <a class="btn btn-primary" (click)="appPreviousPage()">Change setting</a>
+
+      <ng-container *ngIf="selectedProduct != ''">
+        <a class="btn btn-info" style="margin-left:2vw;"
+        (click)="appNextPage()">Select product</a>
+      </ng-container>
+      <ng-container *ngIf="selectedProduct == ''">
+        <a class="btn btn-info" style="margin-left:2vw;"
+        disabled="disabled">Select product</a>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <!-- Suggestion page -->
+  <ng-container *ngIf="appPage == 'Suggestion'">
+    <img class="app-bg1" src="assets/img/bg/mix_products.jpg">
+
+    <div id="suggestion-page" class="row wow fadeInLeft">
+      <svg></svg>
+      <br>
+      <a class="btn btn-primary" (click)="appPreviousPage()">Back to shopping</a>
+      <ng-container *ngIf="selectedProduct != ''">
+        <a class="btn btn-info" style="margin-left:2vw;"
+        (click)="confirmProduct()">Confirm product</a>
+      </ng-container>
+      <ng-container *ngIf="selectedProduct != checkoutProduct">
+        <a class="btn btn-danger" style="margin-left:2vw;"
+        (click)="changeProduct()">Change product</a>
+      </ng-container>
+      <ng-container *ngIf="selectedProduct == checkoutProduct">
+        <a class="btn btn-danger" style="margin-left:2vw;"
+        disabled="disabled">Change product</a>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <!-- Summary page -->
+  <ng-container *ngIf="appPage == 'Summary'">
+    <img class="app-bg1" src="assets/img/bg/mix_products.jpg">
+
+    <div id="summary-page" class="row wow fadeInLeft">
+      <svg></svg>
+      <br>
+      <a class="btn btn-primary" (click)="backToPreferencePage()">Back to setting</a>      
+      <a class="btn btn-info" style="margin-left:2vw;"
+      (click)="backToShoppingPage()">Back to shopping</a>
+    </div>
+  </ng-container>
+
+</div>

@@ -1,0 +1,86 @@
+#smart-cart-app {
+    color: #0e0e0e;
+}
+
+#smart-cart-app a.btn {
+    font-size: 1.6vw;
+    margin-top: 0.4vw;
+    padding: 0.4vw 2vw 0.4vw 2vw;
+}
+
+#welcome-logo, #welcome-logo-temp {
+    color: orange;
+    font-size: 8vw;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+#welcome-logo-temp {
+    padding: 0 0.5vw 0 0.2vw;
+    opacity: 0;
+}
+#welcome-logo {
+    position: absolute;
+    left: 65.2%; 
+    top: 32%;
+    -webkit-text-stroke: 0.3vw #0e0e0e;
+    transition: opacity 1.2s;
+}
+
+#welcome-line1 {
+    padding-top: 10vw; 
+    color: #0e0e0e;
+    font-size: 10vw;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 1.2s;
+}
+#welcome-line2 {
+    color: #3c3c3c;
+    font-size: 2.4vw;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#preference-page {
+    margin: 2vw 2vw 2vw 2vw;
+}
+.pref-row {
+    padding: 0.9vw 0 0.9vw 0 !important;
+}
+.pref-label {
+    color: #0e0e0e;
+    font-size: 2vw;
+    font-weight: 600;
+    padding-top: 0.5vw;
+}
+#pref-left-side {
+    border: 0.2vw solid #0e0e0e;
+    padding: 1.5vw 1vw 1.5vw 1vw;
+    height: 38.5vw;
+    font-size: 3.5vw;
+    line-height: 4.5vw;
+    color: #0e0e0e;
+    background: #fffff0dc;
+}
+#pref-icon {
+    font-size: 18vw;
+    color: orange;
+    padding: 1.5vw 0 2vw 0;
+    -webkit-text-stroke: 0.5vw #0e0e0e;
+}
+
+.app-bg1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42.2vw;
+    opacity: 0.22;
+    z-index: -10;
+    pointer-events: none;
+}
+
+#shopping-page, #suggestion-page, #summary-page {
+    margin: 2vw;
+    z-index: 15;
+}

@@ -1,0 +1,57 @@
+#introduction-page {
+    position: absolute;
+    display: inline;
+    background: rgba(14, 14, 14, 0.9);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 1.5s;
+    z-index: 1000;
+}
+
+#introduction-page #slide-info {
+    position: absolute;
+    display: block;
+    right: 20px;
+    top: calc(50% - 11vw);
+    width: 55%;
+    color: #fffff0;    
+}
+
+#introduction-page #slide-info #slide-title {
+    font-size: 4vw;
+    font-weight: 600;
+}
+
+#introduction-page #slide-info #slide-author {
+    padding: 3vw 5vw 0 0;
+    font-size: 1.6vw;
+}
+
+span.less-imp {
+    font-size: 1.3vw;
+    color: #8f8f8f;
+}
+
+#purpose {
+    position: absolute;
+    left: 2vw;
+    top: 5vw;
+    font-size: 2vw;
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+span.special {
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+#ipst-logo {
+    width: 9vw;
+    height: auto;
+    padding-bottom: 1.4vw;
+}

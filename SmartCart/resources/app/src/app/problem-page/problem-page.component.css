@@ -1,0 +1,85 @@
+#problem-page {
+    padding-top: 5vw;
+    min-width: 100%;
+    min-height: 1000px;
+}
+
+.headline {
+    font-size: 4vw;
+    font-weight: 600;
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    pointer-events: none;
+}
+
+#problem-div {
+    position: absolute;
+    top: calc(50% - 9vw) !important;
+    right: 0;
+    padding-right: 3vw; 
+    color: #fffff0;
+    pointer-events: none;
+}
+
+#problem-div .problem-header {
+    font-size: 3.5vw;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+#problem-div .problem-info {
+    font-size: 4vw;
+    font-weight: 600;
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+.problem-note {
+    font-size: 1.5vw;
+    color: #8f8f8f;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.statistic-source {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    padding-right: 3vw; 
+    font-size: 1.5vw;
+    color: #8f8f8f;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+#confused-img {
+    position: absolute;
+    bottom: 3vw;
+    left: 3vw;
+    width: 36%;
+    height: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+#grocery-video {
+    position: absolute;
+    display: inline;
+    top: -13vw;
+    left: 0;
+    z-index: -10;
+    opacity: 0.15;
+}
+
+#dot-overlay-container {
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    width: 110%;
+    height: 1000px;
+    z-index: -5;
+}

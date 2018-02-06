@@ -1,0 +1,70 @@
+.page-selector {
+    padding: 10px 10px 10px 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    font-size: 0.9vw;
+    z-index: 2000;
+    opacity: 0.15;
+    cursor: pointer;
+    background: #0e0e0e;
+    color: #fffff0;
+    z-index: 2000;  
+}
+.page-selector:hover {
+    opacity: 1;
+}
+
+.page-selector span {
+    opacity: 0.25;
+    padding-bottom: 4px;
+    padding-left: 1.4vw;
+    padding-right: 1.4vw;
+}
+.page-selector span.active {
+    opacity: 1;
+    border-bottom: 0.3vw solid steelblue;
+}
+.page-selector span:hover {
+    opacity: 1;
+}
+
+#info-container1 {
+    position: absolute;
+    padding-left: 2.5vw;
+    left: 0;
+    top: calc(50% - 20vw);
+    pointer-events: none;
+}
+#info-container2 {
+    position: absolute;
+    right: 0;
+    top: calc(50% - 9vw);
+    padding-right: 2.5vw;
+    pointer-events: none;
+}
+.headline {
+    color: #fffff0;
+    font-size: 2.2vw;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.infoline {
+    font-size: 3.5vw;
+    background: -webkit-linear-gradient(#d3e1ed, #0169be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.main-statistic-source {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    padding-right: 2.5vw; 
+    font-size: 1.5vw;
+    color: #8f8f8f;
+}
